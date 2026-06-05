@@ -101,7 +101,14 @@ window.addEventListener("load", function(){
   const root = document.getElementById("root");
   setTimeout(() => {
     const main = root.querySelector("main") || root.firstElementChild || root;
-    main.appendChild(section);
+    
+    const target = root.querySelector("section:nth-of-type(2)") || root.querySelector("main section:nth-of-type(2)");
+    if (target && target.parentNode) {
+      target.parentNode.insertBefore(section, target);
+    } else {
+      main.appendChild(section);
+    }
+    
   }, 800);
 });
 </script>
