@@ -10,7 +10,30 @@
     <meta property="og:type" content="website" />
     <script type="module" crossorigin src="/assets/index-WtoL1l34.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Doddldxj.css">
-  </head>
+  
+<style>
+.sg-footprint-upgrade{padding:96px 24px;background:#050914;color:#f8fafc}
+.sg-footprint-wrap{max-width:1180px;margin:0 auto;text-align:center}
+.sg-footprint-label{color:#3b82f6;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:800;margin-bottom:14px}
+.sg-footprint-title{font-size:42px;line-height:1.05;font-weight:850;margin-bottom:14px}
+.sg-footprint-sub{color:#94a3b8;font-size:16px;margin-bottom:34px}
+.sg-world-card{border:1px solid rgba(59,130,246,.22);border-radius:18px;background:radial-gradient(circle at 55% 45%,rgba(37,99,235,.22),transparent 35%),#071120;padding:28px;box-shadow:0 0 60px rgba(37,99,235,.12);overflow:hidden}
+.sg-world-map{height:430px;position:relative;background-image:radial-gradient(circle,rgba(59,130,246,.85) 1px,transparent 1.5px);background-size:8px 8px;mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
+.sg-arc{position:absolute;border-top:1px solid rgba(59,130,246,.75);border-radius:50%;height:180px;transform:rotate(8deg);opacity:.7}
+.sg-hub{position:absolute;width:14px;height:14px;border-radius:50%;background:#3b82f6;box-shadow:0 0 0 9px rgba(59,130,246,.12),0 0 24px rgba(59,130,246,.9)}
+.sg-hub.gold{background:#facc15;box-shadow:0 0 0 9px rgba(250,204,21,.12),0 0 24px rgba(250,204,21,.9)}
+.sg-hub-label{position:absolute;text-align:left;font-size:12px;color:#e5e7eb;white-space:nowrap}
+.sg-hub-label b{display:block;color:#fff;font-size:14px}
+.sg-hub-label span{color:#94a3b8}
+.sg-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
+.sg-stat{border:1px solid rgba(59,130,246,.18);border-radius:14px;background:rgba(15,23,42,.84);padding:20px}
+.sg-stat strong{display:block;font-size:26px;color:#3b82f6}
+.sg-stat b{display:block;font-size:13px;margin-top:4px}
+.sg-stat span{font-size:12px;color:#94a3b8}
+@media(max-width:900px){.sg-stats{grid-template-columns:1fr 1fr}.sg-world-map{height:320px}.sg-footprint-title{font-size:32px}}
+</style>
+
+</head>
   <body>
     <div id="root"></div>
   
@@ -115,3 +138,54 @@ window.addEventListener("load", function(){
 
 </body>
 </html>
+
+<script>
+window.addEventListener("load", function(){
+  const oldSections = Array.from(document.querySelectorAll("section")).filter(sec => sec.innerText && sec.innerText.includes("Global Footprint"));
+  if(oldSections.length){
+    oldSections[oldSections.length - 1].outerHTML = `
+<section class="sg-footprint-upgrade" id="sg-upgraded-footprint">
+  <div class="sg-footprint-wrap">
+    <div class="sg-footprint-label">Presence</div>
+    <h2 class="sg-footprint-title">Global Footprint</h2>
+    <p class="sg-footprint-sub">Strategic operations and partnerships across emerging markets and key regions.</p>
+
+    <div class="sg-world-card">
+      <div class="sg-world-map">
+        <div class="sg-arc" style="left:25%;top:48%;width:34%"></div>
+        <div class="sg-arc" style="left:47%;top:39%;width:35%;transform:rotate(-8deg)"></div>
+        <div class="sg-arc" style="left:44%;top:54%;width:20%;transform:rotate(26deg)"></div>
+
+        <div class="sg-hub" style="left:28%;top:45%"></div>
+        <div class="sg-hub-label" style="left:30%;top:47%"><b>United States</b><span>Strategic Partnerships</span></div>
+
+        <div class="sg-hub gold" style="left:52%;top:59%"></div>
+        <div class="sg-hub-label" style="left:54%;top:61%"><b>Zambia</b><span>Headquarters</span></div>
+
+        <div class="sg-hub" style="left:50%;top:54%"></div>
+        <div class="sg-hub-label" style="left:47%;top:51%"><b>DRC</b><span>Operations</span></div>
+
+        <div class="sg-hub" style="left:58%;top:42%"></div>
+        <div class="sg-hub-label" style="left:60%;top:43%"><b>UAE</b><span>Regional Hub</span></div>
+
+        <div class="sg-hub" style="left:83%;top:40%"></div>
+        <div class="sg-hub-label" style="left:84%;top:42%"><b>Asia</b><span>Technology Partners</span></div>
+
+        <div class="sg-hub" style="left:53%;top:72%"></div>
+        <div class="sg-hub-label" style="left:54%;top:74%"><b>Southern Africa</b><span>Regional Coverage</span></div>
+      </div>
+    </div>
+
+    <div class="sg-stats">
+      <div class="sg-stat"><strong>6</strong><b>Regions</b><span>Global presence</span></div>
+      <div class="sg-stat"><strong>25+</strong><b>Strategic Partners</b><span>Worldwide network</span></div>
+      <div class="sg-stat"><strong>4</strong><b>Operational Hubs</b><span>On the ground</span></div>
+      <div class="sg-stat"><strong>24/7</strong><b>Intelligence Operations</b><span>Always monitoring</span></div>
+      <div class="sg-stat"><strong>150+</strong><b>Data Sources</b><span>Across platforms</span></div>
+    </div>
+  </div>
+</section>
+`;
+  }
+});
+</script>
