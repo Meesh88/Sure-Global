@@ -13,5 +13,98 @@
   </head>
   <body>
     <div id="root"></div>
-  </body>
+  
+<style>
+.sg-command-section{padding:96px 24px;background:#050914;color:#f8fafc}
+.sg-command-wrap{max-width:1180px;margin:0 auto}
+.sg-eyebrow{color:#3b82f6;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.sg-title{font-size:42px;line-height:1.05;font-weight:800;margin:0 0 18px}
+.sg-sub{max-width:760px;color:#94a3b8;font-size:17px;line-height:1.7;margin-bottom:42px}
+.sg-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+.sg-card{border:1px solid rgba(59,130,246,.22);background:linear-gradient(180deg,rgba(15,23,42,.96),rgba(2,6,23,.92));border-radius:18px;padding:22px;box-shadow:0 0 50px rgba(37,99,235,.12)}
+.sg-card h3{font-size:15px;text-transform:uppercase;letter-spacing:.16em;color:#93c5fd;margin:0 0 18px}
+.sg-map{height:330px;border-radius:14px;background:radial-gradient(circle at 52% 45%,rgba(59,130,246,.22),transparent 28%),linear-gradient(rgba(59,130,246,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.08) 1px,transparent 1px);background-size:auto,48px 48px,48px 48px;position:relative;overflow:hidden}
+.sg-ring{position:absolute;border:2px solid #facc15;border-radius:50%;width:330px;height:230px;left:32%;top:18%;filter:drop-shadow(0 0 12px rgba(250,204,21,.45))}
+.sg-dot{position:absolute;width:11px;height:11px;border-radius:50%;background:#38bdf8;box-shadow:0 0 0 10px rgba(56,189,248,.08),0 0 20px rgba(56,189,248,.8)}
+.sg-dot.red{background:#ef4444;box-shadow:0 0 0 12px rgba(239,68,68,.12),0 0 20px rgba(239,68,68,.8)}
+.sg-dot.yellow{background:#facc15}
+.sg-dot span{position:absolute;top:-22px;left:-18px;font-size:10px;color:#cbd5e1;text-transform:uppercase;letter-spacing:.12em}
+.sg-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.sg-metric{background:rgba(15,23,42,.8);border:1px solid rgba(59,130,246,.18);border-radius:12px;padding:16px}
+.sg-metric strong{display:block;font-size:26px;color:#f8fafc}
+.sg-metric span{font-size:12px;color:#94a3b8}
+.sg-alert{border:1px solid rgba(59,130,246,.18);background:rgba(15,23,42,.75);border-radius:12px;padding:14px;margin-bottom:12px}
+.sg-alert b{font-size:12px;color:#facc15;text-transform:uppercase;letter-spacing:.12em}
+.sg-alert p{margin:6px 0 0;color:#cbd5e1;font-size:14px}
+.sg-functions{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:24px}
+.sg-function{border:1px solid rgba(59,130,246,.18);border-radius:14px;padding:16px;background:rgba(15,23,42,.72)}
+.sg-function b{font-size:14px}
+.sg-function p{font-size:12px;color:#94a3b8;line-height:1.55}
+@media(max-width:900px){.sg-grid,.sg-functions{grid-template-columns:1fr}.sg-title{font-size:32px}.sg-metrics{grid-template-columns:1fr}}
+</style>
+
+<script>
+window.addEventListener("load", function(){
+  if(location.pathname !== "/" && location.pathname !== "/index.html") return;
+  if(document.getElementById("sg-command-capabilities")) return;
+
+  const section = document.createElement("section");
+  section.id = "sg-command-capabilities";
+  section.className = "sg-command-section";
+  section.innerHTML = `
+    <div class="sg-command-wrap">
+      <div class="sg-eyebrow">Government Intelligence Capabilities</div>
+      <h2 class="sg-title">National Digital Intelligence Functions</h2>
+      <p class="sg-sub">
+        Sure Global designs executive intelligence systems that help institutions monitor public digital risk,
+        identify emerging threats, coordinate incident workflows, and support leadership with timely strategic briefings.
+      </p>
+
+      <div class="sg-grid">
+        <div class="sg-card">
+          <h3>National Monitoring View</h3>
+          <div class="sg-map">
+            <div class="sg-ring"></div>
+            <div class="sg-dot red" style="left:50%;top:58%"><span>Lusaka</span></div>
+            <div class="sg-dot yellow" style="left:43%;top:38%"><span>Ndola</span></div>
+            <div class="sg-dot" style="left:35%;top:34%"><span>Solwezi</span></div>
+            <div class="sg-dot" style="left:58%;top:35%"><span>Mansa</span></div>
+            <div class="sg-dot yellow" style="left:68%;top:50%"><span>Chipata</span></div>
+            <div class="sg-dot" style="left:46%;top:72%"><span>Livingstone</span></div>
+          </div>
+          <div class="sg-metrics">
+            <div class="sg-metric"><strong>4</strong><span>Active Incidents</span></div>
+            <div class="sg-metric"><strong>47</strong><span>Live Signals</span></div>
+            <div class="sg-metric"><strong>10</strong><span>Monitored Regions</span></div>
+          </div>
+        </div>
+
+        <div class="sg-card">
+          <h3>Executive Intelligence Layer</h3>
+          <div class="sg-alert"><b>Pattern Detection</b><p>Identify coordinated public digital activity and emerging narratives.</p></div>
+          <div class="sg-alert"><b>Risk Classification</b><p>Prioritize signals by urgency, geography, source type, and confidence level.</p></div>
+          <div class="sg-alert"><b>Leadership Briefings</b><p>Generate concise executive summaries for daily and crisis-level review.</p></div>
+          <div class="sg-alert"><b>Incident Workflow</b><p>Route verified issues to appropriate teams for review, escalation, and response.</p></div>
+        </div>
+      </div>
+
+      <div class="sg-functions">
+        <div class="sg-function"><b>Command Center</b><p>Executive-level visibility into national digital risk and operational status.</p></div>
+        <div class="sg-function"><b>Incident System</b><p>Structured review, triage, assignment, and resolution workflows.</p></div>
+        <div class="sg-function"><b>Threat Intelligence</b><p>Open-source intelligence monitoring and strategic risk assessment.</p></div>
+        <div class="sg-function"><b>Strategic Response</b><p>Recommended action plans, briefings, and coordinated response support.</p></div>
+        <div class="sg-function"><b>Compliance Review</b><p>Lawful escalation workflows aligned with policy and institutional oversight.</p></div>
+      </div>
+    </div>
+  `;
+
+  const root = document.getElementById("root");
+  setTimeout(() => {
+    const main = root.querySelector("main") || root.firstElementChild || root;
+    main.appendChild(section);
+  }, 800);
+});
+</script>
+
+</body>
 </html>
