@@ -41,6 +41,56 @@
 @media(max-width:900px){.sg-stats{grid-template-columns:1fr 1fr}.sg-map-stage{height:320px}.sg-footprint-title{font-size:32px}.sg-hub-label{font-size:10px}.sg-hub-label b{font-size:11px}}
 </style>
 
+<style id="sg-rich-colors">
+/* ---- Rich color layer ---- */
+
+/* CTA buttons: vivid glow */
+.bg-primary, [class*="bg-primary"]:not([class*="\/10"]):not([class*="\/15"]):not([class*="\/20"]):not([class*="\/40"]) {
+  box-shadow: 0 0 28px rgba(59,130,246,.45), 0 4px 16px rgba(59,130,246,.3) !important;
+}
+
+/* Nav glass: stronger blue rim */
+.glass {
+  background: rgba(9,14,33,.78) !important;
+  border-bottom-color: rgba(99,160,255,.32) !important;
+}
+
+/* Op-tile icons: richer fill */
+.sg-ops-tile-icon { background: rgba(59,130,246,.18) !important; }
+.sg-ops-tile       { border-color: rgba(59,130,246,.22) !important; }
+.sg-ops-tile:hover { border-color: rgba(99,160,255,.5) !important; box-shadow: 0 0 20px rgba(59,130,246,.12) !important; }
+
+/* Platform icon backgrounds */
+.smi .sg-plat-icon { background: rgba(245,158,11,.22) !important; }
+.sai .sg-plat-icon { background: rgba(168,85,247,.22) !important; }
+.sci .sg-plat-icon { background: rgba(59,130,246,.22) !important; }
+
+/* Stat cards */
+.sg-stat { border-color: rgba(59,130,246,.28) !important; }
+.sg-stat strong { color: #5b9fff !important; }
+
+/* World card glow */
+.sg-world-card {
+  border-color: rgba(59,130,246,.38) !important;
+  box-shadow: 0 0 80px rgba(37,99,235,.22) !important;
+}
+
+/* Platform pills (nav) */
+.sgpp-nav-pill { border-color: rgba(59,130,246,.3) !important; }
+.sgpp-nav-pill:hover { border-color: rgba(99,160,255,.6) !important; }
+
+/* SMI screenshot card */
+.sgmi-cs-card, .sgmi-edge-card {
+  border-color: rgba(245,158,11,.22) !important;
+}
+.sgmi-layer { border-color: rgba(245,158,11,.2) !important; }
+.sgmi-layer-icon { background: rgba(245,158,11,.18) !important; }
+
+/* SAI cap cards */
+.sgpp-cap-icon { background: rgba(59,130,246,.2) !important; }
+.sgpp-cap-card { border-color: rgba(59,130,246,.25) !important; }
+</style>
+
 </head>
   <body>
     <div id="root"></div>
