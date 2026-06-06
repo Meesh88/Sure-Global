@@ -402,6 +402,15 @@ window.addEventListener('load',function(){setTimeout(function(){runHP(0);},600);
 .sgpp-vm-tgt-name{font-size:11px;font-weight:700;color:#e2e8f0}
 .sgpp-vm-tgt-score{font-size:11px;font-weight:800;color:#3b82f6}
 .sgpp-vm-tgt-desc{font-size:10px;color:#475569}
+/* Mineral screenshot visual */
+.sgpp-visual-screenshot .sgpp-visual-body{padding:0}
+.sgpp-visual-body-img{display:block;position:relative;overflow:hidden;border-radius:0 0 12px 12px}
+.sgpp-vm-screenshot-link{display:block;position:relative;overflow:hidden}
+.sgpp-vm-screenshot{width:100%;display:block;border-radius:0 0 10px 10px;transition:transform .4s ease}
+.sgpp-vm-screenshot-link:hover .sgpp-vm-screenshot{transform:scale(1.015)}
+.sgpp-vm-screenshot-overlay{position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(transparent,rgba(7,11,22,.85));display:flex;align-items:center;justify-content:flex-end;opacity:0;transition:opacity .3s ease}
+.sgpp-vm-screenshot-link:hover .sgpp-vm-screenshot-overlay{opacity:1}
+.sgpp-vm-screenshot-overlay span{font-size:13px;font-weight:600;color:#f8fafc;display:flex;align-items:center;gap:6px}
 /* Agentic visual */
 .sgpp-visual-body-col{flex-direction:column;gap:16px}
 .sgpp-va-pipe{display:flex;align-items:stretch;border:1px solid rgba(59,130,246,.12);border-radius:10px;overflow:hidden}
@@ -537,9 +546,7 @@ function buildCyberVisual(){
   return '<div class="sgpp-visual"><div class="sgpp-visual-hdr"><span class="sgpp-visual-dot" style="background:#ef4444"></span><span class="sgpp-visual-dot" style="background:#facc15;margin-left:4px"></span><span class="sgpp-visual-dot" style="background:#22c55e;margin-left:4px"></span><span class="sgpp-visual-ttl">Sure Cyber Intel &mdash; Threat Intelligence Dashboard</span><span class="sgpp-visual-live"><span class="sgpp-visual-livdot"></span>Live</span></div><div class="sgpp-visual-body"><div class="sgpp-vc-col-l"><div class="sgpp-vc-lbl">Active Threat Matrix</div><div class="sgpp-vc-matrix">'+row('Critical Infrastructure',88,'#ef4444','HIGH')+row('Network Perimeter',62,'#facc15','MED')+row('Supply Chain',55,'#facc15','MED')+row('Endpoint Assets',30,'#22c55e','LOW')+row('Cloud Workloads',22,'#22c55e','LOW')+'</div></div><div class="sgpp-vc-col-r"><div class="sgpp-vc-lbl">Intelligence Summary</div><div class="sgpp-vc-stats">'+stat('247','Threats Detected','this cycle')+stat('12','Critical Alerts','require action')+stat('94','Sources Active','live feeds')+stat('4.2h','Mean Detect Time','avg this week')+'</div></div></div></div>';
 }
 function buildMineralVisual(){
-  function pin(l,t,color){return '<span class="sgpp-vm-pin" style="left:'+l+'%;top:'+t+'%;width:10px;height:10px;background:'+color+'"></span>';}
-  function tgt(name,score,desc){return '<div class="sgpp-vm-tgt"><div class="sgpp-vm-tgt-head"><span class="sgpp-vm-tgt-name">'+name+'</span><span class="sgpp-vm-tgt-score">'+score+'</span></div><div class="sgpp-vm-tgt-desc">'+desc+'</div></div>';}
-  return '<div class="sgpp-visual"><div class="sgpp-visual-hdr"><span class="sgpp-visual-dot" style="background:#ef4444"></span><span class="sgpp-visual-dot" style="background:#facc15;margin-left:4px"></span><span class="sgpp-visual-dot" style="background:#22c55e;margin-left:4px"></span><span class="sgpp-visual-ttl">Sure Mineral Intelligence &mdash; Resource Intelligence Platform</span><span class="sgpp-visual-live"><span class="sgpp-visual-livdot"></span>Live</span></div><div class="sgpp-visual-body"><div class="sgpp-vm-map">'+pin(22,34,'#facc15')+pin(38,52,'#3b82f6')+pin(55,28,'#22c55e')+pin(68,60,'#facc15')+pin(46,72,'#3b82f6')+pin(75,40,'#ef4444')+pin(30,62,'#22c55e')+pin(58,44,'#3b82f6')+'<div class="sgpp-vm-leg"><div class="sgpp-vm-leg-i"><span class="sgpp-vm-leg-dot" style="background:#facc15"></span>Priority Target</div><div class="sgpp-vm-leg-i"><span class="sgpp-vm-leg-dot" style="background:#22c55e"></span>Licensed</div><div class="sgpp-vm-leg-i"><span class="sgpp-vm-leg-dot" style="background:#3b82f6"></span>Active</div><div class="sgpp-vm-leg-i"><span class="sgpp-vm-leg-dot" style="background:#ef4444"></span>Distressed</div></div></div><div class="sgpp-vm-panel"><div class="sgpp-vc-lbl">Top Acquisition Targets</div>'+tgt('Copperbelt Block A','94','High-potential copper, expires 2026')+tgt('Luapula License 7','87','Cobalt-bearing, distressed owner')+tgt('North-West Prospect','81','Emerging nickel, open for bid')+tgt('Southern Lithium Z3','76','EV-grade, strategic acquisition')+'</div></div></div>';
+  return '<div class="sgpp-visual sgpp-visual-screenshot"><div class="sgpp-visual-hdr"><span class="sgpp-visual-dot" style="background:#ef4444"></span><span class="sgpp-visual-dot" style="background:#facc15;margin-left:4px"></span><span class="sgpp-visual-dot" style="background:#22c55e;margin-left:4px"></span><span class="sgpp-visual-ttl">Sure Mineral Intelligence &mdash; Resource Intelligence Platform</span><span class="sgpp-visual-live"><span class="sgpp-visual-livdot"></span>Live</span></div><div class="sgpp-visual-body sgpp-visual-body-img"><a href="https://www.suremineralintel.com" target="_blank" rel="noopener" class="sgpp-vm-screenshot-link"><img src="/assets/sure-mineral-intel-platform.png" alt="Sure Mineral Intelligence platform showing AI-powered mineral discovery map with license intelligence, geological layers, and acquisition targets" class="sgpp-vm-screenshot"/><div class="sgpp-vm-screenshot-overlay"><span>Explore Platform '+si(I.arr,14)+'</span></div></a></div></div>';
 }
 function buildAgenticVisual(){
   function stage(label,count,color){return '<div class="sgpp-va-stage"><div class="sgpp-va-stage-n" style="color:'+color+'">'+count+'</div><div class="sgpp-va-stage-c">accounts</div><div class="sgpp-va-stage-l">'+label+'</div></div>';}
@@ -895,31 +902,34 @@ window.addEventListener('load',function(){setTimeout(function(){run(0);},400);})
 (function(){
 'use strict';
 
-/* ---- Nav simplification ---- */
-var _navFixed=false;
+/* ---- Nav overrides ---- */
 function fixNav(){
   var nav=document.querySelector('#root nav');
   if(!nav) return;
+  // Hide individual platform links
   var HIDE=['ai platform','mineral intelligence','trade'];
   Array.from(nav.querySelectorAll('a')).forEach(function(a){
     var t=a.textContent.trim().toLowerCase();
     if(HIDE.some(function(h){return t===h;})){a.style.display='none';a.setAttribute('data-sg-hide','1');}
   });
-  // Insert "Platforms" link after "Solutions" if not already present
-  var visible=Array.from(nav.querySelectorAll('a:not([data-sg-hide])'));
-  var hasPlatforms=visible.some(function(a){return a.textContent.trim().toLowerCase()==='platforms';});
-  if(!hasPlatforms){
-    var solLink=visible.find(function(a){return a.textContent.trim().toLowerCase()==='solutions';});
-    if(solLink&&!solLink.getAttribute('data-sg-plat')){
-      var pl=solLink.cloneNode(false);
-      pl.textContent='Platforms';
-      pl.setAttribute('href','/solutions');
-      pl.setAttribute('data-sg-plat','1');
-      pl.removeAttribute('data-sg-hide');
-      solLink.setAttribute('data-sg-plat','1');
-      solLink.parentNode.insertBefore(pl,solLink.nextSibling);
-    }
+  // Rename "Solutions" → "Platforms" in place
+  Array.from(nav.querySelectorAll('a')).forEach(function(a){
+    if(a.textContent.trim()==='Solutions'){a.textContent='Platforms';}
+  });
+  // Replace text logo with image
+  var logoLink=nav.querySelector('a[href="/"]');
+  if(logoLink&&!logoLink.querySelector('img')){
+    logoLink.innerHTML='<img src="/assets/sure-global-logo.png" alt="Sure Global" style="height:32px;width:auto;display:block">';
+    logoLink.style.cssText='display:flex;align-items:center;text-decoration:none';
   }
+  // Replace "Schedule Consultation" → "Request Strategic Briefing"
+  Array.from(nav.querySelectorAll('button')).forEach(function(btn){
+    if(btn.textContent.trim()==='Schedule Consultation'){
+      btn.textContent='Request Strategic Briefing';
+      var lnk=btn.closest('a');
+      if(lnk) lnk.href='/briefing-request';
+    }
+  });
 }
 
 /* ---- Footer span → real links ---- */
