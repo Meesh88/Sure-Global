@@ -156,50 +156,11 @@ window.addEventListener("load", function(){
     <p class="sg-footprint-sub">Strategic operations and partnerships across emerging markets and key regions.</p>
 
     <div class="sg-world-card">
-      <div class="sg-map-stage">
-        <svg class="sg-map-svg" viewBox="0 0 1000 480" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <path class="land-fill" d="M85 185C128 134 196 111 265 126C332 141 350 184 318 222C291 254 221 247 190 288C154 337 91 300 67 250C55 225 60 205 85 185Z"/>
-          <path class="land" d="M85 185C128 134 196 111 265 126C332 141 350 184 318 222C291 254 221 247 190 288C154 337 91 300 67 250C55 225 60 205 85 185Z"/>
-
-          <path class="land-fill" d="M276 285C327 300 350 351 324 410C299 466 232 443 229 377C226 325 241 298 276 285Z"/>
-          <path class="land" d="M276 285C327 300 350 351 324 410C299 466 232 443 229 377C226 325 241 298 276 285Z"/>
-
-          <path class="land-fill" d="M431 158C487 112 566 124 602 171C637 216 600 260 531 250C466 240 389 245 379 205C373 184 397 173 431 158Z"/>
-          <path class="land" d="M431 158C487 112 566 124 602 171C637 216 600 260 531 250C466 240 389 245 379 205C373 184 397 173 431 158Z"/>
-
-          <path class="land-fill" d="M514 254C570 243 613 278 615 334C618 410 545 443 501 392C459 344 459 266 514 254Z"/>
-          <path class="land" d="M514 254C570 243 613 278 615 334C618 410 545 443 501 392C459 344 459 266 514 254Z"/>
-
-          <path class="land-fill" d="M602 152C690 101 823 122 907 182C967 225 931 294 830 276C750 262 733 328 645 293C575 265 542 190 602 152Z"/>
-          <path class="land" d="M602 152C690 101 823 122 907 182C967 225 931 294 830 276C750 262 733 328 645 293C575 265 542 190 602 152Z"/>
-
-          <path class="land-fill" d="M786 322C844 305 913 326 939 370C961 407 919 438 856 429C797 420 748 390 758 354C762 338 771 328 786 322Z"/>
-          <path class="land" d="M786 322C844 305 913 326 939 370C961 407 919 438 856 429C797 420 748 390 758 354C762 338 771 328 786 322Z"/>
-        </svg>
-
-        <div class="sg-connection" style="left:29%;top:46%;width:28%;transform:rotate(10deg)"></div>
-        <div class="sg-connection" style="left:53%;top:50%;width:28%;transform:rotate(-14deg)"></div>
-        <div class="sg-connection" style="left:51%;top:56%;width:13%;transform:rotate(-58deg)"></div>
-
-        <div class="sg-hub" style="left:29%;top:47%"></div>
-        <div class="sg-hub-label" style="left:31%;top:48%"><b>United States</b><span>Strategic Partnerships</span></div>
-
-        <div class="sg-hub gold" style="left:52%;top:58%"></div>
-        <div class="sg-hub-label" style="left:54%;top:59%"><b>Zambia</b><span>Headquarters</span></div>
-
-        <div class="sg-hub" style="left:50%;top:54%"></div>
-        <div class="sg-hub-label" style="left:47%;top:51%"><b>DRC</b><span>Operations</span></div>
-
-        <div class="sg-hub" style="left:58%;top:45%"></div>
-        <div class="sg-hub-label" style="left:60%;top:45%"><b>UAE</b><span>Regional Hub</span></div>
-
-        <div class="sg-hub" style="left:82%;top:43%"></div>
-        <div class="sg-hub-label" style="left:84%;top:44%"><b>Asia</b><span>Technology Partners</span></div>
-
-        <div class="sg-hub" style="left:53%;top:70%"></div>
-        <div class="sg-hub-label" style="left:54%;top:71%"><b>Southern Africa</b><span>Regional Coverage</span></div>
+      <div class="sg-map-image-card">
+        <img src="/assets/global-footprint.png" alt="Sure Global global footprint map" class="sg-map-image" />
       </div>
     </div>
+  </div>
 
     <div class="sg-stats">
       <div class="sg-stat"><strong>6</strong><b>Regions</b><span>Global presence</span></div>
@@ -219,3 +180,26 @@ window.addEventListener("load", function(){
 </html>
 
 
+
+<style>
+.sg-map-image-card{
+  width:100%;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(59,130,246,.24);
+  background:#071120;
+  box-shadow:0 0 60px rgba(37,99,235,.12);
+}
+.sg-map-image{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+.sg-world-card{
+  padding:0 !important;
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+</style>
