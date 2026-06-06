@@ -1058,18 +1058,21 @@ function injectBrief(n){
   else{nav.parentNode.insertBefore(d,nav.nextSibling);}
   attachForm(d);removeFoucGuard();
 }
+function isMineralPath(){var p=location.pathname.replace(/\/$/,'');return p==='/mineral-intelligence';}
 function injectMineralIntel(n){
-  if(location.pathname!=='/mineral-intelligence') return;
+  if(!isMineralPath()) return;
   if(document.getElementById('sgmi-root')) return;
+  var nav=document.querySelector('#root nav');
+  if(!nav){if((n||0)<20) setTimeout(function(){injectMineralIntel((n||0)+1);},150); return;}
+  var d=document.createElement('div');d.id='sgmi-root';d.className='sgmi-page';
+  d.innerHTML=buildMineralIntel();
   var pg=document.querySelector('#root .pt-20');
-  if(pg&&pg.querySelector('section')){
-    var d=document.createElement('div');d.id='sgmi-root';d.className='sgmi-page';
-    d.innerHTML=buildMineralIntel();pg.innerHTML='';pg.appendChild(d);removeFoucGuard();return;
-  }
-  if((n||0)<8) setTimeout(function(){injectMineralIntel((n||0)+1);},200);
+  if(pg){pg.innerHTML='';pg.appendChild(d);}
+  else{nav.parentNode.insertBefore(d,nav.nextSibling);}
+  removeFoucGuard();
 }
 function run(n){injectSol(n);injectBrief(n);injectMineralIntel(n);}
-function cleanup(){if(location.pathname!=='/briefing-request'){var b=document.getElementById('sgb-root');if(b)b.remove();}if(location.pathname!=='/solutions'){var s=document.getElementById('sgpp-root');if(s)s.remove();}if(location.pathname!=='/mineral-intelligence'){var m=document.getElementById('sgmi-root');if(m)m.remove();}}
+function cleanup(){if(location.pathname!=='/briefing-request'){var b=document.getElementById('sgb-root');if(b)b.remove();}if(location.pathname!=='/solutions'){var s=document.getElementById('sgpp-root');if(s)s.remove();}if(!isMineralPath()){var m=document.getElementById('sgmi-root');if(m)m.remove();}}
 
 startFastObserver();
 ['pushState','replaceState'].forEach(function(m){
@@ -1209,34 +1212,31 @@ window.addEventListener('load',function(){setTimeout(function(){run(0);},400);})
 (function(){
 'use strict';
 
-/* ---- Nav overrides ---- */
+/* ---- Nav simplification ---- */
+var _navFixed=false;
 function fixNav(){
   var nav=document.querySelector('#root nav');
   if(!nav) return;
-  // Hide individual platform links
   var HIDE=['ai platform','mineral intelligence','trade'];
   Array.from(nav.querySelectorAll('a')).forEach(function(a){
     var t=a.textContent.trim().toLowerCase();
     if(HIDE.some(function(h){return t===h;})){a.style.display='none';a.setAttribute('data-sg-hide','1');}
   });
-  // Rename "Solutions" → "Platforms" in place
-  Array.from(nav.querySelectorAll('a')).forEach(function(a){
-    if(a.textContent.trim()==='Solutions'){a.textContent='Platforms';}
-  });
-  // Replace text logo with image
-  var logoLink=nav.querySelector('a[href="/"]');
-  if(logoLink&&!logoLink.querySelector('img')){
-    logoLink.innerHTML='<img src="/assets/sure-global-logo.png" alt="Sure Global" style="height:32px;width:auto;display:block">';
-    logoLink.style.cssText='display:flex;align-items:center;text-decoration:none';
-  }
-  // Replace "Schedule Consultation" → "Request Strategic Briefing"
-  Array.from(nav.querySelectorAll('button')).forEach(function(btn){
-    if(btn.textContent.trim()==='Schedule Consultation'){
-      btn.textContent='Request Strategic Briefing';
-      var lnk=btn.closest('a');
-      if(lnk) lnk.href='/briefing-request';
+  // Insert "Platforms" link after "Solutions" if not already present
+  var visible=Array.from(nav.querySelectorAll('a:not([data-sg-hide])'));
+  var hasPlatforms=visible.some(function(a){return a.textContent.trim().toLowerCase()==='platforms';});
+  if(!hasPlatforms){
+    var solLink=visible.find(function(a){return a.textContent.trim().toLowerCase()==='solutions';});
+    if(solLink&&!solLink.getAttribute('data-sg-plat')){
+      var pl=solLink.cloneNode(false);
+      pl.textContent='Platforms';
+      pl.setAttribute('href','/solutions');
+      pl.setAttribute('data-sg-plat','1');
+      pl.removeAttribute('data-sg-hide');
+      solLink.setAttribute('data-sg-plat','1');
+      solLink.parentNode.insertBefore(pl,solLink.nextSibling);
     }
-  });
+  }
 }
 
 /* ---- Footer span → real links ---- */
