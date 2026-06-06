@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request a Strategic Briefing - Sure Global</title>
+  <meta name="description" content="Request a confidential strategic briefing with the Sure Global team. Tell us about your organization and objectives." />
+  <link rel="stylesheet" href="/assets/sg.css" />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body>
+
+<nav class="sg-nav">
+  <div class="sg-nav-inner">
+    <a href="/" class="sg-nav-logo"><img src="/assets/sure-global-logo.png" alt="Sure Global" onerror="this.outerHTML='<span class=sg-nav-logo-text>Sure Global</span>'" /></a>
+    <div class="sg-nav-links" id="sg-nav-links">
+      <a href="/solutions" class="sg-nav-link" data-nav="solutions">Solutions</a>
+      <a href="/solutions" class="sg-nav-link" data-nav="platforms">Platforms</a>
+      <a href="/#about" class="sg-nav-link" data-nav="about">About</a>
+      <a href="/briefing-request" class="sg-nav-cta-link">Contact</a>
+    </div>
+    <button class="sg-nav-toggle" id="sg-nav-toggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="sgb-page">
+
+  <section class="sgb-hero">
+    <div class="sgb-hero-bg"></div>
+    <div class="sgb-wrap" style="position:relative">
+      <div class="sgb-eyebrow">Strategic Briefing</div>
+      <h1 class="sgb-h1">Request a Strategic Briefing</h1>
+      <p class="sgb-hero-sub">Tell us about your organization and objectives. Our team will review your submission and arrange a confidential consultation tailored to your situation.</p>
+    </div>
+  </section>
+
+  <section class="sgb-main">
+    <div class="sgb-wrap">
+      <div class="sgb-grid">
+
+        <div>
+          <div class="sgb-form-card">
+            <div id="sgb-fw">
+              <div class="sgb-plat-banner" id="sgb-plat-banner"></div>
+              <h2 class="sgb-form-title">Briefing Request Form</h2>
+              <p class="sgb-form-desc">Fields marked <span class="sgb-req">*</span> are required. All information is treated with strict confidentiality.</p>
+              <form id="sgb-form" novalidate>
+                <div class="sgb-row">
+                  <div class="sgb-field"><label class="sgb-lbl" for="f-name">Full Name<span class="sgb-req">*</span></label><input id="f-name" type="text" class="sgb-input sgb-r" placeholder="Full name" /><div class="sgb-err" id="e-f-name">Required.</div></div>
+                  <div class="sgb-field"><label class="sgb-lbl" for="f-org">Organization<span class="sgb-req">*</span></label><input id="f-org" type="text" class="sgb-input sgb-r" placeholder="Organization name" /><div class="sgb-err" id="e-f-org">Required.</div></div>
+                </div>
+                <div class="sgb-row">
+                  <div class="sgb-field"><label class="sgb-lbl" for="f-role">Role / Title</label><input id="f-role" type="text" class="sgb-input" placeholder="Your title" /><div class="sgb-err" id="e-f-role">Required.</div></div>
+                  <div class="sgb-field"><label class="sgb-lbl" for="f-email">Email Address<span class="sgb-req">*</span></label><input id="f-email" type="email" class="sgb-input sgb-r" placeholder="email@organization.com" /><div class="sgb-err" id="e-f-email">Required.</div></div>
+                </div>
+                <div class="sgb-row">
+                  <div class="sgb-field"><label class="sgb-lbl" for="f-phone">Phone</label><input id="f-phone" type="tel" class="sgb-input" placeholder="+1 (000) 000-0000" /><div class="sgb-err" id="e-f-phone">Required.</div></div>
+                  <div class="sgb-field"><label class="sgb-lbl" for="f-ind">Industry<span class="sgb-req">*</span></label>
+                    <select id="f-ind" class="sgb-select sgb-r"><option value="">Select...</option><option value="gov">Government &amp; Public Sector</option><option value="mining">Mining &amp; Natural Resources</option><option value="energy">Energy &amp; Utilities</option><option value="telecom">Telecommunications</option><option value="transport">Transportation &amp; Logistics</option><option value="infra">Critical Infrastructure</option><option value="fin">Financial Services</option><option value="ent">Enterprise Security Operations</option><option value="other">Other</option></select>
+                    <div class="sgb-err" id="e-f-ind">Required.</div></div>
+                </div>
+                <div class="sgb-field"><label class="sgb-lbl" for="f-challenge">Primary Challenge<span class="sgb-req">*</span></label><textarea id="f-challenge" class="sgb-textarea sgb-r" placeholder="Describe the intelligence, security, or operational challenge you are addressing." rows="4"></textarea><div class="sgb-err" id="e-f-challenge">Required.</div></div>
+                <div class="sgb-field"><label class="sgb-lbl" for="f-objectives">Desired Outcomes</label><textarea id="f-objectives" class="sgb-textarea" placeholder="What results are you seeking from this engagement?" rows="3"></textarea><div class="sgb-err" id="e-f-objectives">Required.</div></div>
+                <div class="sgb-row">
+                  <div class="sgb-field"><label class="sgb-lbl" for="f-timeline">Implementation Timeline</label>
+                    <select id="f-timeline" class="sgb-select"><option value="">Select...</option><option value="imm">Immediate (within 30 days)</option><option value="3-6">3–6 months</option><option value="6-12">6–12 months</option><option value="12+">12+ months</option><option value="exp">Exploring options</option></select>
+                    <div class="sgb-err" id="e-f-timeline">Required.</div></div>
+                  <div class="sgb-field"><label class="sgb-lbl" for="f-budget">Anticipated Investment Range</label>
+                    <select id="f-budget" class="sgb-select"><option value="">Select...</option><option value="u50">Under $50,000</option><option value="50-250">$50,000 – $250,000</option><option value="250-1m">$250,000 – $1,000,000</option><option value="1m+">$1,000,000+</option><option value="tbd">Not yet defined</option></select>
+                    <div class="sgb-err" id="e-f-budget">Required.</div></div>
+                </div>
+                <div class="sgb-field"><label class="sgb-lbl" for="f-heard">How did you hear about us?</label>
+                  <select id="f-heard" class="sgb-select"><option value="">Select...</option><option value="search">Web search</option><option value="ref">Referral / Partner</option><option value="li">LinkedIn</option><option value="event">Conference / Event</option><option value="gov">Government channel</option><option value="other">Other</option></select>
+                  <div class="sgb-err" id="e-f-heard">Required.</div></div>
+                <button type="submit" class="sgb-submit" id="sgb-btn">Submit Briefing Request <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+              </form>
+            </div>
+            <div class="sgb-success" id="sgb-suc">
+              <div class="sgb-suc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <h3 class="sgb-suc-title">Briefing Request Received</h3>
+              <p class="sgb-suc-sub">A member of our strategic team will review your submission and contact you within one business day to arrange a confidential consultation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sgb-sidebar">
+          <div class="sgb-side-card">
+            <div class="sgb-side-title">What to Expect</div>
+            <ul class="sgb-steps">
+              <li class="sgb-step"><div class="sgb-step-n">1</div><div><div class="sgb-step-title">Submit your request</div><div class="sgb-step-sub">Complete the form with your organization details and objectives.</div></div></li>
+              <li class="sgb-step"><div class="sgb-step-n">2</div><div><div class="sgb-step-title">Team review</div><div class="sgb-step-sub">Our strategic team reviews your submission and prepares relevant materials.</div></div></li>
+              <li class="sgb-step"><div class="sgb-step-n">3</div><div><div class="sgb-step-title">Schedule briefing</div><div class="sgb-step-sub">We contact you within one business day to schedule a confidential session.</div></div></li>
+              <li class="sgb-step"><div class="sgb-step-n">4</div><div><div class="sgb-step-title">Strategic briefing</div><div class="sgb-step-sub">A focused session covering capabilities relevant to your specific environment.</div></div></li>
+            </ul>
+          </div>
+          <div class="sgb-side-card">
+            <div class="sgb-side-title">Contact</div>
+            <div class="sgb-contact-row">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div><div class="sgb-contact-text">info@sureglobal.com</div><div class="sgb-contact-sub">General inquiries</div></div>
+            </div>
+            <div class="sgb-contact-row">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><div class="sgb-contact-text">Lusaka, Zambia</div><div class="sgb-contact-sub">Headquarters</div></div>
+            </div>
+            <div class="sgb-side-title" style="margin-top:16px">Offices</div>
+            <div class="sgb-offices">
+              <div class="sgb-office"><span class="sgb-office-dot"></span>Lusaka, Zambia</div>
+              <div class="sgb-office"><span class="sgb-office-dot"></span>Dubai, UAE</div>
+              <div class="sgb-office"><span class="sgb-office-dot"></span>Washington D.C., USA</div>
+              <div class="sgb-office"><span class="sgb-office-dot"></span>Lubumbashi, DRC</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer-inner">
+    <span class="sg-footer-copy">&copy; 2026 Sure Global. All rights reserved.</span>
+    <div class="sg-footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="/security">Security</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/sg.js"></script>
+</body>
+</html>
