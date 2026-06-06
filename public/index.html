@@ -364,6 +364,57 @@ window.addEventListener('load',function(){setTimeout(function(){runHP(0);},600);
 .sgpp-cta-h2{font-size:clamp(26px,4vw,42px);font-weight:800;color:#f8fafc;margin:0 0 16px;max-width:720px;margin-left:auto;margin-right:auto}
 .sgpp-cta-sub{color:#94a3b8;font-size:17px;max-width:600px;margin:0 auto 36px;line-height:1.65}
 .sgpp-cta-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+/* Platform Visuals */
+.sgpp-visual{border:1px solid rgba(59,130,246,.18);border-radius:16px;background:linear-gradient(180deg,rgba(15,23,42,.98),rgba(5,9,20,.97));margin-bottom:44px;overflow:hidden}
+.sgpp-visual-hdr{padding:11px 18px;border-bottom:1px solid rgba(59,130,246,.1);display:flex;align-items:center;gap:5px}
+.sgpp-visual-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.sgpp-visual-ttl{font-size:12px;font-weight:500;color:#475569;letter-spacing:.02em;flex:1;padding-left:10px}
+.sgpp-visual-live{font-size:11px;font-weight:700;color:#22c55e;display:flex;align-items:center;gap:5px}
+.sgpp-visual-livdot{width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;animation:sgpp-pulse 2s infinite}
+@keyframes sgpp-pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.sgpp-visual-body{display:flex;gap:20px;padding:20px}
+/* Cyber visual */
+.sgpp-vc-col-l{flex:1.4;display:flex;flex-direction:column}
+.sgpp-vc-col-r{flex:0.9}
+.sgpp-vc-lbl{font-size:9px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#334155;margin-bottom:12px}
+.sgpp-vc-matrix{display:flex;flex-direction:column;gap:9px}
+.sgpp-vc-row{display:flex;align-items:center;gap:10px}
+.sgpp-vc-row-lbl{font-size:11px;color:#94a3b8;width:145px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sgpp-vc-row-bar{flex:1;height:5px;background:rgba(59,130,246,.1);border-radius:3px;overflow:hidden}
+.sgpp-vc-row-fill{height:100%;border-radius:3px}
+.sgpp-vc-row-lvl{font-size:9px;font-weight:800;letter-spacing:.06em;width:30px;text-align:right;flex-shrink:0}
+.sgpp-vc-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sgpp-vc-stat{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.1);border-radius:8px;padding:10px}
+.sgpp-vc-stat-v{font-size:18px;font-weight:800;color:#f8fafc;line-height:1;margin-bottom:3px}
+.sgpp-vc-stat-l{font-size:10px;font-weight:600;color:#64748b;margin-bottom:1px}
+.sgpp-vc-stat-s{font-size:9px;color:#334155}
+/* Mineral visual */
+.sgpp-vm-map{flex:1.4;position:relative;border:1px solid rgba(59,130,246,.12);border-radius:10px;overflow:hidden;min-height:170px;background:linear-gradient(rgba(59,130,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.04) 1px,transparent 1px),radial-gradient(circle at 50% 50%,rgba(37,99,235,.07),transparent 70%);background-size:28px 28px,28px 28px,auto}
+.sgpp-vm-pin{position:absolute;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 3px rgba(0,0,0,.35),0 0 10px currentColor}
+.sgpp-vm-leg{position:absolute;bottom:8px;left:10px;display:flex;flex-direction:column;gap:3px}
+.sgpp-vm-leg-i{display:flex;align-items:center;gap:5px;font-size:9px;color:#475569}
+.sgpp-vm-leg-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
+.sgpp-vm-panel{flex:0.9;display:flex;flex-direction:column}
+.sgpp-vm-tgt{padding:8px 0;border-bottom:1px solid rgba(59,130,246,.07)}
+.sgpp-vm-tgt:last-child{border-bottom:none}
+.sgpp-vm-tgt-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+.sgpp-vm-tgt-name{font-size:11px;font-weight:700;color:#e2e8f0}
+.sgpp-vm-tgt-score{font-size:11px;font-weight:800;color:#3b82f6}
+.sgpp-vm-tgt-desc{font-size:10px;color:#475569}
+/* Agentic visual */
+.sgpp-visual-body-col{flex-direction:column;gap:16px}
+.sgpp-va-pipe{display:flex;align-items:stretch;border:1px solid rgba(59,130,246,.12);border-radius:10px;overflow:hidden}
+.sgpp-va-stage{flex:1;padding:14px 10px;border-right:1px solid rgba(59,130,246,.1);text-align:center}
+.sgpp-va-stage:last-child{border-right:none}
+.sgpp-va-stage-n{font-size:17px;font-weight:800;line-height:1;margin-bottom:3px}
+.sgpp-va-stage-c{font-size:10px;color:#64748b;margin-bottom:4px}
+.sgpp-va-stage-l{font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em}
+.sgpp-va-arrow{display:flex;align-items:center;padding:0 2px;color:#334155;font-size:14px;flex-shrink:0;border-right:1px solid rgba(59,130,246,.1)}
+.sgpp-va-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.sgpp-va-stat{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.1);border-radius:8px;padding:10px}
+.sgpp-va-stat-v{font-size:18px;font-weight:800;color:#f8fafc;line-height:1;margin-bottom:3px}
+.sgpp-va-stat-l{font-size:10px;font-weight:600;color:#64748b;margin-bottom:1px}
+.sgpp-va-stat-s{font-size:9px;color:#334155}
 /* For/Audience strip */
 .sgpp-for-strip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:16px 20px;border:1px solid rgba(59,130,246,.15);border-radius:12px;background:rgba(15,23,42,.6);margin-bottom:44px}
 .sgpp-for-label{font-size:11px;font-weight:800;color:#475569;letter-spacing:.2em;text-transform:uppercase;flex-shrink:0;margin-right:4px}
@@ -385,6 +436,9 @@ window.addEventListener('load',function(){setTimeout(function(){runHP(0);},600);
   .sgpp-plat-title{font-size:32px}
   .sgb-grid{grid-template-columns:1fr}
   .sgb-sidebar{display:none}
+  .sgpp-visual-body{flex-direction:column}
+  .sgpp-vm-map{min-height:160px}
+  .sgpp-va-stats{grid-template-columns:1fr 1fr}
 }
 @media(max-width:540px){
   .sgpp-caps-grid,.sgpp-caps-2col{grid-template-columns:1fr}
@@ -394,9 +448,16 @@ window.addEventListener('load',function(){setTimeout(function(){runHP(0);},600);
   .sgpp-hero-btns{flex-direction:column;align-items:flex-start}
   .sgb-row{grid-template-columns:1fr}
   .sgb-hero,.sgb-main{padding-left:20px;padding-right:20px}
+  .sgpp-vc-row-lbl{width:110px}
+  .sgpp-va-pipe{flex-direction:column}
+  .sgpp-va-stage{border-right:none;border-bottom:1px solid rgba(59,130,246,.1)}
+  .sgpp-va-arrow{display:none}
+  .sgpp-va-stats{grid-template-columns:1fr 1fr}
 }
 /* === Briefing request page (sgb) === */
 .sgb-page{color:#f8fafc;padding-top:80px}
+.sgb-plat-banner{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.22);font-size:13px;color:#93c5fd;margin-bottom:22px}
+.sgb-plat-banner strong{color:#f8fafc;font-weight:700}
 .sgb-wrap{max-width:1100px;margin:0 auto;padding:0 24px}
 .sgb-hero{padding:72px 24px 48px;background:#050914;position:relative;overflow:hidden}
 .sgb-hero-bg{position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(37,99,235,.08),transparent 50%);pointer-events:none}
@@ -468,6 +529,24 @@ var I={
 };
 
 /* ---- Platform Portfolio page ---- */
+/* ---- Platform visual builders ---- */
+function buildCyberVisual(){
+  function row(lbl,pct,color,lvl){return '<div class="sgpp-vc-row"><span class="sgpp-vc-row-lbl">'+lbl+'</span><span class="sgpp-vc-row-bar"><span class="sgpp-vc-row-fill" style="width:'+pct+'%;background:'+color+'"></span></span><span class="sgpp-vc-row-lvl" style="color:'+color+'">'+lvl+'</span></div>';}
+  function stat(v,l,s){return '<div class="sgpp-vc-stat"><div class="sgpp-vc-stat-v">'+v+'</div><div class="sgpp-vc-stat-l">'+l+'</div><div class="sgpp-vc-stat-s">'+s+'</div></div>';}
+  return '<div class="sgpp-visual"><div class="sgpp-visual-hdr"><span class="sgpp-visual-dot" style="background:#ef4444"></span><span class="sgpp-visual-dot" style="background:#facc15;margin-left:4px"></span><span class="sgpp-visual-dot" style="background:#22c55e;margin-left:4px"></span><span class="sgpp-visual-ttl">Sure Cyber Intel &mdash; Threat Intelligence Dashboard</span><span class="sgpp-visual-live"><span class="sgpp-visual-livdot"></span>Live</span></div><div class="sgpp-visual-body"><div class="sgpp-vc-col-l"><div class="sgpp-vc-lbl">Active Threat Matrix</div><div class="sgpp-vc-matrix">'+row('Critical Infrastructure',88,'#ef4444','HIGH')+row('Network Perimeter',62,'#facc15','MED')+row('Supply Chain',55,'#facc15','MED')+row('Endpoint Assets',30,'#22c55e','LOW')+row('Cloud Workloads',22,'#22c55e','LOW')+'</div></div><div class="sgpp-vc-col-r"><div class="sgpp-vc-lbl">Intelligence Summary</div><div class="sgpp-vc-stats">'+stat('247','Threats Detected','this cycle')+stat('12','Critical Alerts','require action')+stat('94','Sources Active','live feeds')+stat('4.2h','Mean Detect Time','avg this week')+'</div></div></div></div>';
+}
+function buildMineralVisual(){
+  function pin(l,t,color){return '<span class="sgpp-vm-pin" style="left:'+l+'%;top:'+t+'%;width:10px;height:10px;background:'+color+'"></span>';}
+  function tgt(name,score,desc){return '<div class="sgpp-vm-tgt"><div class="sgpp-vm-tgt-head"><span class="sgpp-vm-tgt-name">'+name+'</span><span class="sgpp-vm-tgt-score">'+score+'</span></div><div class="sgpp-vm-tgt-desc">'+desc+'</div></div>';}
+  return '<div class="sgpp-visual"><div class="sgpp-visual-hdr"><span class="sgpp-visual-dot" style="background:#ef4444"></span><span class="sgpp-visual-dot" style="background:#facc15;margin-left:4px"></span><span class="sgpp-visual-dot" style="background:#22c55e;margin-left:4px"></span><span class="sgpp-visual-ttl">Sure Mineral Intelligence &mdash; Resource Intelligence Platform</span><span class="sgpp-visual-live"><span class="sgpp-visual-livdot"></span>Live</span></div><div class="sgpp-visual-body"><div class="sgpp-vm-map">'+pin(22,34,'#facc15')+pin(38,52,'#3b82f6')+pin(55,28,'#22c55e')+pin(68,60,'#facc15')+pin(46,72,'#3b82f6')+pin(75,40,'#ef4444')+pin(30,62,'#22c55e')+pin(58,44,'#3b82f6')+'<div class="sgpp-vm-leg"><div class="sgpp-vm-leg-i"><span class="sgpp-vm-leg-dot" style="background:#facc15"></span>Priority Target</div><div class="sgpp-vm-leg-i"><span class="sgpp-vm-leg-dot" style="background:#22c55e"></span>Licensed</div><div class="sgpp-vm-leg-i"><span class="sgpp-vm-leg-dot" style="background:#3b82f6"></span>Active</div><div class="sgpp-vm-leg-i"><span class="sgpp-vm-leg-dot" style="background:#ef4444"></span>Distressed</div></div></div><div class="sgpp-vm-panel"><div class="sgpp-vc-lbl">Top Acquisition Targets</div>'+tgt('Copperbelt Block A','94','High-potential copper, expires 2026')+tgt('Luapula License 7','87','Cobalt-bearing, distressed owner')+tgt('North-West Prospect','81','Emerging nickel, open for bid')+tgt('Southern Lithium Z3','76','EV-grade, strategic acquisition')+'</div></div></div>';
+}
+function buildAgenticVisual(){
+  function stage(label,count,color){return '<div class="sgpp-va-stage"><div class="sgpp-va-stage-n" style="color:'+color+'">'+count+'</div><div class="sgpp-va-stage-c">accounts</div><div class="sgpp-va-stage-l">'+label+'</div></div>';}
+  function stat(v,l,s){return '<div class="sgpp-va-stat"><div class="sgpp-va-stat-v">'+v+'</div><div class="sgpp-va-stat-l">'+l+'</div><div class="sgpp-va-stat-s">'+s+'</div></div>';}
+  var arr='<div class="sgpp-va-arrow">›</div>';
+  return '<div class="sgpp-visual"><div class="sgpp-visual-hdr"><span class="sgpp-visual-dot" style="background:#ef4444"></span><span class="sgpp-visual-dot" style="background:#facc15;margin-left:4px"></span><span class="sgpp-visual-dot" style="background:#22c55e;margin-left:4px"></span><span class="sgpp-visual-ttl">Sure Agentic AI &mdash; Revenue Intelligence Platform</span><span class="sgpp-visual-live"><span class="sgpp-visual-livdot"></span>Active</span></div><div class="sgpp-visual-body sgpp-visual-body-col"><div class="sgpp-va-pipe">'+stage('ICP Discovery','1,240','#3b82f6')+arr+stage('Research','847','#6366f1')+arr+stage('Outreach','612','#8b5cf6')+arr+stage('Responded','183','#a855f7')+arr+stage('Qualified','94','#22c55e')+'</div><div class="sgpp-va-stats">'+stat('41%','Response Rate','+12% vs baseline')+stat('4 min','Per Account','automated research')+stat('$2.4M','Pipeline Value','qualified this month')+stat('320h','Time Saved','per rep, this month')+'</div></div></div>';
+}
+
 function capListCard(ico,title,items){
   var lis=items.map(function(t){return '<li><span class="sgpp-cap-dot"></span>'+t+'</li>';}).join('');
   return '<div class="sgpp-cap-card"><div class="sgpp-cap-icon">'+si(ico,16)+'</div><div><div class="sgpp-cap-name">'+title+'</div><ul class="sgpp-cap-list">'+lis+'</ul></div></div>';
@@ -520,7 +599,8 @@ function buildSolutions(){
         ctag('Strategic Risk Analysis'),
         ctag('Situational Awareness'),
       '</div>',
-      '<div class="sgpp-plat-cta"><a href="/briefing-request" class="sgpp-btn">Request Platform Briefing '+si(I.arr,16)+'</a></div>',
+      buildCyberVisual(),
+      '<div class="sgpp-plat-cta"><a href="/briefing-request?platform=sure-cyber-intel" class="sgpp-btn">Request Platform Briefing '+si(I.arr,16)+'</a></div>',
     '</div></section>',
 
     // PLATFORM 02: SURE MINERAL INTELLIGENCE
@@ -556,7 +636,8 @@ function buildSolutions(){
         capListCard(I.shck,'Acquisition Intelligence',['Undervalued licenses','Strategic acquisition targets','Consolidation opportunities','Regional expansion opportunities']),
         capListCard(I.globe,'Resource Intelligence Dashboard',['Mineral occurrences','License ownership','Geological layers','Strategic scores','Acquisition rankings']),
       '</div>',
-      '<div class="sgpp-plat-cta"><a href="/briefing-request" class="sgpp-btn">Explore Sure Mineral Intelligence '+si(I.arr,16)+'</a></div>',
+      buildMineralVisual(),
+      '<div class="sgpp-plat-cta"><a href="https://www.suremineralintel.com" target="_blank" rel="noopener" class="sgpp-btn">Explore Sure Mineral Intelligence '+si(I.arr,16)+'</a></div>',
     '</div></section>',
 
     // PLATFORM 03: SURE AGENTIC AI
@@ -584,7 +665,8 @@ function buildSolutions(){
         capListCard(I.wfi,'Multi-Channel Outreach',['Email','LinkedIn','SMS','Phone','Automated follow-up sequences']),
         capListCard(I.zap,'AI Lead Qualification',['Fit','Intent','Engagement','Opportunity value']),
       '</div>',
-      '<div class="sgpp-plat-cta"><a href="/briefing-request" class="sgpp-btn">Explore Sure Agentic AI '+si(I.arr,16)+'</a></div>',
+      buildAgenticVisual(),
+      '<div class="sgpp-plat-cta"><a href="/briefing-request?platform=sure-agentic-ai" class="sgpp-btn">Explore Sure Agentic AI '+si(I.arr,16)+'</a></div>',
     '</div></section>',
 
     // GLOBAL CTA
@@ -621,6 +703,9 @@ function buildBriefing(){
   var tls=[['imm','Immediate (within 30 days)'],['3-6','3–6 months'],['6-12','6–12 months'],['12+','12+ months'],['exp','Exploring options']];
   var budgets=[['u50','Under $50,000'],['50-250','$50,000 – $250,000'],['250-1m','$250,000 – $1,000,000'],['1m+','$1,000,000+'],['tbd','Not yet defined']];
   var heard=[['search','Web search'],['ref','Referral / Partner'],['li','LinkedIn'],['event','Conference / Event'],['gov','Government channel'],['other','Other']];
+  var platParam=(new URLSearchParams(location.search)).get('platform')||'';
+  var platNames={'sure-cyber-intel':'Sure Cyber Intel','sure-mineral-intel':'Sure Mineral Intelligence','sure-agentic-ai':'Sure Agentic AI'};
+  var platBanner=platNames[platParam]?'<div class="sgb-plat-banner">'+si(I.shld,14)+' Requesting briefing for <strong>'+platNames[platParam]+'</strong></div>':'';
   return [
     '<section class="sgb-hero"><div class="sgb-hero-bg"></div><div class="sgb-wrap" style="position:relative">',
       '<div class="sgb-eyebrow">Strategic Briefing</div>',
@@ -631,6 +716,7 @@ function buildBriefing(){
 
       '<div><div class="sgb-form-card">',
         '<div id="sgb-fw">',
+          platBanner,
           '<h2 class="sgb-form-title">Briefing Request Form</h2>',
           '<p class="sgb-form-desc">Fields marked <span class="sgb-req">*</span> are required. All information is treated with strict confidentiality.</p>',
           '<form id="sgb-form" novalidate>',
@@ -719,12 +805,13 @@ function injectBrief(n){
   if(location.pathname!=='/briefing-request') return;
   if(document.getElementById('sgb-root')) return;
   var nav=document.querySelector('#root nav');
-  if(nav){
-    var d=document.createElement('div');d.id='sgb-root';d.className='sgb-page';
-    d.innerHTML=buildBriefing();nav.parentNode.insertBefore(d,nav.nextSibling);
-    attachForm(d);return;
-  }
-  if((n||0)<8) setTimeout(function(){injectBrief((n||0)+1);},200);
+  if(!nav){if((n||0)<20) setTimeout(function(){injectBrief((n||0)+1);},150); return;}
+  var d=document.createElement('div');d.id='sgb-root';d.className='sgb-page';
+  d.innerHTML=buildBriefing();
+  var pg=document.querySelector('#root .pt-20');
+  if(pg){pg.innerHTML='';pg.appendChild(d);}
+  else{nav.parentNode.insertBefore(d,nav.nextSibling);}
+  attachForm(d);
 }
 function run(n){injectSol(n);injectBrief(n);}
 function cleanup(){if(location.pathname!=='/briefing-request'){var b=document.getElementById('sgb-root');if(b)b.remove();}if(location.pathname!=='/solutions'){var s=document.getElementById('sgpp-root');if(s)s.remove();}}
@@ -756,6 +843,33 @@ window.addEventListener('load',function(){setTimeout(function(){run(0);},400);})
 <script>
 (function(){
 'use strict';
+
+/* ---- Nav simplification ---- */
+var _navFixed=false;
+function fixNav(){
+  var nav=document.querySelector('#root nav');
+  if(!nav) return;
+  var HIDE=['ai platform','mineral intelligence','trade'];
+  Array.from(nav.querySelectorAll('a')).forEach(function(a){
+    var t=a.textContent.trim().toLowerCase();
+    if(HIDE.some(function(h){return t===h;})){a.style.display='none';a.setAttribute('data-sg-hide','1');}
+  });
+  // Insert "Platforms" link after "Solutions" if not already present
+  var visible=Array.from(nav.querySelectorAll('a:not([data-sg-hide])'));
+  var hasPlatforms=visible.some(function(a){return a.textContent.trim().toLowerCase()==='platforms';});
+  if(!hasPlatforms){
+    var solLink=visible.find(function(a){return a.textContent.trim().toLowerCase()==='solutions';});
+    if(solLink&&!solLink.getAttribute('data-sg-plat')){
+      var pl=solLink.cloneNode(false);
+      pl.textContent='Platforms';
+      pl.setAttribute('href','/solutions');
+      pl.setAttribute('data-sg-plat','1');
+      pl.removeAttribute('data-sg-hide');
+      solLink.setAttribute('data-sg-plat','1');
+      solLink.parentNode.insertBefore(pl,solLink.nextSibling);
+    }
+  }
+}
 
 /* ---- Footer span → real links ---- */
 function fixFooter(){
@@ -854,7 +968,7 @@ function tryPol(n){
 function runFixes(n){
   cleanPol();
   fixAboutNav();
-  setTimeout(function(){fixFooter();tryPol(n);},350);
+  setTimeout(function(){fixNav();fixFooter();tryPol(n);},350);
 }
 
 ['pushState','replaceState'].forEach(function(m){
