@@ -12,45 +12,24 @@
     <link rel="stylesheet" crossorigin href="/assets/index-Doddldxj.css">
   
 <style>
-.sg-footprint-upgrade{padding:96px 24px;background:#050914;color:#f8fafc}
+
+
+
+<style>
+.sg-footprint-upgrade{padding:92px 24px;background:#050914;color:#f8fafc}
 .sg-footprint-wrap{max-width:1180px;margin:0 auto;text-align:center}
 .sg-footprint-label{color:#3b82f6;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:800;margin-bottom:14px}
-.sg-footprint-title{font-size:42px;line-height:1.05;font-weight:850;margin-bottom:14px}
-.sg-footprint-sub{color:#94a3b8;font-size:16px;margin-bottom:34px}
-.sg-world-card{border:1px solid rgba(59,130,246,.22);border-radius:18px;background:radial-gradient(circle at 55% 45%,rgba(37,99,235,.22),transparent 35%),#071120;padding:28px;box-shadow:0 0 60px rgba(37,99,235,.12);overflow:hidden}
-.sg-world-map{
-height:360px;
-position:relative;
-overflow:hidden;
-border-radius:14px;
-background:
-radial-gradient(circle at 28% 45%, rgba(59,130,246,.22), transparent 18%),
-radial-gradient(circle at 52% 58%, rgba(250,204,21,.16), transparent 15%),
-radial-gradient(circle at 78% 42%, rgba(59,130,246,.18), transparent 18%),
-linear-gradient(rgba(59,130,246,.06) 1px, transparent 1px),
-linear-gradient(90deg, rgba(59,130,246,.06) 1px, transparent 1px),
-#071120;
-background-size:auto,auto,auto,52px 52px,52px 52px,cover;
-}
-.sg-world-map:before{
-content:"";
-position:absolute;
-inset:32px 48px;
-opacity:.78;
-background:
-radial-gradient(circle at 15% 38%, rgba(59,130,246,.95) 0 2px, transparent 3px),
-radial-gradient(circle at 27% 45%, rgba(59,130,246,.7) 0 1.6px, transparent 3px),
-radial-gradient(circle at 45% 51%, rgba(59,130,246,.8) 0 1.8px, transparent 3px),
-radial-gradient(circle at 52% 58%, rgba(250,204,21,.98) 0 3px, transparent 4px),
-radial-gradient(circle at 58% 66%, rgba(59,130,246,.95) 0 2px, transparent 3px),
-radial-gradient(circle at 63% 39%, rgba(59,130,246,.9) 0 2px, transparent 3px),
-radial-gradient(circle at 88% 42%, rgba(59,130,246,.9) 0 2px, transparent 3px);
-filter:drop-shadow(0 0 14px rgba(59,130,246,.55));
-}
-.sg-arc{display:none}
-.sg-hub{position:absolute;width:14px;height:14px;border-radius:50%;background:#3b82f6;box-shadow:0 0 0 9px rgba(59,130,246,.12),0 0 24px rgba(59,130,246,.9)}
-.sg-hub.gold{background:#facc15;box-shadow:0 0 0 9px rgba(250,204,21,.12),0 0 24px rgba(250,204,21,.9)}
-.sg-hub-label{position:absolute;text-align:left;font-size:12px;color:#e5e7eb;white-space:nowrap}
+.sg-footprint-title{font-size:42px;line-height:1.05;font-weight:850;margin:0 0 14px}
+.sg-footprint-sub{color:#94a3b8;font-size:16px;margin:0 auto 34px;max-width:760px;line-height:1.6}
+.sg-world-card{border:1px solid rgba(59,130,246,.24);border-radius:18px;background:radial-gradient(circle at 50% 48%,rgba(37,99,235,.18),transparent 38%),#071120;padding:28px;box-shadow:0 0 60px rgba(37,99,235,.12);overflow:hidden}
+.sg-map-stage{height:430px;position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(rgba(59,130,246,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.045) 1px,transparent 1px),radial-gradient(circle at center,rgba(37,99,235,.10),transparent 60%);background-size:52px 52px,52px 52px,cover}
+.sg-map-stage svg.sg-map-svg{position:absolute;inset:6% 3%;width:94%;height:88%;opacity:.62;filter:drop-shadow(0 0 18px rgba(59,130,246,.35))}
+.sg-map-stage .land{fill:none;stroke:#2f81ff;stroke-width:1.5;stroke-linejoin:round;opacity:.8}
+.sg-map-stage .land-fill{fill:#123a73;opacity:.28}
+.sg-connection{position:absolute;height:1px;background:linear-gradient(90deg,transparent,rgba(59,130,246,.65),transparent);transform-origin:left center;opacity:.72}
+.sg-hub{position:absolute;width:13px;height:13px;border-radius:50%;background:#3b82f6;box-shadow:0 0 0 8px rgba(59,130,246,.13),0 0 24px rgba(59,130,246,.9);z-index:3}
+.sg-hub.gold{background:#facc15;box-shadow:0 0 0 8px rgba(250,204,21,.14),0 0 24px rgba(250,204,21,.9)}
+.sg-hub-label{position:absolute;text-align:left;font-size:12px;color:#e5e7eb;white-space:nowrap;z-index:4;text-shadow:0 1px 8px rgba(0,0,0,.9)}
 .sg-hub-label b{display:block;color:#fff;font-size:14px}
 .sg-hub-label span{color:#94a3b8}
 .sg-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
@@ -58,7 +37,7 @@ filter:drop-shadow(0 0 14px rgba(59,130,246,.55));
 .sg-stat strong{display:block;font-size:26px;color:#3b82f6}
 .sg-stat b{display:block;font-size:13px;margin-top:4px}
 .sg-stat span{font-size:12px;color:#94a3b8}
-@media(max-width:900px){.sg-stats{grid-template-columns:1fr 1fr}.sg-world-map{height:320px}.sg-footprint-title{font-size:32px}}
+@media(max-width:900px){.sg-stats{grid-template-columns:1fr 1fr}.sg-map-stage{height:320px}.sg-footprint-title{font-size:32px}.sg-hub-label{font-size:10px}.sg-hub-label b{font-size:11px}}
 </style>
 
 </head>
@@ -164,8 +143,6 @@ window.addEventListener("load", function(){
 });
 </script>
 
-</body>
-</html>
 
 <script>
 window.addEventListener("load", function(){
@@ -179,27 +156,48 @@ window.addEventListener("load", function(){
     <p class="sg-footprint-sub">Strategic operations and partnerships across emerging markets and key regions.</p>
 
     <div class="sg-world-card">
-      <div class="sg-world-map">
+      <div class="sg-map-stage">
+        <svg class="sg-map-svg" viewBox="0 0 1000 480" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <path class="land-fill" d="M85 185C128 134 196 111 265 126C332 141 350 184 318 222C291 254 221 247 190 288C154 337 91 300 67 250C55 225 60 205 85 185Z"/>
+          <path class="land" d="M85 185C128 134 196 111 265 126C332 141 350 184 318 222C291 254 221 247 190 288C154 337 91 300 67 250C55 225 60 205 85 185Z"/>
 
+          <path class="land-fill" d="M276 285C327 300 350 351 324 410C299 466 232 443 229 377C226 325 241 298 276 285Z"/>
+          <path class="land" d="M276 285C327 300 350 351 324 410C299 466 232 443 229 377C226 325 241 298 276 285Z"/>
 
+          <path class="land-fill" d="M431 158C487 112 566 124 602 171C637 216 600 260 531 250C466 240 389 245 379 205C373 184 397 173 431 158Z"/>
+          <path class="land" d="M431 158C487 112 566 124 602 171C637 216 600 260 531 250C466 240 389 245 379 205C373 184 397 173 431 158Z"/>
 
-        <div class="sg-hub" style="left:28%;top:45%"></div>
-        <div class="sg-hub-label" style="left:30%;top:47%"><b>United States</b><span>Strategic Partnerships</span></div>
+          <path class="land-fill" d="M514 254C570 243 613 278 615 334C618 410 545 443 501 392C459 344 459 266 514 254Z"/>
+          <path class="land" d="M514 254C570 243 613 278 615 334C618 410 545 443 501 392C459 344 459 266 514 254Z"/>
 
-        <div class="sg-hub gold" style="left:52%;top:59%"></div>
-        <div class="sg-hub-label" style="left:54%;top:61%"><b>Zambia</b><span>Headquarters</span></div>
+          <path class="land-fill" d="M602 152C690 101 823 122 907 182C967 225 931 294 830 276C750 262 733 328 645 293C575 265 542 190 602 152Z"/>
+          <path class="land" d="M602 152C690 101 823 122 907 182C967 225 931 294 830 276C750 262 733 328 645 293C575 265 542 190 602 152Z"/>
+
+          <path class="land-fill" d="M786 322C844 305 913 326 939 370C961 407 919 438 856 429C797 420 748 390 758 354C762 338 771 328 786 322Z"/>
+          <path class="land" d="M786 322C844 305 913 326 939 370C961 407 919 438 856 429C797 420 748 390 758 354C762 338 771 328 786 322Z"/>
+        </svg>
+
+        <div class="sg-connection" style="left:29%;top:46%;width:28%;transform:rotate(10deg)"></div>
+        <div class="sg-connection" style="left:53%;top:50%;width:28%;transform:rotate(-14deg)"></div>
+        <div class="sg-connection" style="left:51%;top:56%;width:13%;transform:rotate(-58deg)"></div>
+
+        <div class="sg-hub" style="left:29%;top:47%"></div>
+        <div class="sg-hub-label" style="left:31%;top:48%"><b>United States</b><span>Strategic Partnerships</span></div>
+
+        <div class="sg-hub gold" style="left:52%;top:58%"></div>
+        <div class="sg-hub-label" style="left:54%;top:59%"><b>Zambia</b><span>Headquarters</span></div>
 
         <div class="sg-hub" style="left:50%;top:54%"></div>
         <div class="sg-hub-label" style="left:47%;top:51%"><b>DRC</b><span>Operations</span></div>
 
-        <div class="sg-hub" style="left:58%;top:42%"></div>
-        <div class="sg-hub-label" style="left:60%;top:43%"><b>UAE</b><span>Regional Hub</span></div>
+        <div class="sg-hub" style="left:58%;top:45%"></div>
+        <div class="sg-hub-label" style="left:60%;top:45%"><b>UAE</b><span>Regional Hub</span></div>
 
-        <div class="sg-hub" style="left:83%;top:40%"></div>
-        <div class="sg-hub-label" style="left:84%;top:42%"><b>Asia</b><span>Technology Partners</span></div>
+        <div class="sg-hub" style="left:82%;top:43%"></div>
+        <div class="sg-hub-label" style="left:84%;top:44%"><b>Asia</b><span>Technology Partners</span></div>
 
-        <div class="sg-hub" style="left:53%;top:72%"></div>
-        <div class="sg-hub-label" style="left:54%;top:74%"><b>Southern Africa</b><span>Regional Coverage</span></div>
+        <div class="sg-hub" style="left:53%;top:70%"></div>
+        <div class="sg-hub-label" style="left:54%;top:71%"><b>Southern Africa</b><span>Regional Coverage</span></div>
       </div>
     </div>
 
@@ -216,3 +214,8 @@ window.addEventListener("load", function(){
   }
 });
 </script>
+
+</body>
+</html>
+
+
