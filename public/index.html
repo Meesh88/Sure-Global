@@ -42,6 +42,11 @@
 </style>
 
 <style id="sg-rich-colors">
+/* ---- Mobile: shift logo 20px left ---- */
+@media (max-width: 767px) {
+  #root nav a[href="/"] { margin-left: -20px !important; }
+}
+
 /* ---- Rich color layer ---- */
 
 /* CTA buttons: vivid glow */
@@ -1295,17 +1300,8 @@ function fixLogo(){
   if(nav){
     var navBrand=nav.querySelector('a[href="/"]');
     if(navBrand&&!navBrand.querySelector('img[data-sg-logo]')){
-      navBrand.innerHTML=`
-<div data-sg-logo="1" style="display:flex;align-items:center;gap:10px;height:100%;">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--primary))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex-shrink:0;">
-    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
-  </svg>
-  <span style="font-size:18px;font-weight:700;letter-spacing:-0.02em;color:hsl(var(--foreground));line-height:1;">
-    SURE<span style="color:hsl(var(--primary));">GLOBAL</span>
-  </span>
-</div>`;
+      navBrand.innerHTML='<img src="/assets/sure-global-logo.png" alt="Sure Global" data-sg-logo="1" style="height:90px;width:auto;display:block;max-width:270px;object-fit:contain;" />';
       navBrand.style.gap='0';
-      navBrand.style.marginLeft='0';
     }
   }
   var footer=document.querySelector('#root footer');
