@@ -19,7 +19,7 @@
 .sg-footprint-sub{color:#94a3b8;font-size:16px;margin-bottom:34px}
 .sg-world-card{border:1px solid rgba(59,130,246,.22);border-radius:18px;background:radial-gradient(circle at 55% 45%,rgba(37,99,235,.22),transparent 35%),#071120;padding:28px;box-shadow:0 0 60px rgba(37,99,235,.12);overflow:hidden}
 .sg-world-map{
-height:430px;
+height:360px;
 position:relative;
 overflow:hidden;
 border-radius:14px;
@@ -47,18 +47,7 @@ radial-gradient(circle at 63% 39%, rgba(59,130,246,.9) 0 2px, transparent 3px),
 radial-gradient(circle at 88% 42%, rgba(59,130,246,.9) 0 2px, transparent 3px);
 filter:drop-shadow(0 0 14px rgba(59,130,246,.55));
 }
-.sg-world-map:after{
-content:"";
-position:absolute;
-inset:0;
-background:
-linear-gradient(20deg, transparent 36%, rgba(59,130,246,.34) 36.2%, transparent 37%),
-linear-gradient(-12deg, transparent 43%, rgba(59,130,246,.32) 43.2%, transparent 44%),
-linear-gradient(42deg, transparent 48%, rgba(59,130,246,.25) 48.2%, transparent 49%),
-radial-gradient(circle at center, transparent 28%, rgba(5,9,20,.25) 76%);
-pointer-events:none;
-}
-.sg-arc{position:absolute;border-top:1px solid rgba(59,130,246,.75);border-radius:50%;height:180px;transform:rotate(8deg);opacity:.7}
+.sg-arc{display:none}
 .sg-hub{position:absolute;width:14px;height:14px;border-radius:50%;background:#3b82f6;box-shadow:0 0 0 9px rgba(59,130,246,.12),0 0 24px rgba(59,130,246,.9)}
 .sg-hub.gold{background:#facc15;box-shadow:0 0 0 9px rgba(250,204,21,.12),0 0 24px rgba(250,204,21,.9)}
 .sg-hub-label{position:absolute;text-align:left;font-size:12px;color:#e5e7eb;white-space:nowrap}
@@ -191,9 +180,8 @@ window.addEventListener("load", function(){
 
     <div class="sg-world-card">
       <div class="sg-world-map">
-        <div class="sg-arc" style="left:25%;top:48%;width:34%"></div>
-        <div class="sg-arc" style="left:47%;top:39%;width:35%;transform:rotate(-8deg)"></div>
-        <div class="sg-arc" style="left:44%;top:54%;width:20%;transform:rotate(26deg)"></div>
+
+
 
         <div class="sg-hub" style="left:28%;top:45%"></div>
         <div class="sg-hub-label" style="left:30%;top:47%"><b>United States</b><span>Strategic Partnerships</span></div>
