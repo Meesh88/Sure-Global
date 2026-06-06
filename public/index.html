@@ -90,6 +90,19 @@
 .sg-plat-link:hover{opacity:.72}
 @media(max-width:900px){.sg-ops-tiles{grid-template-columns:1fr 1fr}.sg-ops-h2,.sg-plat-h2{font-size:32px}.sg-plat-grid{grid-template-columns:1fr}}
 @media(max-width:540px){.sg-ops-tiles{grid-template-columns:1fr}}
+.sg-hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:28px}
+.sg-hero-btn-primary{display:inline-flex;align-items:center;gap:8px;background:#3b82f6;color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;text-decoration:none;transition:background .15s;white-space:nowrap}
+.sg-hero-btn-primary:hover{background:#2563eb}
+.sg-hero-btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#94a3b8;border:1px solid rgba(59,130,246,.22);font-size:14px;font-weight:600;padding:12px 24px;border-radius:8px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.sg-hero-btn-secondary:hover{background:rgba(59,130,246,.08);color:#cbd5e1;border-color:rgba(59,130,246,.4)}
+.sg-hubs-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:20px}
+.sg-hub-card{border:1px solid rgba(59,130,246,.18);border-radius:14px;background:rgba(15,23,42,.84);padding:16px}
+.sg-hub-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#3b82f6;margin-bottom:8px}
+.sg-hub-dot.hq{background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+.sg-hub-loc{font-size:13px;font-weight:700;color:#f8fafc;margin-bottom:3px}
+.sg-hub-role{font-size:11px;color:#64748b;line-height:1.4}
+@media(max-width:900px){.sg-hubs-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:540px){.sg-hubs-grid{grid-template-columns:1fr 1fr}}
 </style>
 
 <script>
@@ -869,3 +882,26 @@ window.addEventListener('load',function(){setTimeout(function(){runFixes(0);},50
   box-shadow:none !important;
 }
 </style>
+
+<script>
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    const links = Array.from(document.querySelectorAll("a, div"));
+    const logoEl = links.find(el => el.innerText && el.innerText.includes("SUREGLOBAL"));
+
+    if (logoEl) {
+      logoEl.innerHTML = `
+        <img 
+          src="/assets/sure-global-logo.png" 
+          alt="Sure Global" 
+          style="height:42px;width:auto;object-fit:contain;display:block;"
+        />
+      `;
+      logoEl.style.display = "flex";
+      logoEl.style.alignItems = "center";
+      logoEl.style.minWidth = "180px";
+    }
+  }, 800);
+});
+</script>
+
