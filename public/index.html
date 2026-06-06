@@ -10,6 +10,7 @@
     <meta property="og:type" content="website" />
     <script type="module" crossorigin src="/assets/index-WtoL1l34.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Doddldxj.css">
+  <script>!function(){var p=location.pathname,G=['/solutions','/briefing-request','/mineral-intelligence','/privacy','/terms','/security'];if(G.indexOf(p)!==-1){var s=document.createElement('style');s.id='sg-fouc';s.textContent='#root .pt-20{opacity:0}';document.head.appendChild(s);setTimeout(function(){var sg=document.getElementById('sg-fouc');if(sg)sg.remove();},3000);}}();</script>
   
 <style>
 
@@ -981,6 +982,59 @@ function attachForm(root){
   });
 }
 
+/* ---- FOUC guard helpers ---- */
+var _ob=null;
+function addFoucGuard(path){
+  var p=path||location.pathname;
+  var G=['/solutions','/briefing-request','/mineral-intelligence','/privacy','/terms','/security'];
+  if(G.indexOf(p)===-1) return;
+  if(!document.getElementById('sg-fouc')){
+    var s=document.createElement('style');s.id='sg-fouc';
+    s.textContent='#root .pt-20{opacity:0}';document.head.appendChild(s);
+  }
+}
+function removeFoucGuard(){
+  var pg=document.querySelector('#root .pt-20');
+  if(pg){pg.style.transition='opacity .15s ease';pg.style.opacity='1';}
+  setTimeout(function(){var s=document.getElementById('sg-fouc');if(s)s.remove();if(pg){pg.style.transition='';pg.style.opacity='';}},200);
+}
+function startFastObserver(path){
+  if(_ob){_ob.disconnect();_ob=null;}
+  var p=path||location.pathname;
+  if(p!=='/solutions'&&p!=='/briefing-request'&&p!=='/mineral-intelligence') return;
+  _ob=new MutationObserver(function(m,ob){
+    if(p==='/solutions'){
+      if(document.getElementById('sgpp-root')){ob.disconnect();_ob=null;removeFoucGuard();return;}
+      var pg=document.querySelector('#root .pt-20');
+      if(pg&&pg.querySelector('section')){
+        ob.disconnect();_ob=null;
+        var d=document.createElement('div');d.id='sgpp-root';d.className='sgpp-page';
+        d.innerHTML=buildSolutions();pg.innerHTML='';pg.appendChild(d);removeFoucGuard();
+      }
+    } else if(p==='/mineral-intelligence'){
+      if(document.getElementById('sgmi-root')){ob.disconnect();_ob=null;removeFoucGuard();return;}
+      var pg=document.querySelector('#root .pt-20');
+      if(pg&&pg.querySelector('section')){
+        ob.disconnect();_ob=null;
+        var d=document.createElement('div');d.id='sgmi-root';d.className='sgmi-page';
+        d.innerHTML=buildMineralIntel();pg.innerHTML='';pg.appendChild(d);removeFoucGuard();
+      }
+    } else {
+      if(document.getElementById('sgb-root')){ob.disconnect();_ob=null;removeFoucGuard();return;}
+      var nav=document.querySelector('#root nav');
+      if(nav){
+        ob.disconnect();_ob=null;
+        var d=document.createElement('div');d.id='sgb-root';d.className='sgb-page';
+        d.innerHTML=buildBriefing();
+        var pg=document.querySelector('#root .pt-20');
+        if(pg){pg.innerHTML='';pg.appendChild(d);}else{nav.parentNode.insertBefore(d,nav.nextSibling);}
+        attachForm(d);removeFoucGuard();
+      }
+    }
+  });
+  _ob.observe(document.documentElement,{childList:true,subtree:true});
+}
+
 /* ---- Injection ---- */
 function injectSol(n){
   if(location.pathname!=='/solutions') return;
@@ -988,7 +1042,7 @@ function injectSol(n){
   var pg=document.querySelector('#root .pt-20');
   if(pg&&pg.querySelector('section')){
     var d=document.createElement('div');d.id='sgpp-root';d.className='sgpp-page';
-    d.innerHTML=buildSolutions();pg.innerHTML='';pg.appendChild(d);return;
+    d.innerHTML=buildSolutions();pg.innerHTML='';pg.appendChild(d);removeFoucGuard();return;
   }
   if((n||0)<8) setTimeout(function(){injectSol((n||0)+1);},200);
 }
@@ -1002,7 +1056,7 @@ function injectBrief(n){
   var pg=document.querySelector('#root .pt-20');
   if(pg){pg.innerHTML='';pg.appendChild(d);}
   else{nav.parentNode.insertBefore(d,nav.nextSibling);}
-  attachForm(d);
+  attachForm(d);removeFoucGuard();
 }
 function injectMineralIntel(n){
   if(location.pathname!=='/mineral-intelligence') return;
@@ -1010,18 +1064,23 @@ function injectMineralIntel(n){
   var pg=document.querySelector('#root .pt-20');
   if(pg&&pg.querySelector('section')){
     var d=document.createElement('div');d.id='sgmi-root';d.className='sgmi-page';
-    d.innerHTML=buildMineralIntel();pg.innerHTML='';pg.appendChild(d);return;
+    d.innerHTML=buildMineralIntel();pg.innerHTML='';pg.appendChild(d);removeFoucGuard();return;
   }
   if((n||0)<8) setTimeout(function(){injectMineralIntel((n||0)+1);},200);
 }
 function run(n){injectSol(n);injectBrief(n);injectMineralIntel(n);}
 function cleanup(){if(location.pathname!=='/briefing-request'){var b=document.getElementById('sgb-root');if(b)b.remove();}if(location.pathname!=='/solutions'){var s=document.getElementById('sgpp-root');if(s)s.remove();}if(location.pathname!=='/mineral-intelligence'){var m=document.getElementById('sgmi-root');if(m)m.remove();}}
 
+startFastObserver();
 ['pushState','replaceState'].forEach(function(m){
   var orig=history[m];
-  history[m]=function(){orig.apply(this,arguments);cleanup();setTimeout(function(){run(0);},300);};
+  history[m]=function(){
+    var url=arguments[2],np=url?(new URL(String(url),location.origin)).pathname:location.pathname;
+    addFoucGuard(np);startFastObserver(np);
+    orig.apply(this,arguments);cleanup();setTimeout(function(){run(0);},300);
+  };
 });
-window.addEventListener('popstate',function(){cleanup();setTimeout(function(){run(0);},300);});
+window.addEventListener('popstate',function(){addFoucGuard();startFastObserver();cleanup();setTimeout(function(){run(0);},300);});
 window.addEventListener('load',function(){setTimeout(function(){run(0);},400);});
 })();
 </script>
@@ -1268,6 +1327,7 @@ function tryPol(n){
     d.id='sgpol-root';d.className='sgpol-page';
     d.innerHTML=buildPol(location.pathname);
     nav.parentNode.insertBefore(d,nav.nextSibling);
+    var fouc=document.getElementById('sg-fouc');if(fouc)fouc.remove();
     return;
   }
   if((n||0)<8) setTimeout(function(){tryPol((n||0)+1);},200);
