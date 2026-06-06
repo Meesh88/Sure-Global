@@ -176,6 +176,392 @@ window.addEventListener("load", function(){
 });
 </script>
 
+
+<style>
+/* === Solutions page (sgv2) === */
+.sgv2-page{color:#f8fafc}
+.sgv2-wrap{max-width:1180px;margin:0 auto}
+.sgv2-hero{position:relative;padding:96px 24px 80px;background:#050914;overflow:hidden}
+.sgv2-hero-bg{position:absolute;inset:0;background:radial-gradient(circle at 18% 55%,rgba(37,99,235,.10),transparent 55%);pointer-events:none}
+.sgv2-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(15,23,42,.7);border:1px solid rgba(59,130,246,.25);font-size:12px;font-weight:600;color:#3b82f6;letter-spacing:.02em;margin-bottom:24px}
+.sgv2-h1{font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.07;color:#f8fafc;margin:0 0 20px;max-width:820px}
+.sgv2-hero-sub{font-size:18px;color:#94a3b8;max-width:660px;line-height:1.7;margin:0 0 36px}
+.sgv2-btn{display:inline-flex;align-items:center;gap:8px;background:#3b82f6;color:#fff;font-size:14px;font-weight:600;padding:14px 28px;border-radius:8px;text-decoration:none;transition:background .15s}
+.sgv2-btn:hover{background:#2563eb}
+.sgv2-caps-section{background:#0a0f1e;padding:96px 24px}
+.sgv2-eyebrow{color:#3b82f6;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.sgv2-h2{font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.1;color:#f8fafc;margin:0 0 14px}
+.sgv2-sec-sub{color:#94a3b8;font-size:16px;max-width:640px;line-height:1.65;margin:0 0 48px}
+.sgv2-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.sgv2-card{border:1px solid rgba(59,130,246,.2);border-radius:16px;background:linear-gradient(180deg,rgba(15,23,42,.96),rgba(5,9,20,.93));padding:28px;display:flex;flex-direction:column}
+.sgv2-card-icon{width:48px;height:48px;border-radius:12px;background:rgba(59,130,246,.12);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#3b82f6;flex-shrink:0}
+.sgv2-card-title{font-size:17px;font-weight:700;color:#f8fafc;margin:0 0 10px}
+.sgv2-card-desc{font-size:14px;color:#94a3b8;line-height:1.65;margin:0 0 20px}
+.sgv2-divider{height:1px;background:rgba(59,130,246,.14);margin-bottom:18px}
+.sgv2-cap-eyebrow{font-size:11px;font-weight:700;color:#475569;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+.sgv2-caps{display:flex;flex-wrap:wrap;gap:7px}
+.sgv2-cap{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:#cbd5e1;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:6px;padding:5px 10px}
+.sgv2-dot{width:5px;height:5px;border-radius:50%;background:#3b82f6;flex-shrink:0;display:inline-block}
+.sgv2-exec-section{background:#050914;padding:96px 24px}
+.sgv2-exec-head{text-align:center;margin-bottom:48px}
+.sgv2-platform{border:1px solid rgba(59,130,246,.26);border-radius:20px;background:linear-gradient(180deg,rgba(15,23,42,.97),rgba(5,9,20,.96));padding:32px;box-shadow:0 0 80px rgba(37,99,235,.14),inset 0 1px 0 rgba(59,130,246,.1)}
+.sgv2-pbar{display:flex;align-items:center;justify-content:space-between;padding-bottom:24px;margin-bottom:28px;border-bottom:1px solid rgba(59,130,246,.13)}
+.sgv2-pbar-l{display:flex;align-items:center;gap:10px;color:#f8fafc;font-size:13px;font-weight:600}
+.sgv2-pbar-r{display:flex;align-items:center;gap:7px;font-size:12px;color:#94a3b8}
+.sgv2-online{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.2);display:inline-block;flex-shrink:0}
+.sgv2-modules{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.sgv2-mod{border:1px solid rgba(59,130,246,.14);border-radius:12px;background:rgba(15,23,42,.65);padding:20px}
+.sgv2-mod-icon{width:36px;height:36px;border-radius:9px;background:rgba(59,130,246,.12);display:flex;align-items:center;justify-content:center;color:#3b82f6;margin-bottom:14px}
+.sgv2-mod-name{font-size:13px;font-weight:700;color:#f8fafc;margin-bottom:11px}
+.sgv2-mod-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
+.sgv2-mod-list li{font-size:12px;color:#94a3b8;display:flex;align-items:center;gap:7px}
+.sgv2-li-dot{width:4px;height:4px;border-radius:50%;background:#3b82f6;display:inline-block;flex-shrink:0}
+.sgv2-ind-section{background:#0a0f1e;padding:96px 24px}
+.sgv2-ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.sgv2-ind-card{border:1px solid rgba(59,130,246,.16);border-radius:14px;background:rgba(15,23,42,.75);padding:20px 18px;display:flex;align-items:center;gap:14px}
+.sgv2-ind-icon{width:40px;height:40px;border-radius:10px;background:rgba(59,130,246,.1);display:flex;align-items:center;justify-content:center;color:#3b82f6;flex-shrink:0}
+.sgv2-ind-name{font-size:13px;font-weight:600;color:#e2e8f0;line-height:1.4}
+.sgv2-cta-section{padding:96px 24px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(180deg,#050914,#071120)}
+.sgv2-cta-glow{position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,rgba(37,99,235,.12),transparent 58%);pointer-events:none}
+.sgv2-cta-h2{font-size:clamp(26px,4vw,40px);font-weight:800;color:#f8fafc;margin:0 0 16px}
+.sgv2-cta-sub{color:#94a3b8;font-size:17px;max-width:600px;margin:0 auto 36px;line-height:1.65}
+/* === Briefing request page (sgb) === */
+.sgb-page{color:#f8fafc;padding-top:80px}
+.sgb-wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.sgb-hero{padding:72px 24px 48px;background:#050914;position:relative;overflow:hidden}
+.sgb-hero-bg{position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(37,99,235,.08),transparent 50%);pointer-events:none}
+.sgb-eyebrow{color:#3b82f6;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.sgb-h1{font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.1;color:#f8fafc;margin:0 0 14px;max-width:680px}
+.sgb-hero-sub{font-size:16px;color:#94a3b8;max-width:560px;line-height:1.65;margin:0}
+.sgb-main{background:#0a0f1e;padding:56px 24px 80px}
+.sgb-grid{display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:start}
+.sgb-form-card{border:1px solid rgba(59,130,246,.18);border-radius:16px;background:linear-gradient(180deg,rgba(15,23,42,.97),rgba(5,9,20,.94));padding:36px}
+.sgb-form-title{font-size:20px;font-weight:700;color:#f8fafc;margin:0 0 6px}
+.sgb-form-desc{font-size:14px;color:#64748b;margin:0 0 28px}
+.sgb-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sgb-field{margin-bottom:18px}
+.sgb-lbl{font-size:12px;font-weight:600;color:#94a3b8;display:block;margin-bottom:7px}
+.sgb-req{color:#3b82f6}
+.sgb-input,.sgb-select,.sgb-textarea{width:100%;background:#050914;border:1px solid rgba(59,130,246,.18);border-radius:8px;color:#f8fafc;font-size:14px;padding:11px 14px;outline:none;font-family:inherit;transition:border-color .15s;box-sizing:border-box}
+.sgb-input:focus,.sgb-select:focus,.sgb-textarea:focus{border-color:rgba(59,130,246,.48)}
+.sgb-select{-webkit-appearance:none;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%2394a3b8' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.sgb-select option{background:#050914;color:#f8fafc}
+.sgb-textarea{resize:vertical;min-height:90px}
+.sgb-err{font-size:11px;color:#ef4444;margin-top:4px;display:none}
+.sgb-input.serr,.sgb-select.serr,.sgb-textarea.serr{border-color:#ef4444}
+.sgb-submit{display:inline-flex;align-items:center;gap:8px;background:#3b82f6;color:#fff;font-size:14px;font-weight:600;padding:13px 28px;border-radius:8px;border:none;cursor:pointer;transition:background .15s;margin-top:6px}
+.sgb-submit:hover{background:#2563eb}
+.sgb-submit:disabled{opacity:.6;cursor:wait}
+.sgb-success{display:none;padding:56px 24px;text-align:center}
+.sgb-suc-icon{width:54px;height:54px;border-radius:50%;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#22c55e}
+.sgb-suc-title{font-size:20px;font-weight:700;color:#f8fafc;margin:0 0 10px}
+.sgb-suc-sub{font-size:14px;color:#94a3b8;line-height:1.65;max-width:440px;margin:0 auto}
+.sgb-sidebar{display:flex;flex-direction:column;gap:20px}
+.sgb-side-card{border:1px solid rgba(59,130,246,.16);border-radius:14px;background:linear-gradient(180deg,rgba(15,23,42,.96),rgba(5,9,20,.93));padding:22px}
+.sgb-side-title{font-size:11px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.18em;margin-bottom:16px}
+.sgb-steps{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+.sgb-step{display:flex;gap:12px}
+.sgb-step-n{width:22px;height:22px;min-width:22px;border-radius:50%;background:rgba(59,130,246,.18);border:1px solid rgba(59,130,246,.35);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#3b82f6}
+.sgb-step-title{font-size:13px;font-weight:600;color:#f8fafc;margin-bottom:2px}
+.sgb-step-sub{font-size:12px;color:#64748b;line-height:1.45}
+.sgb-offices{display:flex;flex-direction:column;gap:8px}
+.sgb-office{display:flex;align-items:center;gap:8px;font-size:13px;color:#94a3b8}
+.sgb-office-dot{width:6px;height:6px;border-radius:50%;background:#3b82f6;flex-shrink:0}
+.sgb-contact-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.sgb-contact-text{font-size:13px;color:#e2e8f0}
+.sgb-contact-sub{font-size:11px;color:#475569;margin-top:2px}
+/* Responsive */
+@media(max-width:900px){
+  .sgv2-cards{grid-template-columns:1fr}
+  .sgv2-modules{grid-template-columns:1fr 1fr}
+  .sgv2-ind-grid{grid-template-columns:1fr 1fr}
+  .sgv2-pbar{flex-direction:column;align-items:flex-start;gap:10px}
+  .sgb-grid{grid-template-columns:1fr}
+  .sgb-sidebar{display:none}
+}
+@media(max-width:540px){
+  .sgv2-modules{grid-template-columns:1fr}
+  .sgv2-ind-grid{grid-template-columns:1fr}
+  .sgv2-hero,.sgv2-caps-section,.sgv2-exec-section,.sgv2-ind-section,.sgv2-cta-section{padding-left:20px;padding-right:20px}
+  .sgb-row{grid-template-columns:1fr}
+  .sgb-hero,.sgb-main{padding-left:20px;padding-right:20px}
+}
+</style>
+
+<script>
+(function(){
+'use strict';
+function si(p,s){s=s||24;return '<svg width="'+s+'" height="'+s+'" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">'+p+'</svg>';}
+function cap(t){return '<span class="sgv2-cap"><span class="sgv2-dot"></span>'+t+'</span>';}
+function mli(t){return '<li><span class="sgv2-li-dot"></span>'+t+'</li>';}
+function icard(p,n){return '<div class="sgv2-ind-card"><div class="sgv2-ind-icon">'+si(p,20)+'</div><div class="sgv2-ind-name">'+n+'</div></div>';}
+var I={
+  eye:'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+  globe:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+  act:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+  lock:'<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  shld:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  shck:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>',
+  lyr:'<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>',
+  grd:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>',
+  srv:'<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>',
+  mtn:'<path d="M8 3l4 8 5-5 5 15H2L8 3z"/>',
+  zap:'<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+  wfi:'<path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>',
+  trk:'<rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',
+  hom:'<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+  arr:'<path d="M5 12h14M12 5l7 7-7 7"/>',
+  chk:'<polyline points="20 6 9 17 4 12"/>',
+  ml:'<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
+  pin:'<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>'
+};
+
+/* ---- Solutions page ---- */
+function buildSolutions(){
+  return [
+    '<section class="sgv2-hero"><div class="sgv2-hero-bg"></div><div class="sgv2-wrap">',
+      '<div class="sgv2-badge">'+si(I.shld,14)+' Intelligence &amp; Security</div>',
+      '<h1 class="sgv2-h1">Intelligence &amp; Cybersecurity Solutions</h1>',
+      '<p class="sgv2-hero-sub">Sure Global partners with governments, enterprises, and critical infrastructure operators to deliver integrated intelligence, situational awareness, and cybersecurity capabilities — enabling confident strategic decisions at every level.</p>',
+      '<a href="/briefing-request" class="sgv2-btn">Request Strategic Briefing '+si(I.arr,16)+'</a>',
+    '</div></section>',
+
+    '<section class="sgv2-caps-section"><div class="sgv2-wrap">',
+      '<div class="sgv2-eyebrow">Capabilities</div>',
+      '<h2 class="sgv2-h2">Intelligence &amp; Security Solutions</h2>',
+      '<p class="sgv2-sec-sub">Integrated intelligence, operational visibility, and cybersecurity capabilities designed for organizations where operational certainty is not optional.</p>',
+      '<div class="sgv2-cards">',
+
+      '<div class="sgv2-card">',
+        '<div class="sgv2-card-icon">'+si(I.eye)+'</div>',
+        '<h3 class="sgv2-card-title">Cyber Intelligence &amp; Strategic Security</h3>',
+        '<p class="sgv2-card-desc">Stay ahead of emerging risks with intelligence systems that give decision-makers clear situational awareness and timely risk intelligence across their operating environment.</p>',
+        '<div class="sgv2-divider"></div><div class="sgv2-cap-eyebrow">Capabilities</div><div class="sgv2-caps">',
+          cap('Threat Intelligence Monitoring'),cap('Risk &amp; Vulnerability Detection'),
+          cap('Executive Intelligence Dashboards'),cap('Incident Response Coordination'),
+          cap('Critical Infrastructure Monitoring'),cap('Intelligence Fusion'),
+          cap('Situational Awareness Centers'),cap('Strategic Reporting &amp; Briefings'),
+        '</div></div>',
+
+      '<div class="sgv2-card">',
+        '<div class="sgv2-card-icon">'+si(I.globe)+'</div>',
+        '<h3 class="sgv2-card-title">Geospatial Intelligence</h3>',
+        '<p class="sgv2-card-desc">Transform spatial and location data into strategic insight. Understand infrastructure risk, asset positions, and regional conditions through interactive geospatial intelligence platforms.</p>',
+        '<div class="sgv2-divider"></div><div class="sgv2-cap-eyebrow">Capabilities</div><div class="sgv2-caps">',
+          cap('Geospatial Risk Analysis'),cap('Infrastructure Mapping'),
+          cap('Satellite Data Integration'),cap('Asset Monitoring'),
+          cap('Route &amp; Logistics Intelligence'),cap('Border &amp; Perimeter Monitoring'),
+          cap('Environmental Risk Monitoring'),cap('Interactive GIS Dashboards'),
+        '</div></div>',
+
+      '<div class="sgv2-card">',
+        '<div class="sgv2-card-icon">'+si(I.act)+'</div>',
+        '<h3 class="sgv2-card-title">Operational Monitoring</h3>',
+        '<p class="sgv2-card-desc">Maintain complete situational awareness across your operations. Centralized intelligence platforms surface what leadership needs to make confident, timely operational decisions.</p>',
+        '<div class="sgv2-divider"></div><div class="sgv2-cap-eyebrow">Capabilities</div><div class="sgv2-caps">',
+          cap('Operational Status Monitoring'),cap('Asset Tracking'),
+          cap('Workforce Visibility'),cap('Field Operations Oversight'),
+          cap('Alert Management'),cap('KPI Monitoring'),
+          cap('Resource Allocation Analysis'),cap('Executive Situation Rooms'),
+        '</div></div>',
+
+      '<div class="sgv2-card">',
+        '<div class="sgv2-card-icon">'+si(I.lock)+'</div>',
+        '<h3 class="sgv2-card-title">Cybersecurity Operations</h3>',
+        '<p class="sgv2-card-desc">Protect your organization and reduce operational exposure with enterprise-grade cybersecurity capabilities designed for high-stakes environments and executive-level accountability.</p>',
+        '<div class="sgv2-divider"></div><div class="sgv2-cap-eyebrow">Capabilities</div><div class="sgv2-caps">',
+          cap('Security Operations Center (SOC)'),cap('Threat Detection &amp; Analysis'),
+          cap('Vulnerability Management'),cap('Security Assessments'),
+          cap('Incident Response Planning'),cap('Security Awareness Programs'),
+          cap('Compliance Monitoring'),cap('Cyber Risk Reporting'),
+        '</div></div>',
+
+      '</div></div></section>',
+
+    '<section class="sgv2-exec-section"><div class="sgv2-wrap">',
+      '<div class="sgv2-exec-head">',
+        '<div class="sgv2-eyebrow">Platform</div>',
+        '<h2 class="sgv2-h2">Executive Intelligence Platform</h2>',
+        '<p class="sgv2-sec-sub" style="margin:0 auto">Integrated modules for threat intelligence, geospatial awareness, operational monitoring, and executive briefings — unified in one secure command environment.</p>',
+      '</div>',
+      '<div class="sgv2-platform">',
+        '<div class="sgv2-pbar">',
+          '<div class="sgv2-pbar-l">'+si(I.lyr,18)+' Sure Global Executive Intelligence Platform</div>',
+          '<div class="sgv2-pbar-r"><span class="sgv2-online"></span> All Systems Operational</div>',
+        '</div>',
+        '<div class="sgv2-modules">',
+          '<div class="sgv2-mod"><div class="sgv2-mod-icon">'+si(I.grd,18)+'</div><div class="sgv2-mod-name">Executive Dashboard</div><ul class="sgv2-mod-list">'+mli('Unified operational visibility')+mli('Strategic KPI monitoring')+mli('Risk heatmaps')+mli('Executive reporting')+'</ul></div>',
+          '<div class="sgv2-mod"><div class="sgv2-mod-icon">'+si(I.shld,18)+'</div><div class="sgv2-mod-name">Threat Intelligence</div><ul class="sgv2-mod-list">'+mli('Emerging threat identification')+mli('Risk actor analysis')+mli('Risk prioritization')+mli('Alert management')+'</ul></div>',
+          '<div class="sgv2-mod"><div class="sgv2-mod-icon">'+si(I.globe,18)+'</div><div class="sgv2-mod-name">Geospatial Intelligence</div><ul class="sgv2-mod-list">'+mli('Interactive mapping')+mli('Infrastructure visibility')+mli('Regional risk monitoring')+mli('Geospatial analytics')+'</ul></div>',
+          '<div class="sgv2-mod"><div class="sgv2-mod-icon">'+si(I.act,18)+'</div><div class="sgv2-mod-name">Operational Monitoring</div><ul class="sgv2-mod-list">'+mli('Asset monitoring')+mli('Workforce intelligence')+mli('Field activity tracking')+mli('Situation awareness')+'</ul></div>',
+        '</div>',
+      '</div>',
+    '</div></section>',
+
+    '<section class="sgv2-ind-section"><div class="sgv2-wrap">',
+      '<div class="sgv2-eyebrow">Industries Served</div>',
+      '<h2 class="sgv2-h2">Built for High-Stakes Environments</h2>',
+      '<p class="sgv2-sec-sub">Sure Global\'s intelligence and cybersecurity capabilities are designed for sectors where operational certainty is not optional.</p>',
+      '<div class="sgv2-ind-grid">',
+        icard(I.srv,'Critical Infrastructure'),
+        icard(I.mtn,'Mining &amp; Natural Resources'),
+        icard(I.zap,'Energy &amp; Utilities'),
+        icard(I.wfi,'Telecommunications'),
+        icard(I.trk,'Transportation &amp; Logistics'),
+        icard(I.hom,'Public Sector Organizations'),
+        icard(I.shck,'Enterprise Security Operations'),
+      '</div>',
+    '</div></section>',
+
+    '<section class="sgv2-cta-section">',
+      '<div class="sgv2-cta-glow"></div>',
+      '<div class="sgv2-wrap" style="position:relative">',
+        '<div class="sgv2-eyebrow" style="margin-bottom:16px">Get Started</div>',
+        '<h2 class="sgv2-cta-h2">Strategic Intelligence Starts With Visibility</h2>',
+        '<p class="sgv2-cta-sub">Gain the situational awareness, risk intelligence, and decision support that modern organizations depend on. Partner with Sure Global to build your intelligence advantage.</p>',
+        '<a href="/briefing-request" class="sgv2-btn">Request Strategic Briefing '+si(I.arr,16)+'</a>',
+      '</div>',
+    '</section>'
+  ].join('');
+}
+
+/* ---- Briefing request page ---- */
+function finp(id,lbl,type,ph,req){
+  var r=req?'<span class="sgb-req">*</span>':'';
+  return '<div class="sgb-field"><label class="sgb-lbl" for="'+id+'">'+lbl+r+'</label><input id="'+id+'" type="'+(type||'text')+'" class="sgb-input'+(req?' sgb-r':'')+'" placeholder="'+(ph||'')+'" /><div class="sgb-err" id="e-'+id+'">Required.</div></div>';
+}
+function fsel(id,lbl,opts,req){
+  var r=req?'<span class="sgb-req">*</span>':'';
+  var o=opts.map(function(x){return '<option value="'+x[0]+'">'+x[1]+'</option>';}).join('');
+  return '<div class="sgb-field"><label class="sgb-lbl" for="'+id+'">'+lbl+r+'</label><select id="'+id+'" class="sgb-select'+(req?' sgb-r':'')+'" ><option value="">Select...</option>'+o+'</select><div class="sgb-err" id="e-'+id+'">Required.</div></div>';
+}
+function fta(id,lbl,ph,req,rows){
+  var r=req?'<span class="sgb-req">*</span>':'';
+  return '<div class="sgb-field"><label class="sgb-lbl" for="'+id+'">'+lbl+r+'</label><textarea id="'+id+'" class="sgb-textarea'+(req?' sgb-r':'')+'" placeholder="'+(ph||'')+'" rows="'+(rows||4)+'"></textarea><div class="sgb-err" id="e-'+id+'">Required.</div></div>';
+}
+
+function buildBriefing(){
+  var inds=[['gov','Government &amp; Public Sector'],['mining','Mining &amp; Natural Resources'],['energy','Energy &amp; Utilities'],['telecom','Telecommunications'],['transport','Transportation &amp; Logistics'],['infra','Critical Infrastructure'],['fin','Financial Services'],['ent','Enterprise Security Operations'],['other','Other']];
+  var tls=[['imm','Immediate (within 30 days)'],['3-6','3–6 months'],['6-12','6–12 months'],['12+','12+ months'],['exp','Exploring options']];
+  var budgets=[['u50','Under $50,000'],['50-250','$50,000 – $250,000'],['250-1m','$250,000 – $1,000,000'],['1m+','$1,000,000+'],['tbd','Not yet defined']];
+  var heard=[['search','Web search'],['ref','Referral / Partner'],['li','LinkedIn'],['event','Conference / Event'],['gov','Government channel'],['other','Other']];
+  return [
+    '<section class="sgb-hero"><div class="sgb-hero-bg"></div><div class="sgb-wrap" style="position:relative">',
+      '<div class="sgb-eyebrow">Strategic Briefing</div>',
+      '<h1 class="sgb-h1">Request a Strategic Briefing</h1>',
+      '<p class="sgb-hero-sub">Tell us about your organization and objectives. Our team will review your submission and arrange a confidential consultation tailored to your situation.</p>',
+    '</div></section>',
+    '<section class="sgb-main"><div class="sgb-wrap"><div class="sgb-grid">',
+
+      '<div><div class="sgb-form-card">',
+        '<div id="sgb-fw">',
+          '<h2 class="sgb-form-title">Briefing Request Form</h2>',
+          '<p class="sgb-form-desc">Fields marked <span class="sgb-req">*</span> are required. All information is treated with strict confidentiality.</p>',
+          '<form id="sgb-form" novalidate>',
+            '<div class="sgb-row">',finp('f-name','Full Name','text','Full name',true),finp('f-org','Organization','text','Organization name',true),'</div>',
+            '<div class="sgb-row">',finp('f-role','Role / Title','text','Your title',false),finp('f-email','Email Address','email','email@organization.com',true),'</div>',
+            '<div class="sgb-row">',finp('f-phone','Phone','tel','+1 (000) 000-0000',false),fsel('f-ind','Industry',inds,true),'</div>',
+            fta('f-challenge','Primary Challenge','Describe the intelligence, security, or operational challenge you are addressing.',true,4),
+            fta('f-objectives','Desired Outcomes','What results are you seeking from this engagement?',false,3),
+            '<div class="sgb-row">',fsel('f-timeline','Implementation Timeline',tls,false),fsel('f-budget','Anticipated Investment Range',budgets,false),'</div>',
+            fsel('f-heard','How did you hear about us?',heard,false),
+            '<button type="submit" class="sgb-submit" id="sgb-btn">Submit Briefing Request '+si(I.arr,16)+'</button>',
+          '</form>',
+        '</div>',
+        '<div class="sgb-success" id="sgb-suc">',
+          '<div class="sgb-suc-icon">'+si(I.chk,24)+'</div>',
+          '<h3 class="sgb-suc-title">Briefing Request Received</h3>',
+          '<p class="sgb-suc-sub">A member of our strategic team will review your submission and contact you within one business day to arrange a confidential consultation.</p>',
+        '</div>',
+      '</div></div>',
+
+      '<div class="sgb-sidebar">',
+        '<div class="sgb-side-card"><div class="sgb-side-title">What to Expect</div>',
+          '<ul class="sgb-steps">',
+            '<li class="sgb-step"><div class="sgb-step-n">1</div><div><div class="sgb-step-title">Submit your request</div><div class="sgb-step-sub">Complete the form with your organization details and objectives.</div></div></li>',
+            '<li class="sgb-step"><div class="sgb-step-n">2</div><div><div class="sgb-step-title">Team review</div><div class="sgb-step-sub">Our strategic team reviews your submission and prepares relevant materials.</div></div></li>',
+            '<li class="sgb-step"><div class="sgb-step-n">3</div><div><div class="sgb-step-title">Schedule briefing</div><div class="sgb-step-sub">We contact you within one business day to schedule a confidential session.</div></div></li>',
+            '<li class="sgb-step"><div class="sgb-step-n">4</div><div><div class="sgb-step-title">Strategic briefing</div><div class="sgb-step-sub">A focused session covering capabilities relevant to your specific environment.</div></div></li>',
+          '</ul>',
+        '</div>',
+        '<div class="sgb-side-card"><div class="sgb-side-title">Contact</div>',
+          '<div class="sgb-contact-row">'+si(I.ml,14)+'<div><div class="sgb-contact-text">info@sureglobal.com</div><div class="sgb-contact-sub">General inquiries</div></div></div>',
+          '<div class="sgb-contact-row">'+si(I.pin,14)+'<div><div class="sgb-contact-text">Lusaka, Zambia</div><div class="sgb-contact-sub">Headquarters</div></div></div>',
+        '</div>',
+        '<div class="sgb-side-card"><div class="sgb-side-title">Global Offices</div>',
+          '<div class="sgb-offices">',
+            '<div class="sgb-office"><span class="sgb-office-dot"></span>Lusaka, Zambia</div>',
+            '<div class="sgb-office"><span class="sgb-office-dot"></span>Dubai, UAE</div>',
+            '<div class="sgb-office"><span class="sgb-office-dot"></span>Washington D.C., USA</div>',
+            '<div class="sgb-office"><span class="sgb-office-dot"></span>Lubumbashi, DRC</div>',
+          '</div>',
+        '</div>',
+      '</div>',
+
+    '</div></div></section>'
+  ].join('');
+}
+
+function attachForm(root){
+  var form=root.querySelector('#sgb-form');
+  if(!form) return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    root.querySelectorAll('.sgb-r').forEach(function(el){
+      var v=el.value.trim(), err=root.querySelector('#e-'+el.id);
+      if(!v){el.classList.add('serr');if(err)err.style.display='block';ok=false;}
+      else{el.classList.remove('serr');if(err)err.style.display='none';}
+    });
+    var em=root.querySelector('#f-email');
+    if(em&&em.value&&!/\S+@\S+\.\S+/.test(em.value)){
+      em.classList.add('serr');var ee=root.querySelector('#e-f-email');
+      if(ee){ee.textContent='Enter a valid email.';ee.style.display='block';}ok=false;
+    }
+    if(!ok) return;
+    var btn=root.querySelector('#sgb-btn');
+    if(btn){btn.disabled=true;btn.textContent='Submitting...';}
+    setTimeout(function(){
+      var fw=root.querySelector('#sgb-fw'),sc=root.querySelector('#sgb-suc');
+      if(fw)fw.style.display='none';if(sc)sc.style.display='block';
+    },1500);
+  });
+}
+
+/* ---- Injection ---- */
+function injectSol(n){
+  if(location.pathname!=='/solutions') return;
+  if(document.getElementById('sgv2-root')) return;
+  var pg=document.querySelector('#root .pt-20');
+  if(pg&&pg.querySelector('section')){
+    var d=document.createElement('div');d.id='sgv2-root';d.className='sgv2-page';
+    d.innerHTML=buildSolutions();pg.innerHTML='';pg.appendChild(d);return;
+  }
+  if((n||0)<8) setTimeout(function(){injectSol((n||0)+1);},200);
+}
+function injectBrief(n){
+  if(location.pathname!=='/briefing-request') return;
+  if(document.getElementById('sgb-root')) return;
+  var nav=document.querySelector('#root nav');
+  if(nav){
+    var d=document.createElement('div');d.id='sgb-root';d.className='sgb-page';
+    d.innerHTML=buildBriefing();nav.parentNode.insertBefore(d,nav.nextSibling);
+    attachForm(d);return;
+  }
+  if((n||0)<8) setTimeout(function(){injectBrief((n||0)+1);},200);
+}
+function run(n){injectSol(n);injectBrief(n);}
+function cleanup(){if(location.pathname!=='/briefing-request'){var b=document.getElementById('sgb-root');if(b)b.remove();}}
+
+['pushState','replaceState'].forEach(function(m){
+  var orig=history[m];
+  history[m]=function(){orig.apply(this,arguments);cleanup();setTimeout(function(){run(0);},300);};
+});
+window.addEventListener('popstate',function(){cleanup();setTimeout(function(){run(0);},300);});
+window.addEventListener('load',function(){setTimeout(function(){run(0);},400);});
+})();
+</script>
+
 </body>
 </html>
 
