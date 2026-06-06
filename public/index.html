@@ -3,10 +3,10 @@
   <head>
         <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sure Global - Strategic Intelligence Systems</title>
-    <meta name="description" content="Sure Global develops AI-powered platforms for cybersecurity, intelligence, mineral analytics, trade, and strategic infrastructure." />
-    <meta property="og:title" content="Sure Global - Strategic Intelligence Systems" />
-    <meta property="og:description" content="AI-powered intelligence systems for governments, enterprises, and resource markets." />
+    <title>Sure Global — Intelligence Infrastructure for High-Stakes Decisions</title>
+    <meta name="description" content="Sure Global develops three strategic intelligence platforms — Sure Mineral Intelligence, Sure Agentic AI, and Sure Cyber Intel — for governments, enterprises, and resource organizations." />
+    <meta property="og:title" content="Sure Global — Intelligence Infrastructure for High-Stakes Decisions" />
+    <meta property="og:description" content="Strategic intelligence platforms combining AI, geospatial analytics, and cybersecurity for governments, enterprises, and resource organizations in complex operating environments." />
     <meta property="og:type" content="website" />
     <script type="module" crossorigin src="/assets/index-WtoL1l34.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Doddldxj.css">
@@ -45,102 +45,207 @@
     <div id="root"></div>
   
 <style>
-.sg-command-section{padding:96px 24px;background:#050914;color:#f8fafc}
-.sg-command-wrap{max-width:1180px;margin:0 auto}
 .sg-eyebrow{color:#3b82f6;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
-.sg-title{font-size:42px;line-height:1.05;font-weight:800;margin:0 0 18px}
-.sg-sub{max-width:760px;color:#94a3b8;font-size:17px;line-height:1.7;margin-bottom:42px}
-.sg-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
-.sg-card{border:1px solid rgba(59,130,246,.22);background:linear-gradient(180deg,rgba(15,23,42,.96),rgba(2,6,23,.92));border-radius:18px;padding:22px;box-shadow:0 0 50px rgba(37,99,235,.12)}
-.sg-card h3{font-size:15px;text-transform:uppercase;letter-spacing:.16em;color:#93c5fd;margin:0 0 18px}
-.sg-map{height:330px;border-radius:14px;background:radial-gradient(circle at 52% 45%,rgba(59,130,246,.22),transparent 28%),linear-gradient(rgba(59,130,246,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.08) 1px,transparent 1px);background-size:auto,48px 48px,48px 48px;position:relative;overflow:hidden}
-.sg-ring{position:absolute;border:2px solid #facc15;border-radius:50%;width:330px;height:230px;left:32%;top:18%;filter:drop-shadow(0 0 12px rgba(250,204,21,.45))}
-.sg-dot{position:absolute;width:11px;height:11px;border-radius:50%;background:#38bdf8;box-shadow:0 0 0 10px rgba(56,189,248,.08),0 0 20px rgba(56,189,248,.8)}
-.sg-dot.red{background:#ef4444;box-shadow:0 0 0 12px rgba(239,68,68,.12),0 0 20px rgba(239,68,68,.8)}
-.sg-dot.yellow{background:#facc15}
-.sg-dot span{position:absolute;top:-22px;left:-18px;font-size:10px;color:#cbd5e1;text-transform:uppercase;letter-spacing:.12em}
-.sg-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-.sg-metric{background:rgba(15,23,42,.8);border:1px solid rgba(59,130,246,.18);border-radius:12px;padding:16px}
-.sg-metric strong{display:block;font-size:26px;color:#f8fafc}
-.sg-metric span{font-size:12px;color:#94a3b8}
-.sg-alert{border:1px solid rgba(59,130,246,.18);background:rgba(15,23,42,.75);border-radius:12px;padding:14px;margin-bottom:12px}
-.sg-alert b{font-size:12px;color:#facc15;text-transform:uppercase;letter-spacing:.12em}
-.sg-alert p{margin:6px 0 0;color:#cbd5e1;font-size:14px}
-.sg-functions{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:24px}
-.sg-function{border:1px solid rgba(59,130,246,.18);border-radius:14px;padding:16px;background:rgba(15,23,42,.72)}
-.sg-function b{font-size:14px}
-.sg-function p{font-size:12px;color:#94a3b8;line-height:1.55}
-@media(max-width:900px){.sg-grid,.sg-functions{grid-template-columns:1fr}.sg-title{font-size:32px}.sg-metrics{grid-template-columns:1fr}}
+.sg-ops-section{padding:96px 24px;background:#050914;color:#f8fafc}
+.sg-ops-wrap{max-width:1180px;margin:0 auto}
+.sg-ops-h2{font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.05;margin:0 0 18px;color:#f8fafc}
+.sg-ops-sub{max-width:680px;color:#94a3b8;font-size:16px;line-height:1.7;margin-bottom:48px}
+.sg-ops-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:32px}
+.sg-ops-tile{border:1px solid rgba(59,130,246,.14);border-radius:14px;background:rgba(15,23,42,.72);padding:22px;display:flex;align-items:flex-start;gap:14px;transition:border-color .2s}
+.sg-ops-tile:hover{border-color:rgba(59,130,246,.32)}
+.sg-ops-tile-icon{width:42px;height:42px;border-radius:10px;background:rgba(59,130,246,.1);display:flex;align-items:center;justify-content:center;color:#3b82f6;flex-shrink:0}
+.sg-ops-tile-name{font-size:14px;font-weight:700;color:#f8fafc;margin-bottom:4px}
+.sg-ops-tile-sub{font-size:12px;color:#64748b;line-height:1.5}
+.sg-ops-status-bar{border:1px solid rgba(59,130,246,.16);border-radius:12px;background:rgba(15,23,42,.72);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.sg-ops-status-label{font-size:11px;font-weight:700;color:#475569;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+.sg-ops-status-items{display:flex;gap:20px;flex-wrap:wrap}
+.sg-ops-status-item{display:flex;align-items:center;gap:7px;font-size:13px;color:#94a3b8}
+.sg-ops-live{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.2);display:inline-block;flex-shrink:0}
+.sg-plat-section{padding:96px 24px;background:#0a0f1e;color:#f8fafc}
+.sg-plat-wrap{max-width:1180px;margin:0 auto}
+.sg-plat-h2{font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.05;margin:0 0 18px;color:#f8fafc}
+.sg-plat-sub{max-width:680px;color:#94a3b8;font-size:16px;line-height:1.7;margin-bottom:48px}
+.sg-plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sg-plat-card{border-radius:18px;background:linear-gradient(180deg,rgba(15,23,42,.97),rgba(5,9,20,.94));padding:30px;display:flex;flex-direction:column;border:1px solid rgba(59,130,246,.18);transition:border-color .2s}
+.sg-plat-card.smi{border-color:rgba(217,119,6,.22)}.sg-plat-card.smi:hover{border-color:rgba(217,119,6,.42)}
+.sg-plat-card.sai{border-color:rgba(147,51,234,.22)}.sg-plat-card.sai:hover{border-color:rgba(147,51,234,.42)}
+.sg-plat-card.sci{border-color:rgba(59,130,246,.22)}.sg-plat-card.sci:hover{border-color:rgba(59,130,246,.42)}
+.sg-plat-badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.18em;padding:4px 10px;border-radius:6px;margin-bottom:16px}
+.smi .sg-plat-badge{background:rgba(217,119,6,.12);color:#f59e0b;border:1px solid rgba(217,119,6,.28)}
+.sai .sg-plat-badge{background:rgba(147,51,234,.12);color:#a855f7;border:1px solid rgba(147,51,234,.28)}
+.sci .sg-plat-badge{background:rgba(59,130,246,.12);color:#3b82f6;border:1px solid rgba(59,130,246,.28)}
+.sg-plat-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0}
+.smi .sg-plat-icon{background:rgba(217,119,6,.1);color:#f59e0b}
+.sai .sg-plat-icon{background:rgba(147,51,234,.1);color:#a855f7}
+.sci .sg-plat-icon{background:rgba(59,130,246,.1);color:#3b82f6}
+.sg-plat-name{font-size:18px;font-weight:800;color:#f8fafc;margin:0 0 10px}
+.sg-plat-desc{font-size:14px;color:#94a3b8;line-height:1.7;margin:0 0 20px;flex:1}
+.sg-plat-caps{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.sg-plat-cap{font-size:11px;font-weight:600;color:#cbd5e1;border-radius:5px;padding:4px 9px}
+.smi .sg-plat-cap{background:rgba(217,119,6,.07);border:1px solid rgba(217,119,6,.16)}
+.sai .sg-plat-cap{background:rgba(147,51,234,.07);border:1px solid rgba(147,51,234,.16)}
+.sci .sg-plat-cap{background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.14)}
+.sg-plat-link{font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-top:auto;transition:opacity .15s}
+.smi .sg-plat-link{color:#f59e0b}.sai .sg-plat-link{color:#a855f7}.sci .sg-plat-link{color:#3b82f6}
+.sg-plat-link:hover{opacity:.72}
+@media(max-width:900px){.sg-ops-tiles{grid-template-columns:1fr 1fr}.sg-ops-h2,.sg-plat-h2{font-size:32px}.sg-plat-grid{grid-template-columns:1fr}}
+@media(max-width:540px){.sg-ops-tiles{grid-template-columns:1fr}}
 </style>
 
 <script>
-window.addEventListener("load", function(){
-  if(location.pathname !== "/" && location.pathname !== "/index.html") return;
-  if(document.getElementById("sg-command-capabilities")) return;
+(function(){
+'use strict';
+function svgi(p,s){s=s||20;return '<svg width="'+s+'" height="'+s+'" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">'+p+'</svg>';}
+var PI={
+  gov:'<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+  mtn:'<path d="M8 3l4 8 5-5 5 15H2L8 3z"/>',
+  zap:'<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+  wfi:'<path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>',
+  srv:'<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>',
+  shck:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>',
+  mtn2:'<path d="M8 3l4 8 5-5 5 15H2L8 3z"/>',
+  cpu:'<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>',
+  arr:'<path d="M5 12h14M12 5l7 7-7 7"/>'
+};
 
-  const section = document.createElement("section");
-  section.id = "sg-command-capabilities";
-  section.className = "sg-command-section";
-  section.innerHTML = `
-    <div class="sg-command-wrap">
-      <div class="sg-eyebrow">Government Intelligence Capabilities</div>
-      <h2 class="sg-title">National Digital Intelligence Functions</h2>
-      <p class="sg-sub">
-        Sure Global designs executive intelligence systems that help institutions monitor public digital risk,
-        identify emerging threats, coordinate incident workflows, and support leadership with timely strategic briefings.
-      </p>
+/* ---- Operating Environments section ---- */
+var OPS_TILES=[
+  [PI.gov,'Government &amp; Public Sector','National intelligence, critical infrastructure, executive decision support'],
+  [PI.mtn,'Mining &amp; Natural Resources','Acquisition intelligence, geological analysis, resource risk monitoring'],
+  [PI.zap,'Energy &amp; Utilities','Infrastructure protection, operational monitoring, supply chain intelligence'],
+  [PI.wfi,'Telecommunications','Network risk intelligence, threat monitoring, infrastructure visibility'],
+  [PI.srv,'Critical Infrastructure','Asset monitoring, multi-region threat intelligence, situational awareness'],
+  [PI.shck,'Enterprise Security','Cyber risk intelligence, executive security briefings, incident readiness']
+];
 
-      <div class="sg-grid">
-        <div class="sg-card">
-          <h3>National Monitoring View</h3>
-          <div class="sg-map">
-            <div class="sg-ring"></div>
-            <div class="sg-dot red" style="left:50%;top:58%"><span>Lusaka</span></div>
-            <div class="sg-dot yellow" style="left:43%;top:38%"><span>Ndola</span></div>
-            <div class="sg-dot" style="left:35%;top:34%"><span>Solwezi</span></div>
-            <div class="sg-dot" style="left:58%;top:35%"><span>Mansa</span></div>
-            <div class="sg-dot yellow" style="left:68%;top:50%"><span>Chipata</span></div>
-            <div class="sg-dot" style="left:46%;top:72%"><span>Livingstone</span></div>
-          </div>
-          <div class="sg-metrics">
-            <div class="sg-metric"><strong>4</strong><span>Active Incidents</span></div>
-            <div class="sg-metric"><strong>47</strong><span>Live Signals</span></div>
-            <div class="sg-metric"><strong>10</strong><span>Monitored Regions</span></div>
-          </div>
-        </div>
+function buildOps(){
+  var tiles=OPS_TILES.map(function(t){
+    return '<div class="sg-ops-tile"><div class="sg-ops-tile-icon">'+svgi(t[0])+'</div>'
+      +'<div><div class="sg-ops-tile-name">'+t[1]+'</div><div class="sg-ops-tile-sub">'+t[2]+'</div></div></div>';
+  }).join('');
+  var status=['Intelligence Processing','Threat Monitoring','Geospatial Analytics','Executive Alert Layer'].map(function(l){
+    return '<div class="sg-ops-status-item"><span class="sg-ops-live"></span>'+l+'</div>';
+  }).join('');
+  return '<div class="sg-ops-wrap">'
+    +'<div class="sg-eyebrow">Operating Environments</div>'
+    +'<h2 class="sg-ops-h2">Intelligence for Environments Others Can\'t Serve</h2>'
+    +'<p class="sg-ops-sub">Our platforms are purpose-built for sectors where operational certainty, executive visibility, and strategic risk intelligence are foundational requirements — not optional features.</p>'
+    +'<div class="sg-ops-tiles">'+tiles+'</div>'
+    +'<div class="sg-ops-status-bar"><div class="sg-ops-status-label">Platform Status</div>'
+    +'<div class="sg-ops-status-items">'+status+'</div></div>'
+    +'</div>';
+}
 
-        <div class="sg-card">
-          <h3>Executive Intelligence Layer</h3>
-          <div class="sg-alert"><b>Pattern Detection</b><p>Identify coordinated public digital activity and emerging narratives.</p></div>
-          <div class="sg-alert"><b>Risk Classification</b><p>Prioritize signals by urgency, geography, source type, and confidence level.</p></div>
-          <div class="sg-alert"><b>Leadership Briefings</b><p>Generate concise executive summaries for daily and crisis-level review.</p></div>
-          <div class="sg-alert"><b>Incident Workflow</b><p>Route verified issues to appropriate teams for review, escalation, and response.</p></div>
-        </div>
-      </div>
+function injectOps(n){
+  if(location.pathname!=='/'&&location.pathname!=='/index.html') return;
+  if(document.getElementById('sg-ops-section')) return;
+  var root=document.getElementById('root');
+  if(!root) return;
+  var target=root.querySelector('section:nth-of-type(2)')||root.querySelector('main section:nth-of-type(2)');
+  if(target&&target.parentNode){
+    var s=document.createElement('section');
+    s.id='sg-ops-section';s.className='sg-ops-section';
+    s.innerHTML=buildOps();
+    target.parentNode.insertBefore(s,target);
+    return;
+  }
+  if((n||0)<8) setTimeout(function(){injectOps((n||0)+1);},200);
+}
 
-      <div class="sg-functions">
-        <div class="sg-function"><b>Command Center</b><p>Executive-level visibility into national digital risk and operational status.</p></div>
-        <div class="sg-function"><b>Incident System</b><p>Structured review, triage, assignment, and resolution workflows.</p></div>
-        <div class="sg-function"><b>Threat Intelligence</b><p>Open-source intelligence monitoring and strategic risk assessment.</p></div>
-        <div class="sg-function"><b>Strategic Response</b><p>Recommended action plans, briefings, and coordinated response support.</p></div>
-        <div class="sg-function"><b>Compliance Review</b><p>Lawful escalation workflows aligned with policy and institutional oversight.</p></div>
-      </div>
-    </div>
-  `;
+/* ---- Platform Portfolio section ---- */
+var PLATS=[
+  {cls:'smi',badge:'SMI',icon:'<path d="M8 3l4 8 5-5 5 15H2L8 3z"/>',name:'Sure Mineral Intelligence',
+   desc:'Acquisition intelligence for mineral exploration and resource investment. Identify high-potential opportunities before competitors through AI-powered geological, license, and operator analysis.',
+   caps:['Geological Intelligence','License Intelligence','Acquisition Prioritization','Prospect Ranking'],href:'/mineral-intelligence'},
+  {cls:'sai',badge:'SAI',icon:'<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>',name:'Sure Agentic AI',
+   desc:'AI-powered intelligence for business development, data enrichment, and operational decisions. Automate intelligence workflows and surface the signals that drive strategic action.',
+   caps:['Business Intelligence','Workflow Automation','Data Enrichment','AI Qualification'],href:'/ai-platform'},
+  {cls:'sci',badge:'SCI',icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>',name:'Sure Cyber Intel',
+   desc:'Cyber threat intelligence and operational security for critical environments. Executive-grade visibility into your threat landscape, risk posture, and incident response readiness.',
+   caps:['Threat Intelligence','Executive Dashboards','Incident Response','Risk Intelligence'],href:'/solutions'}
+];
 
-  const root = document.getElementById("root");
-  setTimeout(() => {
-    const main = root.querySelector("main") || root.firstElementChild || root;
-    
-    const target = root.querySelector("section:nth-of-type(2)") || root.querySelector("main section:nth-of-type(2)");
-    if (target && target.parentNode) {
-      target.parentNode.insertBefore(section, target);
-    } else {
-      main.appendChild(section);
+function buildPlats(){
+  var cards=PLATS.map(function(c){
+    var caps=c.caps.map(function(k){return '<span class="sg-plat-cap">'+k+'</span>';}).join('');
+    return '<div class="sg-plat-card '+c.cls+'">'
+      +'<span class="sg-plat-badge">'+c.badge+'</span>'
+      +'<div class="sg-plat-icon">'+svgi(c.icon,22)+'</div>'
+      +'<h3 class="sg-plat-name">'+c.name+'</h3>'
+      +'<p class="sg-plat-desc">'+c.desc+'</p>'
+      +'<div class="sg-plat-caps">'+caps+'</div>'
+      +'<a href="'+c.href+'" class="sg-plat-link">Explore '+c.badge+' '+svgi(PI.arr,14)+'</a>'
+      +'</div>';
+  }).join('');
+  return '<div class="sg-plat-wrap">'
+    +'<div class="sg-eyebrow">Intelligence Platforms</div>'
+    +'<h2 class="sg-plat-h2">Three Platforms. One Intelligence Infrastructure.</h2>'
+    +'<p class="sg-plat-sub">Each platform delivers domain-specific intelligence. Together, they provide the situational awareness, operational visibility, and decision support that high-stakes organizations depend on.</p>'
+    +'<div class="sg-plat-grid">'+cards+'</div>'
+    +'</div>';
+}
+
+function injectPlats(n){
+  if(location.pathname!=='/'&&location.pathname!=='/index.html') return;
+  if(document.getElementById('sg-plat-section')) return;
+  var hero=document.querySelector('#root section');
+  if(!hero){
+    if((n||0)<10) setTimeout(function(){injectPlats((n||0)+1);},200);
+    return;
+  }
+  var d=document.createElement('section');
+  d.id='sg-plat-section';d.className='sg-plat-section';
+  d.innerHTML=buildPlats();
+  hero.insertAdjacentElement('afterend',d);
+}
+
+/* ---- Hero text override ---- */
+function overrideHero(n){
+  if(location.pathname!=='/'&&location.pathname!=='/index.html') return;
+  if(document.getElementById('sg-hero-done')) return;
+  var sec=document.querySelector('#root section');
+  if(!sec){
+    if((n||0)<10) setTimeout(function(){overrideHero((n||0)+1);},200);
+    return;
+  }
+  var h=sec.querySelector('h1')||sec.querySelector('h2');
+  if(!h) return;
+  h.textContent='Strategic Intelligence Platforms for High-Stakes Decisions';
+  var ps=Array.from(sec.querySelectorAll('p'));
+  var sub=ps.find(function(p){return p.textContent.trim().length>60;});
+  if(sub) sub.textContent='Sure Global develops three domain-specific intelligence platforms — combining AI, geospatial analytics, and cybersecurity — for governments, resource organizations, and enterprises operating in complex, high-risk environments.';
+  Array.from(sec.querySelectorAll('a')).forEach(function(a){
+    var t=a.textContent.trim();
+    if(t==='Explore Solutions'||t==='Schedule Consultation'||t==='Request Consultation'){
+      a.textContent='Request Strategic Briefing';
+      a.setAttribute('href','/briefing-request');
     }
-    
-  }, 800);
+  });
+  var done=document.createElement('span');
+  done.id='sg-hero-done';done.style.display='none';
+  sec.appendChild(done);
+}
+
+/* ---- Cleanup on navigation ---- */
+function cleanHP(){
+  ['sg-plat-section','sg-ops-section'].forEach(function(id){
+    var el=document.getElementById(id);if(el)el.remove();
+  });
+  var d=document.getElementById('sg-hero-done');if(d)d.remove();
+}
+
+function runHP(n){
+  overrideHero(n);
+  setTimeout(function(){injectPlats(n);injectOps(n);},600);
+}
+
+['pushState','replaceState'].forEach(function(m){
+  var orig=history[m];
+  history[m]=function(){orig.apply(this,arguments);cleanHP();setTimeout(function(){runHP(0);},300);};
 });
+window.addEventListener('popstate',function(){cleanHP();setTimeout(function(){runHP(0);},300);});
+window.addEventListener('load',function(){setTimeout(function(){runHP(0);},600);});
+})();
 </script>
 
 
