@@ -145,35 +145,22 @@ window.addEventListener("load", function(){
 
 
 <script>
-window.addEventListener("load", function(){
-  const oldSections = Array.from(document.querySelectorAll("section")).filter(sec => sec.innerText && sec.innerText.includes("Global Footprint"));
-  if(oldSections.length){
-    oldSections[oldSections.length - 1].outerHTML = `
-<section class="sg-footprint-upgrade" id="sg-upgraded-footprint">
-  <div class="sg-footprint-wrap">
-    <div class="sg-footprint-label">Presence</div>
-    <h2 class="sg-footprint-title">Global Footprint</h2>
-    <p class="sg-footprint-sub">Strategic operations and partnerships across emerging markets and key regions.</p>
+(function(){
+  var FOOTPRINT_HTML = '<section class="sg-footprint-upgrade" id="sg-upgraded-footprint"><div class="sg-footprint-wrap"><div class="sg-footprint-label">Presence</div><h2 class="sg-footprint-title">Global Footprint</h2><p class="sg-footprint-sub">Strategic operations and partnerships across emerging markets and key regions.</p><div class="sg-world-card"><div class="sg-map-image-card"><img src="/assets/global-footprint.png" alt="Sure Global global footprint map" class="sg-map-image" /></div></div></div><div class="sg-stats"><div class="sg-stat"><strong>6</strong><b>Regions</b><span>Global presence</span></div><div class="sg-stat"><strong>25+</strong><b>Strategic Partners</b><span>Worldwide network</span></div><div class="sg-stat"><strong>4</strong><b>Operational Hubs</b><span>On the ground</span></div><div class="sg-stat"><strong>24/7</strong><b>Intelligence Operations</b><span>Always monitoring</span></div><div class="sg-stat"><strong>150+</strong><b>Data Sources</b><span>Across platforms</span></div></div></section>';
 
-    <div class="sg-world-card">
-      <div class="sg-map-image-card">
-        <img src="/assets/global-footprint.png" alt="Sure Global global footprint map" class="sg-map-image" />
-      </div>
-    </div>
-  </div>
-
-    <div class="sg-stats">
-      <div class="sg-stat"><strong>6</strong><b>Regions</b><span>Global presence</span></div>
-      <div class="sg-stat"><strong>25+</strong><b>Strategic Partners</b><span>Worldwide network</span></div>
-      <div class="sg-stat"><strong>4</strong><b>Operational Hubs</b><span>On the ground</span></div>
-      <div class="sg-stat"><strong>24/7</strong><b>Intelligence Operations</b><span>Always monitoring</span></div>
-      <div class="sg-stat"><strong>150+</strong><b>Data Sources</b><span>Across platforms</span></div>
-    </div>
-  </div>
-</section>
-`;
+  function tryFootprint(n) {
+    if (document.getElementById("sg-upgraded-footprint")) return;
+    var secs = Array.from(document.querySelectorAll("section"));
+    var target = secs.filter(function(s){ return s.innerText && s.innerText.includes("Global Footprint"); });
+    if (target.length) {
+      target[target.length - 1].outerHTML = FOOTPRINT_HTML;
+      return;
+    }
+    if ((n || 0) < 10) setTimeout(function(){ tryFootprint((n || 0) + 1); }, 200);
   }
-});
+
+  window.addEventListener("load", function(){ setTimeout(function(){ tryFootprint(0); }, 300); });
+})();
 </script>
 
 
@@ -559,6 +546,135 @@ function cleanup(){if(location.pathname!=='/briefing-request'){var b=document.ge
 });
 window.addEventListener('popstate',function(){cleanup();setTimeout(function(){run(0);},300);});
 window.addEventListener('load',function(){setTimeout(function(){run(0);},400);});
+})();
+</script>
+
+<style>
+.sgpol-page{color:#f8fafc;padding-top:80px;min-height:100vh;background:#050914}
+.sgpol-wrap{max-width:800px;margin:0 auto;padding:0 24px}
+.sgpol-hero{padding:72px 24px 40px}
+.sgpol-eyebrow{color:#3b82f6;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.sgpol-h1{font-size:clamp(28px,4vw,44px);font-weight:800;color:#f8fafc;margin:0 0 12px}
+.sgpol-date{font-size:14px;color:#475569;margin:0}
+.sgpol-body{padding:0 24px 80px}
+.sgpol-card{border:1px solid rgba(59,130,246,.16);border-radius:16px;background:rgba(15,23,42,.85);padding:36px;margin-bottom:28px}
+.sgpol-p{font-size:15px;color:#94a3b8;line-height:1.8;margin:0 0 18px}
+.sgpol-p:last-child{margin:0}
+.sgpol-cta{display:inline-flex;align-items:center;gap:8px;background:#3b82f6;color:#fff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:8px;text-decoration:none;transition:background .15s}
+.sgpol-cta:hover{background:#2563eb}
+</style>
+
+<script>
+(function(){
+'use strict';
+
+/* ---- Footer span → real links ---- */
+function fixFooter(){
+  var map={'Privacy Policy':'/privacy','Terms of Service':'/terms','Security':'/security'};
+  Array.from(document.querySelectorAll('footer span')).forEach(function(span){
+    var txt=span.innerText.trim();
+    if(map[txt] && !span.closest('a')){
+      var a=document.createElement('a');
+      a.href=map[txt];
+      a.textContent=txt;
+      a.style.cssText='color:inherit;text-decoration:none;cursor:pointer;transition:color .15s';
+      a.addEventListener('mouseenter',function(){this.style.color='#3b82f6';});
+      a.addEventListener('mouseleave',function(){this.style.color='';});
+      span.parentNode.replaceChild(a,span);
+    }
+  });
+}
+
+/* ---- About nav active state via IntersectionObserver ---- */
+var _aboutObs=null;
+function fixAboutNav(){
+  if(_aboutObs){_aboutObs.disconnect();_aboutObs=null;}
+  if(location.pathname!=='/') return;
+  setTimeout(function(){
+    var sec=document.getElementById('about');
+    var lnk=Array.from(document.querySelectorAll('nav a')).find(function(a){return a.getAttribute('href')==='/#about';});
+    if(!sec||!lnk) return;
+    _aboutObs=new IntersectionObserver(function(entries){
+      lnk.style.color=entries[0].isIntersecting?'#3b82f6':'';
+    },{threshold:0.25});
+    _aboutObs.observe(sec);
+  },600);
+}
+
+/* ---- Policy pages ---- */
+var POLS={
+  '/privacy':{title:'Privacy Policy',items:[
+    'Sure Global is committed to protecting the privacy and confidentiality of information provided by clients, partners, and visitors to this website.',
+    'Information submitted through this website — including contact forms and briefing requests — is used solely to respond to inquiries and facilitate engagement with our team. We do not sell, share, or distribute personal information to third parties without explicit consent.',
+    'Our platforms and delivery systems are designed with security and data protection as foundational requirements. All client engagements are governed by confidentiality agreements appropriate to the sensitivity of the work involved.',
+    'For specific questions about data handling, to request information about how your data is processed, or to submit a data subject request, please contact our team directly.'
+  ]},
+  '/terms':{title:'Terms of Service',items:[
+    'By accessing this website you agree to use it solely for lawful purposes and in a manner consistent with all applicable laws and regulations.',
+    'All content, materials, branding, and intellectual property presented on this site are the property of Sure Global and may not be reproduced, distributed, or used without prior written permission.',
+    'Information on this website is provided for general informational purposes. Specific service capabilities, deliverables, and contractual terms are defined within individual engagement agreements between Sure Global and its clients.',
+    'Sure Global reserves the right to update these terms at any time. Continued use of this website following any update constitutes acceptance of the revised terms.'
+  ]},
+  '/security':{title:'Security',items:[
+    'Sure Global treats the security of client information and the integrity of its platforms as a primary operational priority. Security is not an afterthought — it is a design requirement.',
+    'Our platforms are built to enterprise security standards, including encryption in transit and at rest, role-based access controls, audit logging, and regular security reviews. Architecture decisions are evaluated against current threat landscapes and updated accordingly.',
+    'We operate under strict information handling protocols for all client engagements. Personnel with access to sensitive environments operate under security clearance and confidentiality requirements appropriate to the engagement.',
+    'If you have identified a potential security issue or vulnerability related to Sure Global systems or this website, please report it directly through our contact form. All reports are reviewed promptly and treated with seriousness. We do not pursue legal action against good-faith security researchers.'
+  ]}
+};
+
+function arrowSvg(){return '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';}
+
+function buildPol(path){
+  var pol=POLS[path];
+  if(!pol) return '';
+  return [
+    '<section class="sgpol-hero"><div class="sgpol-wrap">',
+      '<div class="sgpol-eyebrow">Sure Global</div>',
+      '<h1 class="sgpol-h1">'+pol.title+'</h1>',
+      '<p class="sgpol-date">Last updated: June 2026</p>',
+    '</div></section>',
+    '<section class="sgpol-body"><div class="sgpol-wrap">',
+      '<div class="sgpol-card">',
+        pol.items.map(function(p){return '<p class="sgpol-p">'+p+'</p>';}).join(''),
+      '</div>',
+      '<a href="/contact" class="sgpol-cta">Contact Our Team '+arrowSvg()+'</a>',
+    '</div></section>'
+  ].join('');
+}
+
+function cleanPol(){
+  if(!POLS[location.pathname]){var p=document.getElementById('sgpol-root');if(p)p.remove();}
+}
+
+function tryPol(n){
+  if(!POLS[location.pathname]) return;
+  if(document.getElementById('sgpol-root')) return;
+  var nav=document.querySelector('#root nav');
+  if(nav){
+    var d=document.createElement('div');
+    d.id='sgpol-root';d.className='sgpol-page';
+    d.innerHTML=buildPol(location.pathname);
+    nav.parentNode.insertBefore(d,nav.nextSibling);
+    return;
+  }
+  if((n||0)<8) setTimeout(function(){tryPol((n||0)+1);},200);
+}
+
+/* ---- Run all fixes ---- */
+function runFixes(n){
+  cleanPol();
+  fixAboutNav();
+  setTimeout(function(){fixFooter();tryPol(n);},350);
+}
+
+['pushState','replaceState'].forEach(function(m){
+  var orig=history[m];
+  history[m]=function(){orig.apply(this,arguments);runFixes(0);};
+});
+window.addEventListener('popstate',function(){runFixes(0);});
+window.addEventListener('load',function(){setTimeout(function(){runFixes(0);},500);});
+
 })();
 </script>
 
