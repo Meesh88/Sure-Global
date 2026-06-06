@@ -8,7 +8,6 @@
     <meta property="og:title" content="Sure Global — Intelligence Infrastructure for High-Stakes Decisions" />
     <meta property="og:description" content="Strategic intelligence platforms combining AI, geospatial analytics, and cybersecurity for governments, enterprises, and resource organizations in complex operating environments." />
     <meta property="og:type" content="website" />
-    <script>!function(){var p=location.pathname,G=['/solutions','/briefing-request','/privacy','/terms','/security'];if(G.indexOf(p)!==-1){var s=document.createElement('style');s.id='sg-fouc';s.textContent='#root .pt-20{opacity:0}';document.head.appendChild(s);setTimeout(function(){var sg=document.getElementById('sg-fouc');if(sg)sg.remove();},3000);}}();</script>
     <script type="module" crossorigin src="/assets/index-WtoL1l34.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Doddldxj.css">
   
@@ -538,6 +537,190 @@ var I={
   pin:'<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>'
 };
 
+/* ---- Mineral Intelligence landing page ---- */
+function buildMineralIntel(){
+  var arr=si(I.arr,15);
+  function li(t){return '<li class="sgmi-cs-li"><span class="sgmi-cs-li-dot"></span>'+t+'</li>';}
+  function capli(t){return '<li class="sgmi-cap-li"><span class="sgmi-cap-li-dot"></span>'+t+'</li>';}
+  function layer(name,count,ico){
+    return '<div class="sgmi-layer"><div class="sgmi-layer-icon">'+si(ico,17)+'</div><div><div class="sgmi-layer-name">'+name+'</div><div class="sgmi-layer-count">'+count+'</div></div></div>';
+  }
+  function who(title,body){return '<div class="sgmi-who-card"><div class="sgmi-who-title">'+title+'</div><div class="sgmi-who-body">'+body+'</div></div>';}
+  function edge(smiText,legacyText){
+    return '<div class="sgmi-edge-item"><div class="sgmi-edge-side sgmi-edge-smi"><div class="sgmi-edge-label">Sure Mineral Intelligence</div><div class="sgmi-edge-text">'+smiText+'</div></div><div class="sgmi-edge-side sgmi-edge-legacy"><div class="sgmi-edge-label">Legacy Platforms</div><div class="sgmi-edge-text">'+legacyText+'</div></div></div>';
+  }
+  return [
+    // Hero
+    '<section class="sgmi-hero"><div class="sgmi-hero-bg"></div><div class="sgmi-wrap" style="position:relative">',
+      '<div class="sgmi-eyebrow">'+si(I.mtn,13)+' Mineral Discovery Intelligence</div>',
+      '<h1 class="sgmi-h1">Discover What the Market <em>Hasn\'t Found Yet</em></h1>',
+      '<p class="sgmi-sub">The only platform that combines live license intelligence, AI geological scoring, and a natural language AI Geologist — purpose-built for mining companies, investors, and acquisition teams who need to move first.</p>',
+      '<div class="sgmi-btns">',
+        '<a href="https://www.suremineralintel.com" target="_blank" rel="noopener" class="sgmi-btn sgmi-btn-amber">Explore the Platform '+arr+'</a>',
+        '<a href="/briefing-request?platform=sure-mineral-intelligence" class="sgmi-btn-ghost">Request Strategic Briefing '+arr+'</a>',
+      '</div>',
+      '<div class="sgmi-stats-bar">',
+        '<div class="sgmi-stat"><div class="sgmi-stat-v">7,782+</div><div class="sgmi-stat-l">Mining Licenses Indexed</div></div>',
+        '<div class="sgmi-stat"><div class="sgmi-stat-v">122+</div><div class="sgmi-stat-l">Known Mines Tracked</div></div>',
+        '<div class="sgmi-stat"><div class="sgmi-stat-v">8</div><div class="sgmi-stat-l">Geological Data Layers</div></div>',
+        '<div class="sgmi-stat"><div class="sgmi-stat-v">Live</div><div class="sgmi-stat-l">Real-Time Intelligence</div></div>',
+      '</div>',
+    '</div></section>',
+
+    // Platform screenshot
+    '<div class="sgmi-divider"></div>',
+    '<section class="sgmi-section"><div class="sgmi-wrap">',
+      '<div class="sgmi-eyebrow-sm">The Platform</div>',
+      '<h2 class="sgmi-h2">Command-grade intelligence from<br>license to acquisition decision</h2>',
+      '<p class="sgmi-h2-sub">One interface. Every geological and license layer. AI-powered from the first map view.</p>',
+      '<div class="sgmi-screenshot-wrap">',
+        '<a href="https://www.suremineralintel.com" target="_blank" rel="noopener" class="sgmi-screenshot-link">',
+          '<img src="/assets/sure-mineral-intel-platform.png" alt="Sure Mineral Intelligence — AI-powered mineral discovery platform" class="sgmi-screenshot-img"/>',
+          '<div class="sgmi-screenshot-overlay"><span class="sgmi-screenshot-cta">Open Live Platform '+arr+'</span></div>',
+        '</a>',
+      '</div>',
+      '<div class="sgmi-pills">',
+        '<span class="sgmi-pill"><span class="sgmi-pill-dot"></span>Discovery Map</span>',
+        '<span class="sgmi-pill"><span class="sgmi-pill-dot"></span>AI Geologist</span>',
+        '<span class="sgmi-pill"><span class="sgmi-pill-dot"></span>Target Rankings</span>',
+        '<span class="sgmi-pill"><span class="sgmi-pill-dot"></span>Drill Targets</span>',
+        '<span class="sgmi-pill"><span class="sgmi-pill-dot"></span>License Intelligence</span>',
+        '<span class="sgmi-pill"><span class="sgmi-pill-dot"></span>Geological Analysis</span>',
+      '</div>',
+    '</div></section>',
+
+    // Problem / Solution
+    '<div class="sgmi-divider"></div>',
+    '<section class="sgmi-section-alt"><div class="sgmi-wrap">',
+      '<div class="sgmi-eyebrow-sm">Challenge &amp; Solution</div>',
+      '<h2 class="sgmi-h2" style="margin-bottom:32px">The intelligence gap that costs deals</h2>',
+      '<div class="sgmi-cs-grid">',
+        '<div class="sgmi-cs-card">',
+          '<div class="sgmi-cs-label"><span class="sgmi-cs-dot" style="background:#ef4444"></span>The Challenge</div>',
+          '<p class="sgmi-cs-body">Mining companies and resource investors navigate thousands of licenses, fragmented geological datasets, and static quarterly reports — all while high-value opportunities move to competitors who arrived first.</p>',
+        '</div>',
+        '<div class="sgmi-cs-card" style="border-color:rgba(245,158,11,.2)">',
+          '<div class="sgmi-cs-label"><span class="sgmi-cs-dot" style="background:#f59e0b"></span>The Solution</div>',
+          '<p class="sgmi-cs-body">Sure Mineral Intelligence unifies:</p>',
+          '<ul class="sgmi-cs-list">',
+            li('Live license tracking across thousands of titled areas'),
+            li('AI geological scoring against known deposits and structural trends'),
+            li('Distress signal identification for opportunistic acquisition'),
+            li('Natural language AI Geologist for instant deep analysis'),
+            li('Acquisition target rankings updated in real time'),
+          '</ul>',
+        '</div>',
+      '</div>',
+    '</div></section>',
+
+    // Core capabilities
+    '<div class="sgmi-divider"></div>',
+    '<section class="sgmi-section"><div class="sgmi-wrap">',
+      '<div class="sgmi-eyebrow-sm">Core Capabilities</div>',
+      '<h2 class="sgmi-h2">Three intelligence layers.<br>One competitive edge.</h2>',
+      '<p class="sgmi-h2-sub">Every module is designed for acquisition speed — from first signal to informed decision.</p>',
+      '<div class="sgmi-cap-grid">',
+        '<div class="sgmi-cap-card">',
+          '<div class="sgmi-cap-num">01 &mdash; Discovery Map</div>',
+          '<div class="sgmi-cap-title">Geospatial Intelligence at Scale</div>',
+          '<p class="sgmi-cap-body">A live geospatial command interface with 8+ intelligence layers — from mining licenses and known deposits to fault lines, structural intersections, and geological formations.</p>',
+          '<ul class="sgmi-cap-list">',
+            capli('Mining license boundaries and current ownership'),
+            capli('Known mine locations and deposit types'),
+            capli('Geological fault lines and structural trends'),
+            capli('River systems and regional infrastructure'),
+            capli('AI-ranked acquisition opportunity zones'),
+          '</ul>',
+        '</div>',
+        '<div class="sgmi-cap-card" style="border-color:rgba(245,158,11,.2)">',
+          '<div class="sgmi-cap-num">02 &mdash; AI Geologist</div>',
+          '<div class="sgmi-cap-title">Natural Language Geological Analysis</div>',
+          '<p class="sgmi-cap-body">Ask anything — in plain language. The AI Geologist synthesizes geological data, license history, proximity scores, and structural analysis into immediate, sourced answers.</p>',
+          '<ul class="sgmi-cap-list">',
+            capli('&ldquo;Find copper licenses near known deposits, expiring 2026&rdquo;'),
+            capli('&ldquo;Identify distressed lithium licenses in the northwest&rdquo;'),
+            capli('&ldquo;Score this block against regional geological trends&rdquo;'),
+            capli('AI-synthesized rationale with full data citations'),
+            capli('Drill target recommendations from structural analysis'),
+          '</ul>',
+        '</div>',
+        '<div class="sgmi-cap-card">',
+          '<div class="sgmi-cap-num">03 &mdash; Target Rankings</div>',
+          '<div class="sgmi-cap-title">AI-Scored Acquisition Intelligence</div>',
+          '<p class="sgmi-cap-body">Every license in the database is scored, ranked, and flagged — for distress, expiration, strategic proximity, and geological potential — updated continuously.</p>',
+          '<ul class="sgmi-cap-list">',
+            capli('AI composite scores ranked by acquisition potential'),
+            capli('Distressed license and undervalued opportunity flags'),
+            capli('Filter by mineral type, jurisdiction, and status'),
+            capli('Transfer history and operator financial signals'),
+            capli('One-click drill-down with full geological context'),
+          '</ul>',
+        '</div>',
+      '</div>',
+    '</div></section>',
+
+    // Data layers
+    '<div class="sgmi-divider"></div>',
+    '<section class="sgmi-section-alt"><div class="sgmi-wrap">',
+      '<div class="sgmi-eyebrow-sm">Data Architecture</div>',
+      '<h2 class="sgmi-h2">Every layer of geological intelligence<br>in a single platform</h2>',
+      '<p class="sgmi-h2-sub">Built from national mining authority data, geological surveys, and AI-synthesized prospectivity models.</p>',
+      '<div class="sgmi-layers-grid">',
+        layer('Mining Licenses','7,782 national titles',I.grd),
+        layer('Known Mines','122+ tracked deposits',I.mtn),
+        layer('River Systems','4,534 national features',I.globe),
+        layer('Top Copper Targets','AI-ranked by score',I.shck),
+        layer('Fault Lines','Geological structure data',I.lyr),
+        layer('Structural Intersections','High-potential zones',I.zap),
+        layer('Lineaments','Remote sensing derived',I.eye),
+        layer('Geological Formations','Regional deposit models',I.srv),
+      '</div>',
+    '</div></section>',
+
+    // Who it serves
+    '<div class="sgmi-divider"></div>',
+    '<section class="sgmi-section"><div class="sgmi-wrap">',
+      '<div class="sgmi-eyebrow-sm">Who It Serves</div>',
+      '<h2 class="sgmi-h2" style="margin-bottom:32px">Built for every team that moves on resource intelligence</h2>',
+      '<div class="sgmi-who-grid">',
+        who('Mining Companies','Identify acquisition targets before they reach the open market'),
+        who('Resource Investors','Score opportunity quality across entire license portfolios at speed'),
+        who('Government Ministries','Monitor license utilization and identify distressed or lapsed holdings'),
+        who('Junior Explorers','Prioritize drill targets using AI geological scoring and structural analysis'),
+        who('M&amp;A Teams','Validate geological and license intelligence before transaction close'),
+      '</div>',
+    '</div></section>',
+
+    // Intelligence edge
+    '<div class="sgmi-divider"></div>',
+    '<section class="sgmi-section-alt"><div class="sgmi-wrap">',
+      '<div class="sgmi-eyebrow-sm">Intelligence Edge</div>',
+      '<h2 class="sgmi-h2" style="margin-bottom:32px">A different class of resource platform</h2>',
+      '<div class="sgmi-edge-grid">',
+        edge('AI-scored acquisition targets, ranked and ready','Raw data catalogues with no prioritization layer'),
+        edge('Natural language AI Geologist on all data','Static search forms requiring manual geological expertise'),
+        edge('Live license intelligence, updated continuously','Quarterly PDF reports with up to 90-day data lag'),
+        edge('Acquisition-ready rankings with distress signals','Exploration maps with no commercial intelligence overlay'),
+      '</div>',
+    '</div></section>',
+
+    // Final CTA
+    '<div class="sgmi-divider"></div>',
+    '<section class="sgmi-cta-section">',
+      '<div class="sgmi-cta-glow"></div>',
+      '<div class="sgmi-wrap" style="position:relative">',
+        '<div class="sgmi-eyebrow" style="margin:0 auto 20px">'+si(I.mtn,12)+' Sure Mineral Intelligence</div>',
+        '<h2 class="sgmi-cta-h2">Move Before the Market Does</h2>',
+        '<p class="sgmi-cta-sub">Sure Mineral Intelligence gives your team the intelligence advantage — before opportunities surface, before prices move, before competitors act.</p>',
+        '<div class="sgmi-cta-btns">',
+          '<a href="https://www.suremineralintel.com" target="_blank" rel="noopener" class="sgmi-btn sgmi-btn-amber">Explore the Platform '+arr+'</a>',
+          '<a href="/briefing-request?platform=sure-mineral-intelligence" class="sgmi-btn-ghost">Request Strategic Briefing '+arr+'</a>',
+        '</div>',
+      '</div>',
+    '</section>',
+  ].join('');
+}
+
 /* ---- Platform Portfolio page ---- */
 /* ---- Platform visual builders ---- */
 function buildCyberVisual(){
@@ -798,51 +981,6 @@ function attachForm(root){
   });
 }
 
-/* ---- Flash-of-original-content guard ---- */
-var _ob=null;
-function addFoucGuard(path){
-  var p=path||location.pathname;
-  var G=['/solutions','/briefing-request','/privacy','/terms','/security'];
-  if(G.indexOf(p)===-1) return;
-  if(!document.getElementById('sg-fouc')){
-    var s=document.createElement('style');s.id='sg-fouc';
-    s.textContent='#root .pt-20{opacity:0}';document.head.appendChild(s);
-  }
-}
-function removeFoucGuard(){
-  var pg=document.querySelector('#root .pt-20');
-  if(pg){pg.style.transition='opacity .15s ease';pg.style.opacity='1';}
-  setTimeout(function(){var s=document.getElementById('sg-fouc');if(s)s.remove();if(pg){pg.style.transition='';pg.style.opacity='';}},200);
-}
-function startFastObserver(path){
-  if(_ob){_ob.disconnect();_ob=null;}
-  var p=path||location.pathname;
-  if(p!=='/solutions'&&p!=='/briefing-request') return;
-  _ob=new MutationObserver(function(m,ob){
-    if(p==='/solutions'){
-      if(document.getElementById('sgpp-root')){ob.disconnect();_ob=null;removeFoucGuard();return;}
-      var pg=document.querySelector('#root .pt-20');
-      if(pg&&pg.querySelector('section')){
-        ob.disconnect();_ob=null;
-        var d=document.createElement('div');d.id='sgpp-root';d.className='sgpp-page';
-        d.innerHTML=buildSolutions();pg.innerHTML='';pg.appendChild(d);removeFoucGuard();
-      }
-    } else {
-      if(document.getElementById('sgb-root')){ob.disconnect();_ob=null;removeFoucGuard();return;}
-      var nav=document.querySelector('#root nav');
-      if(nav){
-        ob.disconnect();_ob=null;
-        var d=document.createElement('div');d.id='sgb-root';d.className='sgb-page';
-        d.innerHTML=buildBriefing();
-        var pg=document.querySelector('#root .pt-20');
-        if(pg){pg.innerHTML='';pg.appendChild(d);}else{nav.parentNode.insertBefore(d,nav.nextSibling);}
-        attachForm(d);removeFoucGuard();
-      }
-    }
-  });
-  _ob.observe(document.documentElement,{childList:true,subtree:true});
-}
-
 /* ---- Injection ---- */
 function injectSol(n){
   if(location.pathname!=='/solutions') return;
@@ -850,7 +988,7 @@ function injectSol(n){
   var pg=document.querySelector('#root .pt-20');
   if(pg&&pg.querySelector('section')){
     var d=document.createElement('div');d.id='sgpp-root';d.className='sgpp-page';
-    d.innerHTML=buildSolutions();pg.innerHTML='';pg.appendChild(d);removeFoucGuard();return;
+    d.innerHTML=buildSolutions();pg.innerHTML='';pg.appendChild(d);return;
   }
   if((n||0)<8) setTimeout(function(){injectSol((n||0)+1);},200);
 }
@@ -864,21 +1002,26 @@ function injectBrief(n){
   var pg=document.querySelector('#root .pt-20');
   if(pg){pg.innerHTML='';pg.appendChild(d);}
   else{nav.parentNode.insertBefore(d,nav.nextSibling);}
-  attachForm(d);removeFoucGuard();
+  attachForm(d);
 }
-function run(n){injectSol(n);injectBrief(n);}
-function cleanup(){if(location.pathname!=='/briefing-request'){var b=document.getElementById('sgb-root');if(b)b.remove();}if(location.pathname!=='/solutions'){var s=document.getElementById('sgpp-root');if(s)s.remove();}}
+function injectMineralIntel(n){
+  if(location.pathname!=='/mineral-intelligence') return;
+  if(document.getElementById('sgmi-root')) return;
+  var pg=document.querySelector('#root .pt-20');
+  if(pg&&pg.querySelector('section')){
+    var d=document.createElement('div');d.id='sgmi-root';d.className='sgmi-page';
+    d.innerHTML=buildMineralIntel();pg.innerHTML='';pg.appendChild(d);return;
+  }
+  if((n||0)<8) setTimeout(function(){injectMineralIntel((n||0)+1);},200);
+}
+function run(n){injectSol(n);injectBrief(n);injectMineralIntel(n);}
+function cleanup(){if(location.pathname!=='/briefing-request'){var b=document.getElementById('sgb-root');if(b)b.remove();}if(location.pathname!=='/solutions'){var s=document.getElementById('sgpp-root');if(s)s.remove();}if(location.pathname!=='/mineral-intelligence'){var m=document.getElementById('sgmi-root');if(m)m.remove();}}
 
-startFastObserver();
 ['pushState','replaceState'].forEach(function(m){
   var orig=history[m];
-  history[m]=function(){
-    var url=arguments[2],np=url?(new URL(String(url),location.origin)).pathname:location.pathname;
-    addFoucGuard(np);startFastObserver(np);
-    orig.apply(this,arguments);cleanup();setTimeout(function(){run(0);},300);
-  };
+  history[m]=function(){orig.apply(this,arguments);cleanup();setTimeout(function(){run(0);},300);};
 });
-window.addEventListener('popstate',function(){addFoucGuard();startFastObserver();cleanup();setTimeout(function(){run(0);},300);});
+window.addEventListener('popstate',function(){cleanup();setTimeout(function(){run(0);},300);});
 window.addEventListener('load',function(){setTimeout(function(){run(0);},400);});
 })();
 </script>
@@ -896,6 +1039,111 @@ window.addEventListener('load',function(){setTimeout(function(){run(0);},400);})
 .sgpol-p:last-child{margin:0}
 .sgpol-cta{display:inline-flex;align-items:center;gap:8px;background:#3b82f6;color:#fff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:8px;text-decoration:none;transition:background .15s}
 .sgpol-cta:hover{background:#2563eb}
+</style>
+
+<style>
+/* === Mineral Intelligence landing page (sgmi) === */
+.sgmi-page{color:#f8fafc;background:#050914;min-height:100vh}
+.sgmi-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+/* Hero */
+.sgmi-hero{padding:100px 24px 72px;position:relative;overflow:hidden}
+.sgmi-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(245,158,11,.09),transparent),radial-gradient(ellipse 60% 50% at 80% 50%,rgba(37,99,235,.07),transparent);pointer-events:none}
+.sgmi-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.22);color:#f59e0b;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:28px}
+.sgmi-h1{font-size:clamp(32px,5.5vw,64px);font-weight:900;line-height:1.06;letter-spacing:-.025em;color:#f8fafc;margin:0 0 20px;max-width:820px}
+.sgmi-h1 em{font-style:normal;color:#f59e0b}
+.sgmi-sub{font-size:clamp(15px,1.8vw,18px);color:#94a3b8;line-height:1.7;max-width:680px;margin:0 0 36px}
+.sgmi-btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.sgmi-btn{display:inline-flex;align-items:center;gap:8px;background:#3b82f6;color:#fff;font-size:14px;font-weight:600;padding:13px 26px;border-radius:8px;text-decoration:none;transition:background .15s,transform .15s;white-space:nowrap}
+.sgmi-btn:hover{background:#2563eb;transform:translateY(-1px)}
+.sgmi-btn-amber{background:#f59e0b;color:#050914}
+.sgmi-btn-amber:hover{background:#d97706;transform:translateY(-1px)}
+.sgmi-btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid rgba(248,250,252,.15);color:#f8fafc;font-size:14px;font-weight:600;padding:13px 26px;border-radius:8px;text-decoration:none;transition:border-color .15s,background .15s;white-space:nowrap}
+.sgmi-btn-ghost:hover{border-color:rgba(248,250,252,.35);background:rgba(248,250,252,.05)}
+/* Stats bar */
+.sgmi-stats-bar{display:flex;gap:0;border:1px solid rgba(245,158,11,.14);border-radius:12px;background:rgba(245,158,11,.04);overflow:hidden;margin-top:52px}
+.sgmi-stat{flex:1;padding:18px 20px;border-right:1px solid rgba(245,158,11,.1);text-align:center}
+.sgmi-stat:last-child{border-right:none}
+.sgmi-stat-v{font-size:clamp(18px,2.5vw,26px);font-weight:800;color:#f59e0b;line-height:1;margin-bottom:4px}
+.sgmi-stat-l{font-size:11px;color:#64748b;font-weight:500;letter-spacing:.04em}
+/* Sections */
+.sgmi-section{padding:80px 24px}
+.sgmi-section-alt{padding:80px 24px;background:rgba(15,23,42,.5)}
+.sgmi-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(59,130,246,.14),transparent);margin:0 24px}
+.sgmi-eyebrow-sm{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#f59e0b;margin-bottom:14px}
+.sgmi-h2{font-size:clamp(24px,3.5vw,40px);font-weight:800;color:#f8fafc;margin:0 0 14px;letter-spacing:-.02em;line-height:1.15}
+.sgmi-h2-sub{font-size:16px;color:#64748b;margin:0 0 48px;max-width:620px;line-height:1.7}
+/* Platform screenshot */
+.sgmi-screenshot-wrap{border:1px solid rgba(245,158,11,.16);border-radius:14px;overflow:hidden;background:#071120;box-shadow:0 0 80px rgba(245,158,11,.06),0 0 40px rgba(37,99,235,.08)}
+.sgmi-screenshot-link{display:block;position:relative;overflow:hidden}
+.sgmi-screenshot-img{width:100%;display:block;transition:transform .5s ease}
+.sgmi-screenshot-link:hover .sgmi-screenshot-img{transform:scale(1.012)}
+.sgmi-screenshot-overlay{position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(7,11,22,.75));display:flex;align-items:flex-end;justify-content:center;padding-bottom:28px;opacity:0;transition:opacity .3s ease}
+.sgmi-screenshot-link:hover .sgmi-screenshot-overlay{opacity:1}
+.sgmi-screenshot-cta{display:inline-flex;align-items:center;gap:8px;background:#f59e0b;color:#050914;font-size:14px;font-weight:700;padding:12px 24px;border-radius:8px}
+.sgmi-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;justify-content:center}
+.sgmi-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.18);color:#f59e0b;font-size:12px;font-weight:600;padding:7px 16px;border-radius:99px}
+.sgmi-pill-dot{width:5px;height:5px;border-radius:50%;background:#f59e0b;display:inline-block;flex-shrink:0}
+/* Problem / Solution */
+.sgmi-cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sgmi-cs-card{background:rgba(15,23,42,.8);border:1px solid rgba(59,130,246,.1);border-radius:14px;padding:28px 32px}
+.sgmi-cs-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sgmi-cs-dot{width:6px;height:6px;border-radius:50%;display:inline-block;flex-shrink:0}
+.sgmi-cs-body{font-size:15px;color:#94a3b8;line-height:1.75;margin:0}
+.sgmi-cs-list{list-style:none;padding:0;margin:14px 0 0}
+.sgmi-cs-li{display:flex;align-items:center;gap:10px;font-size:14px;color:#cbd5e1;margin-bottom:8px}
+.sgmi-cs-li-dot{width:5px;height:5px;border-radius:50%;background:#f59e0b;flex-shrink:0;display:inline-block}
+/* Core capabilities */
+.sgmi-cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sgmi-cap-card{background:rgba(15,23,42,.7);border:1px solid rgba(245,158,11,.1);border-radius:16px;padding:32px;transition:border-color .2s,box-shadow .2s}
+.sgmi-cap-card:hover{border-color:rgba(245,158,11,.28);box-shadow:0 0 30px rgba(245,158,11,.07)}
+.sgmi-cap-num{font-size:11px;font-weight:700;color:#f59e0b;letter-spacing:.16em;text-transform:uppercase;margin-bottom:20px;opacity:.7}
+.sgmi-cap-title{font-size:20px;font-weight:700;color:#f8fafc;margin:0 0 12px}
+.sgmi-cap-body{font-size:14px;color:#64748b;line-height:1.7;margin:0 0 20px}
+.sgmi-cap-list{list-style:none;padding:0;margin:0}
+.sgmi-cap-li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#94a3b8;margin-bottom:8px;line-height:1.5}
+.sgmi-cap-li-dot{width:5px;height:5px;border-radius:50%;background:#3b82f6;flex-shrink:0;margin-top:5px;display:inline-block}
+/* Data layers */
+.sgmi-layers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sgmi-layer{background:rgba(15,23,42,.6);border:1px solid rgba(59,130,246,.1);border-radius:12px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;transition:border-color .2s}
+.sgmi-layer:hover{border-color:rgba(245,158,11,.22)}
+.sgmi-layer-icon{width:36px;height:36px;border-radius:8px;background:rgba(245,158,11,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#f59e0b}
+.sgmi-layer-name{font-size:13px;font-weight:600;color:#e2e8f0;margin-bottom:3px}
+.sgmi-layer-count{font-size:11px;color:#475569}
+/* Who it serves */
+.sgmi-who-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.sgmi-who-card{background:rgba(15,23,42,.55);border:1px solid rgba(59,130,246,.09);border-radius:12px;padding:22px 18px}
+.sgmi-who-title{font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:8px}
+.sgmi-who-body{font-size:12px;color:#475569;line-height:1.65}
+/* Intelligence edge */
+.sgmi-edge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.sgmi-edge-item{background:rgba(15,23,42,.6);border:1px solid rgba(59,130,246,.08);border-radius:12px;padding:20px 24px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.sgmi-edge-side{padding:14px 18px;border-radius:8px}
+.sgmi-edge-smi{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.15)}
+.sgmi-edge-legacy{background:rgba(15,23,42,.4);border:1px solid rgba(71,85,105,.12)}
+.sgmi-edge-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.sgmi-edge-smi .sgmi-edge-label{color:#f59e0b}
+.sgmi-edge-legacy .sgmi-edge-label{color:#475569}
+.sgmi-edge-text{font-size:13px;font-weight:600}
+.sgmi-edge-smi .sgmi-edge-text{color:#e2e8f0}
+.sgmi-edge-legacy .sgmi-edge-text{color:#334155}
+/* Final CTA */
+.sgmi-cta-section{padding:96px 24px;position:relative;overflow:hidden;text-align:center}
+.sgmi-cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(245,158,11,.07),transparent 70%);pointer-events:none}
+.sgmi-cta-h2{font-size:clamp(28px,4vw,48px);font-weight:800;color:#f8fafc;margin:0 0 16px;letter-spacing:-.02em}
+.sgmi-cta-sub{font-size:16px;color:#64748b;margin:0 auto 40px;max-width:580px;line-height:1.7}
+.sgmi-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* Mobile */
+@media(max-width:768px){
+  .sgmi-stats-bar{flex-direction:column}
+  .sgmi-stat{border-right:none;border-bottom:1px solid rgba(245,158,11,.1)}
+  .sgmi-stat:last-child{border-bottom:none}
+  .sgmi-cs-grid,.sgmi-cap-grid,.sgmi-edge-grid{grid-template-columns:1fr}
+  .sgmi-layers-grid,.sgmi-who-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .sgmi-layers-grid,.sgmi-who-grid{grid-template-columns:1fr}
+  .sgmi-btns,.sgmi-cta-btns{flex-direction:column;align-items:center}
+}
 </style>
 
 <script>
@@ -1020,7 +1268,6 @@ function tryPol(n){
     d.id='sgpol-root';d.className='sgpol-page';
     d.innerHTML=buildPol(location.pathname);
     nav.parentNode.insertBefore(d,nav.nextSibling);
-    var fouc=document.getElementById('sg-fouc');if(fouc)fouc.remove();
     return;
   }
   if((n||0)<8) setTimeout(function(){tryPol((n||0)+1);},200);
