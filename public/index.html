@@ -1239,6 +1239,27 @@ function fixNav(){
   }
 }
 
+/* ---- Logo replacement (nav + footer) ---- */
+function fixLogo(){
+  var nav=document.querySelector('#root nav');
+  if(nav){
+    var navBrand=nav.querySelector('a[href="/"]');
+    if(navBrand&&!navBrand.querySelector('img[data-sg-logo]')){
+      navBrand.innerHTML='<img src="/assets/sure-global-logo.png" alt="Sure Global" data-sg-logo="1" style="height:38px;width:auto;display:block;max-width:160px;object-fit:contain;" />';
+      navBrand.style.gap='0';
+    }
+  }
+  var footer=document.querySelector('#root footer');
+  if(footer){
+    var footBrand=footer.querySelector('a[href="/"]');
+    if(footBrand&&!footBrand.querySelector('img[data-sg-logo]')){
+      footBrand.innerHTML='<img src="/assets/sure-global-logo.png" alt="Sure Global" data-sg-logo="1" style="height:34px;width:auto;display:block;max-width:144px;object-fit:contain;" />';
+      footBrand.style.gap='0';
+      footBrand.style.marginBottom='1rem';
+    }
+  }
+}
+
 /* ---- Footer span → real links ---- */
 function fixFooter(){
   var map={'Privacy Policy':'/privacy','Terms of Service':'/terms','Security':'/security'};
@@ -1337,7 +1358,7 @@ function tryPol(n){
 function runFixes(n){
   cleanPol();
   fixAboutNav();
-  setTimeout(function(){fixNav();fixFooter();tryPol(n);},350);
+  setTimeout(function(){fixNav();fixFooter();fixLogo();tryPol(n);},350);
 }
 
 ['pushState','replaceState'].forEach(function(m){
