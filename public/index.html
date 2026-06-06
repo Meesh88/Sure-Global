@@ -214,13 +214,18 @@ function overrideHero(n){
   var ps=Array.from(sec.querySelectorAll('p'));
   var sub=ps.find(function(p){return p.textContent.trim().length>60;});
   if(sub) sub.textContent='Sure Global develops three domain-specific intelligence platforms — combining AI, geospatial analytics, and cybersecurity — for governments, resource organizations, and enterprises operating in complex, high-risk environments.';
-  Array.from(sec.querySelectorAll('a')).forEach(function(a){
-    var t=a.textContent.trim();
-    if(t==='Explore Solutions'||t==='Schedule Consultation'||t==='Request Consultation'){
-      a.textContent='Request Strategic Briefing';
-      a.setAttribute('href','/briefing-request');
-    }
-  });
+  // Hide all existing CTA links — replaced by styled buttons below
+  Array.from(sec.querySelectorAll('a')).forEach(function(a){a.style.display='none';});
+  // Inject two styled CTA buttons after the sub paragraph
+  if(!document.getElementById('sg-hero-btns')){
+    var arr='<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    var btns=document.createElement('div');
+    btns.id='sg-hero-btns';btns.className='sg-hero-btns';
+    btns.innerHTML='<a href="/briefing-request" class="sg-hero-btn-primary">Request Strategic Briefing '+arr+'</a>'
+      +'<a href="/solutions" class="sg-hero-btn-secondary">Explore Platforms '+arr+'</a>';
+    var ref=sub||h;
+    ref.insertAdjacentElement('afterend',btns);
+  }
   var done=document.createElement('span');
   done.id='sg-hero-done';done.style.display='none';
   sec.appendChild(done);
@@ -228,7 +233,7 @@ function overrideHero(n){
 
 /* ---- Cleanup on navigation ---- */
 function cleanHP(){
-  ['sg-plat-section','sg-ops-section'].forEach(function(id){
+  ['sg-plat-section','sg-ops-section','sg-hero-btns'].forEach(function(id){
     var el=document.getElementById(id);if(el)el.remove();
   });
   var d=document.getElementById('sg-hero-done');if(d)d.remove();
@@ -251,7 +256,7 @@ window.addEventListener('load',function(){setTimeout(function(){runHP(0);},600);
 
 <script>
 (function(){
-  var FOOTPRINT_HTML = '<section class="sg-footprint-upgrade" id="sg-upgraded-footprint"><div class="sg-footprint-wrap"><div class="sg-footprint-label">Presence</div><h2 class="sg-footprint-title">Global Footprint</h2><p class="sg-footprint-sub">Strategic operations and partnerships across emerging markets and key regions.</p><div class="sg-world-card"><div class="sg-map-image-card"><img src="/assets/global-footprint.png" alt="Sure Global global footprint map" class="sg-map-image" /></div></div></div><div class="sg-stats"><div class="sg-stat"><strong>6</strong><b>Regions</b><span>Global presence</span></div><div class="sg-stat"><strong>25+</strong><b>Strategic Partners</b><span>Worldwide network</span></div><div class="sg-stat"><strong>4</strong><b>Operational Hubs</b><span>On the ground</span></div><div class="sg-stat"><strong>24/7</strong><b>Intelligence Operations</b><span>Always monitoring</span></div><div class="sg-stat"><strong>150+</strong><b>Data Sources</b><span>Across platforms</span></div></div></section>';
+  var FOOTPRINT_HTML = '<section class="sg-footprint-upgrade" id="sg-upgraded-footprint"><div class="sg-footprint-wrap"><div class="sg-footprint-label">Presence</div><h2 class="sg-footprint-title">Global Footprint</h2><p class="sg-footprint-sub">Strategic operations and partnerships across emerging markets and key regions.</p><div class="sg-world-card"><div class="sg-map-image-card"><img src="/assets/global-footprint.png" alt="Sure Global global footprint map" class="sg-map-image" /></div></div></div><div class="sg-hubs-grid"><div class="sg-hub-card"><div class="sg-hub-dot hq"></div><div class="sg-hub-loc">United States</div><div class="sg-hub-role">Headquarters / IP Holding</div></div><div class="sg-hub-card"><div class="sg-hub-dot"></div><div class="sg-hub-loc">Zambia</div><div class="sg-hub-role">Regional Operations</div></div><div class="sg-hub-card"><div class="sg-hub-dot"></div><div class="sg-hub-loc">DRC</div><div class="sg-hub-role">Field Operations</div></div><div class="sg-hub-card"><div class="sg-hub-dot"></div><div class="sg-hub-loc">UAE</div><div class="sg-hub-role">Regional Hub</div></div><div class="sg-hub-card"><div class="sg-hub-dot"></div><div class="sg-hub-loc">Asia</div><div class="sg-hub-role">Technology Partners</div></div><div class="sg-hub-card"><div class="sg-hub-dot"></div><div class="sg-hub-loc">Southern Africa</div><div class="sg-hub-role">Regional Coverage</div></div></div></section>';
 
   function tryFootprint(n) {
     if (document.getElementById("sg-upgraded-footprint")) return;
