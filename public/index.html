@@ -42,7 +42,10 @@
 </style>
 
 <style id="sg-rich-colors">
-/* ---- Mobile: shift logo 20px left ---- */
+/* ---- Logo left shift by breakpoint ---- */
+@media (min-width: 768px) {
+  #root nav a[href="/"] { margin-left: -80px !important; }
+}
 @media (max-width: 767px) {
   #root nav a[href="/"] { margin-left: -40px !important; }
 }
