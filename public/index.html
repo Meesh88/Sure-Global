@@ -339,20 +339,36 @@ window.addEventListener('load',function(){setTimeout(function(){runHP(0);},600);
 .sgpp-cta-h2{font-size:clamp(26px,4vw,42px);font-weight:800;color:#f8fafc;margin:0 0 16px;max-width:720px;margin-left:auto;margin-right:auto}
 .sgpp-cta-sub{color:#94a3b8;font-size:17px;max-width:600px;margin:0 auto 36px;line-height:1.65}
 .sgpp-cta-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+/* For/Audience strip */
+.sgpp-for-strip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:16px 20px;border:1px solid rgba(59,130,246,.15);border-radius:12px;background:rgba(15,23,42,.6);margin-bottom:44px}
+.sgpp-for-label{font-size:11px;font-weight:800;color:#475569;letter-spacing:.2em;text-transform:uppercase;flex-shrink:0;margin-right:4px}
+.sgpp-for-tag{font-size:12px;font-weight:500;color:#cbd5e1;background:rgba(59,130,246,.09);border:1px solid rgba(59,130,246,.18);border-radius:6px;padding:5px 12px}
+/* Capability tags */
+.sgpp-caps-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:52px}
+.sgpp-cap-tag{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:#cbd5e1;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.18);border-radius:8px;padding:9px 16px}
+.sgpp-ctag-dot{width:5px;height:5px;border-radius:50%;background:#3b82f6;flex-shrink:0;display:inline-block}
+/* Cap list cards */
+.sgpp-cap-list{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:6px}
+.sgpp-cap-list li{font-size:12px;color:#94a3b8;display:flex;align-items:center;gap:7px}
+.sgpp-cap-dot{width:4px;height:4px;border-radius:50%;background:#3b82f6;flex-shrink:0;display:inline-block}
+.sgpp-caps-2col{grid-template-columns:repeat(2,1fr)}
 /* Responsive */
 @media(max-width:900px){
   .sgpp-cs-grid{grid-template-columns:1fr}
-  .sgpp-caps-grid{grid-template-columns:1fr 1fr}
+  .sgpp-caps-grid,.sgpp-caps-2col{grid-template-columns:1fr 1fr}
   .sgpp-benefits-grid{grid-template-columns:1fr 1fr}
   .sgpp-plat-title{font-size:32px}
+  .sgb-grid{grid-template-columns:1fr}
+  .sgb-sidebar{display:none}
 }
 @media(max-width:540px){
-  .sgpp-caps-grid{grid-template-columns:1fr}
+  .sgpp-caps-grid,.sgpp-caps-2col{grid-template-columns:1fr}
   .sgpp-benefits-grid{grid-template-columns:1fr 1fr}
   .sgpp-platform{padding-left:20px;padding-right:20px}
   .sgpp-hero,.sgpp-cta-section,.sgpp-nav-section{padding-left:20px;padding-right:20px}
   .sgpp-hero-btns{flex-direction:column;align-items:flex-start}
-  .sgpp-exec-copy{padding:24px}
+  .sgb-row{grid-template-columns:1fr}
+  .sgb-hero,.sgb-main{padding-left:20px;padding-right:20px}
 }
 /* === Briefing request page (sgb) === */
 .sgb-page{color:#f8fafc;padding-top:80px}
@@ -399,15 +415,6 @@ window.addEventListener('load',function(){setTimeout(function(){runHP(0);},600);
 .sgb-contact-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
 .sgb-contact-text{font-size:13px;color:#e2e8f0}
 .sgb-contact-sub{font-size:11px;color:#475569;margin-top:2px}
-/* Responsive */
-@media(max-width:900px){
-  .sgb-grid{grid-template-columns:1fr}
-  .sgb-sidebar{display:none}
-}
-@media(max-width:540px){
-  .sgb-row{grid-template-columns:1fr}
-  .sgb-hero,.sgb-main{padding-left:20px;padding-right:20px}
-}
 </style>
 
 <script>
@@ -436,99 +443,21 @@ var I={
 };
 
 /* ---- Platform Portfolio page ---- */
-function capCard(ico,name,desc){
-  return '<div class="sgpp-cap-card"><div class="sgpp-cap-icon">'+si(ico,16)+'</div><div><div class="sgpp-cap-name">'+name+'</div><div class="sgpp-cap-desc">'+desc+'</div></div></div>';
+function capListCard(ico,title,items){
+  var lis=items.map(function(t){return '<li><span class="sgpp-cap-dot"></span>'+t+'</li>';}).join('');
+  return '<div class="sgpp-cap-card"><div class="sgpp-cap-icon">'+si(ico,16)+'</div><div><div class="sgpp-cap-name">'+title+'</div><ul class="sgpp-cap-list">'+lis+'</ul></div></div>';
 }
-function benefit(val,label,sub){
-  return '<div class="sgpp-benefit"><div class="sgpp-benefit-val">'+val+'</div><div class="sgpp-benefit-label">'+label+'</div><div class="sgpp-benefit-sub">'+sub+'</div></div>';
-}
-function buildPlatformSection(id,num,eyebrow,title,tag,intro,challenge,solution,caps,benefits,execText,ctaExtra,bgClass){
-  var capCards=caps.map(function(c){return capCard(c[0],c[1],c[2]);}).join('');
-  var benefitCards=benefits.map(function(b){return benefit(b[0],b[1],b[2]);}).join('');
-  return [
-    '<div class="sgpp-divider"></div>',
-    '<section id="'+id+'" class="sgpp-platform '+(bgClass||'sgpp-plat-std')+'">',
-    '<div class="sgpp-plat-inner">',
-      '<div class="sgpp-plat-header">',
-        '<div class="sgpp-plat-num">'+num+'</div>',
-        '<div class="sgpp-plat-eyebrow">'+eyebrow+'</div>',
-        '<h2 class="sgpp-plat-title">'+title+'</h2>',
-        '<p class="sgpp-plat-tag">'+tag+'</p>',
-        '<p class="sgpp-plat-intro">'+intro+'</p>',
-      '</div>',
-      '<div class="sgpp-section-label">Challenge &amp; Solution</div>',
-      '<div class="sgpp-cs-grid">',
-        '<div class="sgpp-cs-card"><div class="sgpp-cs-label"><span class="sgpp-cs-label-dot"></span>The Challenge</div><p class="sgpp-cs-body">'+challenge+'</p></div>',
-        '<div class="sgpp-cs-card"><div class="sgpp-cs-label"><span class="sgpp-cs-label-dot"></span>The Solution</div><p class="sgpp-cs-body">'+solution+'</p></div>',
-      '</div>',
-      '<div class="sgpp-section-label">Key Capabilities</div>',
-      '<div class="sgpp-caps-grid">'+capCards+'</div>',
-      '<div class="sgpp-section-label">Platform Benefits</div>',
-      '<div class="sgpp-benefits-grid">'+benefitCards+'</div>',
-      '<div class="sgpp-exec-copy">',
-        '<p class="sgpp-exec-text">'+execText+'</p>',
-        '<div class="sgpp-exec-attr">Intelligence Infrastructure &mdash; Sure Global</div>',
-      '</div>',
-      '<div class="sgpp-plat-cta">',
-        '<a href="/briefing-request" class="sgpp-btn">Request Platform Briefing '+si(I.arr,16)+'</a>',
-        (ctaExtra||''),
-      '</div>',
-    '</div>',
-    '</section>'
-  ].join('');
-}
+function ctag(t){return '<span class="sgpp-cap-tag"><span class="sgpp-ctag-dot"></span>'+t+'</span>';}
+function fortag(t){return '<span class="sgpp-for-tag">'+t+'</span>';}
+function csli(t){return '<li style="display:flex;align-items:center;gap:8px;font-size:14px;color:#cbd5e1;margin-bottom:6px"><span style="width:5px;height:5px;border-radius:50%;background:#3b82f6;flex-shrink:0;display:inline-block"></span>'+t+'</li>';}
 
 function buildSolutions(){
-  var cyberCaps=[
-    [I.eye,'Threat Intelligence Fusion','Aggregate and correlate signals across sources to surface emerging threats before they materialize.'],
-    [I.shld,'Vulnerability Management','Systematic identification, prioritization, and remediation of security exposures enterprise-wide.'],
-    [I.grd,'Security Operations Center','24/7 detection, monitoring, and coordinated response across all critical systems and networks.'],
-    [I.act,'Incident Response & Coordination','Structured escalation workflows and rapid response capabilities aligned to executive decision cycles.'],
-    [I.lyr,'Risk & Exposure Analytics','Quantified risk scoring with executive dashboards that surface the threats that matter most.'],
-    [I.srv,'Strategic Intelligence Briefings','Regular leadership summaries with actionable insights, threat context, and recommended responses.']
-  ];
-  var cyberBenefits=[
-    ['73%','Faster Detection','Mean time to identify active threats across monitored environments'],
-    ['<4h','Executive Briefings','Leadership-ready intelligence from signal to summary'],
-    ['100%','Audit Coverage','Complete chain-of-custody logging for all security events'],
-    ['90d','Compliance Cycle','Mean time to compliance posture from platform onboarding']
-  ];
-
-  var mineralCaps=[
-    [I.mtn,'Market & Asset Intelligence','Real-time data on mineral assets, ownership structures, production metrics, and pricing dynamics.'],
-    [I.globe,'Geospatial Resource Mapping','Spatial analysis of resource deposits, infrastructure corridors, and regional access conditions.'],
-    [I.shck,'Due Diligence & Risk Assessment','Counterparty analysis, regulatory review, and political risk assessment for resource transactions.'],
-    [I.lyr,'Regulatory Navigation','Expert guidance through complex jurisdictional licensing, compliance, and stakeholder frameworks.'],
-    [I.pin,'Institutional Relationship Intelligence','Stakeholder mapping and engagement intelligence for government, community, and institutional actors.'],
-    [I.act,'Strategic Scenario Planning','Intelligence-driven modeling of market, regulatory, and geopolitical scenarios affecting resource positions.']
-  ];
-  var mineralBenefits=[
-    ['60+','Mineral Markets','Active market intelligence streams across critical and strategic resource segments'],
-    ['14d','Due Diligence','Accelerated counterparty and asset assessment cycles'],
-    ['25+','Jurisdictions','Regulatory coverage across frontier and emerging market environments'],
-    ['3x','Deal Velocity','Faster opportunity qualification from prospecting to engagement']
-  ];
-
-  var agenticCaps=[
-    [I.eye,'AI-Powered Lead Intelligence','Autonomous identification and scoring of ideal customer profiles across enterprise-scale data sources.'],
-    [I.zap,'Outbound Sequence Automation','Personalized, multi-channel outreach that adapts based on engagement signals and prospect behavior.'],
-    [I.act,'Pipeline Visibility & Analytics','Real-time pipeline intelligence with executive dashboards, conversion analytics, and revenue forecasting.'],
-    [I.wfi,'Market Signal Detection','Continuous monitoring of buying signals, organizational triggers, and market changes indicating deal readiness.'],
-    [I.grd,'Account Research Engine','Automated deep-research on target accounts — leadership, priorities, competitive context, and strategic fit.'],
-    [I.srv,'Revenue Operations Integration','Seamless integration with CRM and revenue infrastructure for unified pipeline visibility and management.']
-  ];
-  var agenticBenefits=[
-    ['5x','Prospecting Scale','Volume of qualified prospects engaged per revenue team member'],
-    ['40%','Higher Response','Lift in prospect engagement rates from AI-personalized outreach sequences'],
-    ['60%','Less Research Time','Reduction in manual account research per rep through automated intelligence'],
-    ['+35%','Pipeline Velocity','Acceleration in deal progression from first contact to qualified opportunity']
-  ];
-
   return [
+    // HERO
     '<section class="sgpp-hero"><div class="sgpp-hero-bg"></div><div class="sgpp-wrap" style="position:relative">',
       '<div class="sgpp-badge">'+si(I.lyr,13)+' Platform Portfolio</div>',
-      '<h1 class="sgpp-h1">Intelligence Infrastructure Platforms</h1>',
-      '<p class="sgpp-hero-sub">Sure Global builds specialized intelligence platforms for organizations that operate in high-stakes environments. Each platform is engineered to deliver decision advantage — combining advanced analytics, real-time data, and executive-grade intelligence in a unified operational system.</p>',
+      '<h1 class="sgpp-h1">Intelligence Platforms</h1>',
+      '<p class="sgpp-hero-sub">Sure Global develops specialized intelligence platforms that help organizations identify opportunities, reduce risk, and accelerate decision-making across resource, cybersecurity, and commercial operations.</p>',
       '<div class="sgpp-hero-btns">',
         '<a href="/briefing-request" class="sgpp-btn">Request Strategic Briefing '+si(I.arr,16)+'</a>',
         '<a href="#sure-cyber-intel" class="sgpp-btn-ghost">Explore Platforms '+si(I.arr,16)+'</a>',
@@ -541,52 +470,107 @@ function buildSolutions(){
       '<a href="#sure-agentic-ai" class="sgpp-nav-pill"><span class="sgpp-nav-num">03</span> Sure Agentic AI</a>',
     '</div></section>',
 
-    buildPlatformSection(
-      'sure-cyber-intel','Platform 01','Cybersecurity',
-      'Sure Cyber Intel',
-      'Strategic Intelligence &amp; Cybersecurity Platform',
-      'A unified intelligence and cybersecurity platform purpose-built for governments, enterprises, and critical infrastructure operators. Sure Cyber Intel delivers the strategic clarity and operational control decision-makers need to stay ahead of an evolving threat landscape.',
-      'Modern enterprises and government institutions face an asymmetric threat environment — adversaries with advanced capabilities, persistent access, and the ability to move laterally through critical systems before conventional tools can detect them. Leadership is left reactive, acting on information that arrives too late to change outcomes.',
-      'Sure Cyber Intel integrates continuous threat monitoring, advanced analytics, and executive-grade reporting into a single command environment. By fusing intelligence from multiple sources and translating it into actionable briefings, the platform moves organizations from reactive security posture to proactive operational control.',
-      cyberCaps, cyberBenefits,
-      'In a threat environment that evolves daily, decision advantage belongs to those who see it first. Sure Cyber Intel gives leadership the intelligence infrastructure to act with confidence — not just react to events after they unfold.',
-      '', 'sgpp-plat-std'
-    ),
+    // PLATFORM 01: SURE CYBER INTEL
+    '<div class="sgpp-divider"></div>',
+    '<section id="sure-cyber-intel" class="sgpp-platform sgpp-plat-std"><div class="sgpp-plat-inner">',
+      '<div class="sgpp-plat-num">Platform 01</div>',
+      '<h2 class="sgpp-plat-title">Sure Cyber Intel</h2>',
+      '<p class="sgpp-plat-tag">Strategic Intelligence &amp; Cybersecurity Platform</p>',
+      '<p class="sgpp-plat-intro">An integrated intelligence and cybersecurity platform purpose-built for governments, critical infrastructure operators, and enterprise security teams — delivering strategic clarity and operational control across the threat landscape.</p>',
+      '<div class="sgpp-for-strip">',
+        '<span class="sgpp-for-label">For</span>',
+        fortag('Governments'),
+        fortag('Critical Infrastructure'),
+        fortag('Energy'),
+        fortag('Telecommunications'),
+        fortag('Enterprise Security Teams'),
+      '</div>',
+      '<div class="sgpp-section-label">Capabilities</div>',
+      '<div class="sgpp-caps-tags">',
+        ctag('Threat Intelligence'),
+        ctag('Cyber Monitoring'),
+        ctag('Geospatial Intelligence'),
+        ctag('Operational Monitoring'),
+        ctag('Executive Dashboards'),
+        ctag('Strategic Risk Analysis'),
+        ctag('Situational Awareness'),
+      '</div>',
+      '<div class="sgpp-plat-cta"><a href="/briefing-request" class="sgpp-btn">Request Platform Briefing '+si(I.arr,16)+'</a></div>',
+    '</div></section>',
 
-    buildPlatformSection(
-      'sure-mineral-intel','Platform 02','Resource Intelligence',
-      'Sure Mineral Intelligence',
-      'Resource Intelligence &amp; Acquisition Platform',
-      'A comprehensive market intelligence and resource acquisition platform for organizations navigating critical mineral markets in emerging economies. Sure Mineral Intelligence transforms complex, opaque data environments into structured decision intelligence.',
-      'Critical mineral markets in emerging economies are defined by opacity — incomplete data, complex regulatory environments, competing stakeholder interests, and geopolitical dynamics that shift rapidly. Organizations pursuing resource acquisition or strategic positioning lack the intelligence infrastructure to assess opportunities with confidence or move decisively when windows open.',
-      'Sure Mineral Intelligence delivers structured market intelligence, geospatial asset analysis, and institutional due diligence support purpose-built for resource-intensive sectors and investment mandates in frontier markets. The platform enables informed decisions at every stage — from prospecting through acquisition and ongoing asset management.',
-      mineralCaps, mineralBenefits,
-      'Mineral intelligence is about reducing uncertainty at the point of decision. Sure Mineral Intelligence gives acquisition teams, sovereign investors, and institutional partners the visibility to move first — and move right.',
-      '', 'sgpp-plat-alt'
-    ),
+    // PLATFORM 02: SURE MINERAL INTELLIGENCE
+    '<div class="sgpp-divider"></div>',
+    '<section id="sure-mineral-intel" class="sgpp-platform sgpp-plat-alt"><div class="sgpp-plat-inner">',
+      '<div class="sgpp-plat-num">Platform 02</div>',
+      '<h2 class="sgpp-plat-title">Sure Mineral Intelligence</h2>',
+      '<p class="sgpp-plat-tag">Resource Intelligence &amp; Acquisition Platform</p>',
+      '<div class="sgpp-section-label">Challenge &amp; Solution</div>',
+      '<div class="sgpp-cs-grid">',
+        '<div class="sgpp-cs-card">',
+          '<div class="sgpp-cs-label"><span class="sgpp-cs-label-dot"></span>Challenge</div>',
+          '<p class="sgpp-cs-body">Mining companies, investors, and acquisition teams often struggle to identify high-value opportunities across thousands of licenses, fragmented datasets, and changing market conditions.</p>',
+        '</div>',
+        '<div class="sgpp-cs-card">',
+          '<div class="sgpp-cs-label"><span class="sgpp-cs-label-dot"></span>Solution</div>',
+          '<p class="sgpp-cs-body">Sure Mineral Intelligence combines:</p>',
+          '<ul style="list-style:none;padding:0;margin:10px 0 0">',
+            csli('Mining License Intelligence'),
+            csli('Geological Intelligence'),
+            csli('Mineral Prospectivity Analysis'),
+            csli('Acquisition Targeting'),
+            csli('Distress Opportunity Identification'),
+            csli('Regional Deposit Analysis'),
+          '</ul>',
+          '<p class="sgpp-cs-body" style="margin-top:12px">— to identify high-potential mineral opportunities before competitors.</p>',
+        '</div>',
+      '</div>',
+      '<div class="sgpp-section-label">Key Capabilities</div>',
+      '<div class="sgpp-caps-grid sgpp-caps-2col">',
+        capListCard(I.mtn,'Mineral Targeting',['Geological formations','Historical occurrences','Known deposits','Structural trends']),
+        capListCard(I.grd,'License Intelligence',['License ownership','Status changes','Expirations','Distressed opportunities','Transfer opportunities']),
+        capListCard(I.shck,'Acquisition Intelligence',['Undervalued licenses','Strategic acquisition targets','Consolidation opportunities','Regional expansion opportunities']),
+        capListCard(I.globe,'Resource Intelligence Dashboard',['Mineral occurrences','License ownership','Geological layers','Strategic scores','Acquisition rankings']),
+      '</div>',
+      '<div class="sgpp-plat-cta"><a href="/briefing-request" class="sgpp-btn">Explore Sure Mineral Intelligence '+si(I.arr,16)+'</a></div>',
+    '</div></section>',
 
-    buildPlatformSection(
-      'sure-agentic-ai','Platform 03','Revenue Intelligence',
-      'Sure Agentic AI',
-      'Revenue Intelligence &amp; Outbound Growth Platform',
-      'An autonomous intelligence platform that gives enterprise revenue organizations the AI infrastructure to identify, engage, and convert ideal customers at scale — replacing manual prospecting with machine-speed intelligence and precision outreach.',
-      'Enterprise revenue teams operate in complex B2B environments where ideal customers are difficult to identify, outreach is manual and inconsistent, and pipeline visibility arrives too late to act on. The result is wasted prospecting effort, missed revenue opportunities, and leadership without the intelligence to understand what is working, what is not, and why.',
-      'Sure Agentic AI deploys intelligent agents that autonomously research, identify, and engage qualified prospects — operating at enterprise scale while maintaining the precision of a dedicated revenue analyst. The platform combines advanced lead intelligence, personalized multi-channel outreach, and real-time pipeline analytics to accelerate revenue growth with structural efficiency.',
-      agenticCaps, agenticBenefits,
-      'Revenue growth at scale requires intelligence, not just effort. Sure Agentic AI gives revenue organizations the autonomous intelligence infrastructure to find the right prospects, engage them at the right moment, and fill pipeline with certainty — not guesswork.',
-      '', 'sgpp-plat-std'
-    ),
+    // PLATFORM 03: SURE AGENTIC AI
+    '<div class="sgpp-divider"></div>',
+    '<section id="sure-agentic-ai" class="sgpp-platform sgpp-plat-std"><div class="sgpp-plat-inner">',
+      '<div class="sgpp-plat-num">Platform 03</div>',
+      '<h2 class="sgpp-plat-title">Sure Agentic AI</h2>',
+      '<p class="sgpp-plat-tag">Revenue Intelligence &amp; Outbound Growth Platform</p>',
+      '<div class="sgpp-section-label">Challenge &amp; Solution</div>',
+      '<div class="sgpp-cs-grid">',
+        '<div class="sgpp-cs-card">',
+          '<div class="sgpp-cs-label"><span class="sgpp-cs-label-dot"></span>Challenge</div>',
+          '<p class="sgpp-cs-body">Most sales teams spend too much time researching prospects and not enough time speaking with qualified buyers.</p>',
+        '</div>',
+        '<div class="sgpp-cs-card">',
+          '<div class="sgpp-cs-label"><span class="sgpp-cs-label-dot"></span>Solution</div>',
+          '<p class="sgpp-cs-body">Sure Agentic AI automates the entire outbound sales intelligence workflow — from prospect identification and deep account research through personalized multi-channel outreach and AI-powered lead qualification.</p>',
+        '</div>',
+      '</div>',
+      '<div class="sgpp-section-label">Key Capabilities</div>',
+      '<div class="sgpp-caps-grid sgpp-caps-2col">',
+        capListCard(I.eye,'Ideal Customer Profile Discovery',['Target industries','Target company profiles','Buying signals','Market opportunities']),
+        capListCard(I.lyr,'Decision Maker Intelligence',['Executives','Department heads','Technical buyers','Procurement stakeholders']),
+        capListCard(I.srv,'Company Intelligence',['Business activities','Technology stack','Growth signals','Hiring activity','Market positioning']),
+        capListCard(I.wfi,'Multi-Channel Outreach',['Email','LinkedIn','SMS','Phone','Automated follow-up sequences']),
+        capListCard(I.zap,'AI Lead Qualification',['Fit','Intent','Engagement','Opportunity value']),
+      '</div>',
+      '<div class="sgpp-plat-cta"><a href="/briefing-request" class="sgpp-btn">Explore Sure Agentic AI '+si(I.arr,16)+'</a></div>',
+    '</div></section>',
 
+    // GLOBAL CTA
     '<div class="sgpp-divider"></div>',
     '<section class="sgpp-cta-section">',
       '<div class="sgpp-cta-glow"></div>',
       '<div class="sgpp-wrap" style="position:relative">',
         '<div class="sgpp-cta-badge">'+si(I.shld,12)+' Intelligence Infrastructure Company</div>',
-        '<h2 class="sgpp-cta-h2">Build Your Intelligence Advantage</h2>',
-        '<p class="sgpp-cta-sub">Sure Global\'s platform portfolio delivers operational intelligence at every level — cyber, resource, and revenue. Partner with us to deploy the infrastructure that powers confident decisions.</p>',
-        '<div class="sgpp-cta-btns">',
-          '<a href="/briefing-request" class="sgpp-btn">Request Strategic Briefing '+si(I.arr,16)+'</a>',
-        '</div>',
+        '<h2 class="sgpp-cta-h2">Three Platforms. One Intelligence Advantage.</h2>',
+        '<p class="sgpp-cta-sub">Sure Global owns three specialized intelligence platforms that transform how organizations operate across cybersecurity, resource acquisition, and revenue growth.</p>',
+        '<div class="sgpp-cta-btns"><a href="/briefing-request" class="sgpp-btn">Request Strategic Briefing '+si(I.arr,16)+'</a></div>',
       '</div>',
     '</section>'
   ].join('');
