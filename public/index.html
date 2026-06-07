@@ -234,7 +234,7 @@
 .v2-hero-main{flex:1;display:flex;align-items:center;padding:90px 0 60px;position:relative;z-index:2}
 .v2-h-globe{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .v2-h-h1{font-size:clamp(30px,4vw,64px);font-weight:800;line-height:1.08;color:#f0f4fa;margin:0 0 22px;letter-spacing:-.02em}
-.v2-h-blue{color:#4d8eff}
+.v2-h-blue{color:#4d8eff;text-shadow:0 0 30px rgba(59,130,246,.28)}
 /* Panels */
 .v2-h-panels{display:grid;grid-template-columns:1fr 188px;gap:8px;height:390px}
 .v2-h-panels-r{display:flex;flex-direction:column;gap:8px}
@@ -706,6 +706,64 @@
 
 /* Divider line */
 .v2-section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.15),transparent)}
+
+/* ============================================================
+   ASSESSMENT PAGE  /briefing-request
+   ============================================================ */
+.sa-page{min-height:calc(100vh - 72px);background:var(--v2-bg);padding:80px 0 100px;position:relative;overflow:hidden}
+.sa-page::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;background:rgba(59,130,246,.03);filter:blur(120px);pointer-events:none}
+.sa-hd{text-align:center;max-width:640px;margin:0 auto 56px}
+.sa-label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--v2-gold);margin-bottom:14px}
+.sa-h1{font-size:clamp(28px,3.5vw,48px);font-weight:800;color:#f0f4fa;line-height:1.1;margin:0 0 16px;letter-spacing:-.02em}
+.sa-sub{font-size:16px;color:#5870a0;line-height:1.7;max-width:520px;margin:0 auto}
+/* Progress */
+.sa-prog-wrap{max-width:640px;margin:0 auto 36px}
+.sa-steps{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.sa-step{display:flex;align-items:center;gap:8px}
+.sa-step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:rgba(40,65,140,.25);color:#5870a0;transition:all .3s;flex-shrink:0}
+.sa-step.sa-active .sa-step-num,.sa-step.sa-done .sa-step-num{background:#3b82f6;color:#fff}
+.sa-step-lbl{font-size:11px;color:#5870a0;transition:color .3s}
+.sa-step.sa-active .sa-step-lbl,.sa-step.sa-done .sa-step-lbl{color:#c0d0e8}
+.sa-bar{width:100%;height:3px;background:rgba(40,65,140,.25);border-radius:2px;overflow:hidden}
+.sa-fill{height:100%;background:#3b82f6;border-radius:2px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+/* Card */
+.sa-card{max-width:640px;margin:0 auto;background:rgba(6,11,26,.88);border:1px solid rgba(40,65,140,.42);border-radius:16px;padding:44px 48px;backdrop-filter:blur(16px);box-shadow:0 0 60px rgba(59,130,246,.06),0 4px 32px rgba(0,0,0,.4)}
+@media(max-width:640px){.sa-card{padding:28px 20px}}
+.sa-sh{font-size:18px;font-weight:700;color:#f0f4fa;margin:0 0 6px}
+.sa-ssub{font-size:13px;color:#5870a0;margin:0 0 28px}
+/* Options */
+.sa-opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:8px}
+@media(min-width:520px){.sa-opts{grid-template-columns:repeat(3,1fr)}}
+.sa-opt{background:rgba(7,12,26,.8);border:1px solid rgba(40,65,140,.4);border-radius:10px;padding:16px 14px;text-align:left;cursor:pointer;color:#6080a8;font-size:13px;font-weight:500;line-height:1.4;transition:all .2s;font-family:inherit;width:100%}
+.sa-opt:hover{border-color:rgba(59,130,246,.35);transform:translateY(-2px)}
+.sa-opt.sa-sel{border-color:#3b82f6;background:rgba(59,130,246,.1);color:#f0f4fa}
+/* Selects / inputs */
+.sa-selects{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+@media(max-width:520px){.sa-selects{grid-template-columns:1fr}}
+.sa-flbl{font-size:11px;font-weight:600;color:#5870a0;margin-bottom:6px;display:block}
+.sa-sel,.sa-inp,.sa-ta{width:100%;background:rgba(5,9,18,.55);border:1px solid rgba(40,65,140,.4);border-radius:8px;color:#c0d0e8;font-size:13px;font-family:inherit;outline:none;transition:border .2s;box-sizing:border-box}
+.sa-sel:focus,.sa-inp:focus,.sa-ta:focus{border-color:rgba(59,130,246,.55)}
+.sa-sel{height:44px;padding:0 32px 0 12px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235870a0' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer}
+.sa-sel option{background:#0a1122;color:#c0d0e8}
+.sa-inp{height:44px;padding:0 12px}
+.sa-inp::placeholder,.sa-ta::placeholder{color:rgba(96,128,168,.45)}
+.sa-ta{padding:12px;resize:vertical;min-height:130px;line-height:1.6}
+/* Fields */
+.sa-fields{display:flex;flex-direction:column;gap:16px}
+.sa-frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:520px){.sa-frow{grid-template-columns:1fr}}
+/* Nav */
+.sa-nav{display:flex;align-items:center;justify-content:space-between;margin-top:36px;padding-top:24px;border-top:1px solid rgba(40,65,140,.3)}
+.sa-back{display:flex;align-items:center;gap:6px;font-size:13px;color:#5870a0;background:none;border:none;cursor:pointer;padding:8px 0;font-family:inherit;transition:color .2s}
+.sa-back:hover{color:#c0d0e8}
+.sa-next,.sa-submit{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:#3b82f6;border:none;border-radius:8px;padding:10px 24px;cursor:pointer;font-family:inherit;transition:background .2s,transform .1s}
+.sa-next:hover,.sa-submit:hover{background:#2563eb;transform:translateY(-1px)}
+.sa-next:disabled,.sa-submit:disabled{background:rgba(59,130,246,.28);cursor:not-allowed;transform:none;opacity:.7}
+/* Success */
+.sa-ok{text-align:center;padding:32px 0}
+.sa-ok-icon{width:64px;height:64px;border-radius:50%;background:rgba(74,222,128,.1);border:2px solid rgba(74,222,128,.5);display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+.sa-ok-h{font-size:22px;font-weight:700;color:#f0f4fa;margin:0 0 12px}
+.sa-ok-sub{font-size:15px;color:#5870a0;max-width:420px;margin:0 auto;line-height:1.7}
 </style>
 
 </head>
@@ -1980,8 +2038,8 @@ function v2Hero(){
           +'<div>'
             +'<div class="v2-hero-label"><span class="v2-hero-dot"></span>Strategic Intelligence &amp; Resource Advisory</div>'
             +'<h1 class="v2-h-h1">Strategic Intelligence for<br>'
-              +'<span class="v2-h-blue">Resource Companies,</span><br>'
-              +'<span class="v2-h-blue">Investors &amp;</span><br>'
+              +'<span class="v2-h-blue">Resource Companies</span>,<br>'
+              +'<span class="v2-h-blue">Investors</span> &amp;<br>'
               +'<span class="v2-h-blue">Complex Operations</span>'
             +'</h1>'
             +'<p class="v2-hero-sub">Sure Global combines resource intelligence, AI-powered analysis, and executive advisory services to help organizations identify opportunities, evaluate risk, and make better strategic decisions.</p>'
@@ -2436,6 +2494,158 @@ function runFixes(n){
 });
 window.addEventListener('popstate',function(){runFixes(0);});
 window.addEventListener('load',function(){runFixes(0);});
+
+/* ---- /briefing-request: 4-step assessment funnel ---- */
+function injectAssessment() {
+  if (window.location.pathname !== '/briefing-request') return;
+  if (document.getElementById('sg-assess-page')) return;
+
+  var orgTypes = [
+    {v:'mining_company',l:'Mining / Exploration'},
+    {v:'resource_developer',l:'Resource Developer'},
+    {v:'investment_firm',l:'Investment Firm / PE'},
+    {v:'family_office',l:'Family Office'},
+    {v:'infrastructure_energy',l:'Infrastructure / Energy'},
+    {v:'enterprise',l:'Enterprise'},
+    {v:'other',l:'Other'}
+  ];
+  var objectives = [
+    {v:'opportunity_discovery',l:'Identify New Opportunities'},
+    {v:'asset_evaluation',l:'Evaluate Assets / Licenses'},
+    {v:'risk_assessment',l:'Assess Risk'},
+    {v:'investment_intelligence',l:'Investment Decision Support'},
+    {v:'operational_intelligence',l:'Operational Intelligence'},
+    {v:'ai_automation',l:'AI & Automation'},
+    {v:'other',l:'Other'}
+  ];
+  var investSizes = [
+    {v:'under_1m',l:'Under $1M'},
+    {v:'1m_5m',l:'$1M – $5M'},
+    {v:'5m_25m',l:'$5M – $25M'},
+    {v:'25m_100m',l:'$25M – $100M'},
+    {v:'100m_plus',l:'$100M+'},
+    {v:'advisory_only',l:'Advisory engagement only'}
+  ];
+  var timelines = [
+    {v:'immediate',l:'Immediate (within 30 days)'},
+    {v:'quarter',l:'This quarter'},
+    {v:'half_year',l:'Next 6 months'},
+    {v:'exploring',l:'Exploring / no fixed timeline'}
+  ];
+  var STEPS = ['Organization','Objectives','Contact','Context'];
+
+  var S = {step:0,industry:'',objective:'',investmentSize:'',timeline:'',company:'',name:'',title:'',email:'',phone:'',country:'',notes:'',done:false};
+
+  function canGo() {
+    if (S.step===0) return !!S.industry;
+    if (S.step===1) return !!S.objective;
+    if (S.step===2) return !!(S.name&&S.email&&S.company);
+    return true;
+  }
+
+  function mkOpts(arr,key) {
+    return arr.map(function(o){
+      return '<button class="sa-opt'+(S[key]===o.v?' sa-sel':'')+'" data-k="'+key+'" data-v="'+o.v+'">'+o.l+'</button>';
+    }).join('');
+  }
+  function mkSel(id,arr,val) {
+    return '<select class="sa-sel" id="'+id+'"><option value="">Select…</option>'
+      +arr.map(function(o){return '<option value="'+o.v+'"'+(val===o.v?' selected':'')+'>'+o.l+'</option>';}).join('')+'</select>';
+  }
+  function mkInp(id,ph,type,val) {
+    return '<input class="sa-inp" id="'+id+'" type="'+(type||'text')+'" placeholder="'+ph+'" value="'+(val||'')+'">';
+  }
+
+  function stepHTML() {
+    if (S.step===0) return '<h3 class="sa-sh">Which best describes your organization?</h3><p class="sa-ssub">This helps us assign the right advisory team.</p><div class="sa-opts">'+mkOpts(orgTypes,'industry')+'</div>';
+    if (S.step===1) return '<h3 class="sa-sh">What are you looking to achieve?</h3><p class="sa-ssub">Select your primary objective.</p><div class="sa-opts">'+mkOpts(objectives,'objective')+'</div><div class="sa-selects"><div><label class="sa-flbl">Investment Scope</label>'+mkSel('saInv',investSizes,S.investmentSize)+'</div><div><label class="sa-flbl">Timeline</label>'+mkSel('saTim',timelines,S.timeline)+'</div></div>';
+    if (S.step===2) return '<h3 class="sa-sh">Your contact information</h3><p class="sa-ssub">All information is treated as strictly confidential.</p><div class="sa-fields"><div class="sa-frow"><div><label class="sa-flbl">Company *</label>'+mkInp('saCompany','Organization name','text',S.company)+'</div><div><label class="sa-flbl">Contact Name *</label>'+mkInp('saName','Full name','text',S.name)+'</div></div><div class="sa-frow"><div><label class="sa-flbl">Title</label>'+mkInp('saTitle','Position / Title','text',S.title)+'</div><div><label class="sa-flbl">Email *</label>'+mkInp('saEmail','email@organization.com','email',S.email)+'</div></div><div class="sa-frow"><div><label class="sa-flbl">Phone</label>'+mkInp('saPhone','+1 (000) 000-0000','tel',S.phone)+'</div><div><label class="sa-flbl">Country</label>'+mkInp('saCountry','Country','text',S.country)+'</div></div></div>';
+    if (S.step===3) return '<h3 class="sa-sh">Tell us about your objectives</h3><p class="sa-ssub">Share context that will help us prepare for your assessment.</p><textarea class="sa-ta" id="saNotes" rows="6" placeholder="Describe your strategic objectives, target regions, asset portfolio, or areas of interest...">'+S.notes+'</textarea>';
+    return '';
+  }
+
+  function navHTML() {
+    if (S.done) return '';
+    var back = S.step>0 ? '<button class="sa-back" id="saBack">← Back</button>' : '<div></div>';
+    var fwd = S.step<3
+      ? '<button class="sa-next" id="saNext"'+(canGo()?'':' disabled')+'>Continue →</button>'
+      : '<button class="sa-submit" id="saSubm">Request Assessment →</button>';
+    return '<div class="sa-nav">'+back+fwd+'</div>';
+  }
+
+  function progressHTML() {
+    var s = STEPS.map(function(lbl,i){
+      var cls = i<S.step?'sa-done':(i===S.step?'sa-active':'');
+      var num = i<S.step?'<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>':(i+1);
+      return '<div class="sa-step '+cls+'"><div class="sa-step-num">'+num+'</div><span class="sa-step-lbl">'+lbl+'</span></div>';
+    }).join('');
+    return '<div class="sa-steps">'+s+'</div><div class="sa-bar"><div class="sa-fill" style="width:'+Math.round(((S.step+1)/4)*100)+'%"></div></div>';
+  }
+
+  function render() {
+    var prog=document.getElementById('saProg2');
+    if (prog) prog.innerHTML=progressHTML();
+    var card=document.getElementById('saCard2');
+    if (!card) return;
+    card.innerHTML = S.done
+      ? '<div class="sa-ok"><div class="sa-ok-icon"><svg width="28" height="28" fill="none" stroke="#4ade80" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><h3 class="sa-ok-h">Assessment Request Received</h3><p class="sa-ok-sub">Thank you. A member of our advisory team will reach out within one business day.</p></div>'
+      : stepHTML()+navHTML();
+
+    card.querySelectorAll('.sa-opt').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        S[btn.dataset.k]=btn.dataset.v;
+        render();
+      });
+    });
+    var nb=document.getElementById('saNext');
+    if (nb) nb.addEventListener('click',function(){
+      var inv=document.getElementById('saInv');var tim=document.getElementById('saTim');
+      if (inv) S.investmentSize=inv.value;
+      if (tim) S.timeline=tim.value;
+      if (!canGo()) return;
+      S.step++;render();
+    });
+    var bb=document.getElementById('saBack');
+    if (bb) bb.addEventListener('click',function(){S.step--;render();});
+    var sb=document.getElementById('saSubm');
+    if (sb) sb.addEventListener('click',function(){
+      var n=document.getElementById('saNotes');if(n)S.notes=n.value;
+      sb.textContent='Submitting…';sb.disabled=true;
+      setTimeout(function(){S.done=true;render();},1200);
+    });
+    ['saCompany','saName','saTitle','saEmail','saPhone','saCountry'].forEach(function(id){
+      var el=document.getElementById(id);if(!el)return;
+      var field=id.replace('sa','').charAt(0).toLowerCase()+id.replace('sa','').slice(1);
+      el.addEventListener('input',function(){
+        S[field]=el.value;
+        var nb2=document.getElementById('saNext');if(nb2)nb2.disabled=!canGo();
+      });
+    });
+    var nt=document.getElementById('saNotes');if(nt)nt.addEventListener('input',function(){S.notes=nt.value;});
+    var inv2=document.getElementById('saInv');if(inv2)inv2.addEventListener('change',function(){S.investmentSize=inv2.value;});
+    var tim2=document.getElementById('saTim');if(tim2)tim2.addEventListener('change',function(){S.timeline=tim2.value;});
+  }
+
+  function buildPage() {
+    var root=document.querySelector('#root');if(!root)return;
+    var footer=root.querySelector('footer');
+    var sec=document.createElement('section');
+    sec.id='sg-assess-page';
+    sec.className='sa-page';
+    sec.innerHTML='<div class="v2-wrap"><div class="sa-hd"><span class="sa-label">Get Started</span><h1 class="sa-h1">Request an Executive Assessment</h1><p class="sa-sub">Tell us about your organization, objectives, and timeline. Our advisory team will prepare a tailored briefing within one business day.</p></div><div class="sa-prog-wrap" id="saProg2"></div><div class="sa-card" id="saCard2"></div></div>';
+    if (footer&&footer.parentNode) footer.parentNode.insertBefore(sec,footer);
+    else root.appendChild(sec);
+    render();
+  }
+
+  var tries=0,t=setInterval(function(){
+    if (document.querySelector('#root nav')||++tries>50){
+      clearInterval(t);
+      if (!document.getElementById('sg-assess-page')) buildPage();
+    }
+  },100);
+}
+window.addEventListener('load',function(){injectAssessment();});
 
 })();
 </script>
