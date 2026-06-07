@@ -145,8 +145,8 @@
   min-height:100vh;
   background:var(--v2-bg);
   display:flex;
-  align-items:center;
-  padding:100px 0 80px;
+  flex-direction:column;
+  padding:0;
   position:relative;
   overflow:hidden;
 }
@@ -160,8 +160,8 @@
 }
 .v2-hero-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
+  grid-template-columns:9fr 11fr;
+  gap:60px;
   align-items:center;
   position:relative;
 }
@@ -229,6 +229,60 @@
   line-height:1;margin-bottom:3px;
 }
 .v2-hero-stat-l{font-size:10px;color:var(--v2-muted);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+
+/* ==== HERO V2 REFERENCE LAYOUT ==== */
+.v2-hero-main{flex:1;display:flex;align-items:center;padding:90px 0 60px;position:relative;z-index:2}
+.v2-h-globe{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.v2-h-h1{font-size:clamp(28px,3.5vw,52px);font-weight:800;line-height:1.12;color:#f0f4fa;margin:0 0 20px}
+.v2-h-blue{color:#4d8eff}
+/* Panels */
+.v2-h-panels{display:grid;grid-template-columns:1fr 188px;gap:8px;height:390px}
+.v2-h-panels-r{display:flex;flex-direction:column;gap:8px}
+.v2-panel{background:rgba(7,12,26,.9);border:1px solid rgba(40,65,140,.5);border-radius:5px;backdrop-filter:blur(8px);overflow:hidden}
+.v2-panel-lbl{font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#5870a0;display:block}
+/* Heatmap */
+.v2-panel-hmap{display:flex;flex-direction:column}
+.v2-hmap-hdr{padding:8px 12px;border-bottom:1px solid rgba(40,65,140,.35);flex-shrink:0}
+.v2-hmap-body{flex:1;position:relative;overflow:hidden;background:url('/assets/prospectivity-heatmap.png') center 20%/cover no-repeat;min-height:0}
+.v2-hmap-scale{position:absolute;top:8px;left:8px;background:rgba(5,9,18,.82);border-radius:3px;padding:5px 6px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.v2-hmap-bar{width:8px;height:50px;border-radius:2px;background:linear-gradient(to bottom,#dc2626,#f97316,#eab308,#22c55e,#2563eb);margin:2px 0}
+.v2-hmap-slbl{font-size:7px;color:#7080a0;letter-spacing:.04em}
+.v2-hmap-foot{padding:7px 12px;border-top:1px solid rgba(40,65,140,.3);flex-shrink:0;display:flex;align-items:center}
+.v2-hmap-lnk{font-size:11px;font-weight:600;color:#4d8eff;text-decoration:none;display:flex;align-items:center;gap:4px}
+/* Opportunity */
+.v2-panel-opp{padding:12px}
+.v2-opp-num{font-size:38px;font-weight:800;color:#4d8eff;line-height:1;margin:6px 0 4px}
+.v2-opp-sub{font-size:10px;color:#5870a0;line-height:1.4;margin-bottom:8px}
+/* Commodities */
+.v2-panel-comm{padding:10px 12px;flex:1;display:flex;flex-direction:column}
+.v2-comm-row{display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:1px solid rgba(40,65,140,.2);flex:1}
+.v2-comm-row:last-child{border-bottom:none}
+.v2-comm-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.v2-comm-nm{font-size:11px;color:#c0d0e8;flex:1}
+.v2-comm-badge{font-size:9px;font-weight:700;letter-spacing:.04em;padding:2px 5px;border-radius:2px}
+.v2-b-vh{color:#4ade80;background:rgba(74,222,128,.1)}
+.v2-b-hi{color:#60a5fa;background:rgba(96,165,250,.1)}
+.v2-b-md{color:#facc15;background:rgba(250,204,21,.1)}
+/* Stats bar */
+.v2-stats-bar{background:rgba(6,10,22,.95);border-top:1px solid rgba(40,65,140,.35);display:grid;grid-template-columns:repeat(4,1fr);position:relative;z-index:2}
+.v2-stat-itm{display:flex;align-items:center;gap:16px;padding:18px 28px;border-right:1px solid rgba(40,65,140,.25)}
+.v2-stat-itm:last-child{border-right:none}
+.v2-stat-ico{color:#4d8eff;flex-shrink:0}
+.v2-stat-v{font-size:20px;font-weight:800;color:#f0f4fa;line-height:1;margin-bottom:2px}
+.v2-stat-l{font-size:10px;color:#5870a0;letter-spacing:.04em}
+@media(max-width:1100px){
+  .v2-h-panels{grid-template-columns:1fr !important;height:auto !important}
+  .v2-h-panels-r{flex-direction:row}
+  .v2-panel-hmap{height:220px}
+  .v2-stats-bar{grid-template-columns:1fr 1fr}
+  .v2-stat-itm:nth-child(2){border-right:none}
+  .v2-stat-itm:nth-child(3){border-top:1px solid rgba(40,65,140,.25)}
+  .v2-stat-itm:nth-child(4){border-right:none;border-top:1px solid rgba(40,65,140,.25)}
+}
+@media(max-width:768px){
+  .v2-h-panels-r{flex-direction:column !important}
+  .v2-stats-bar{grid-template-columns:1fr 1fr}
+}
 
 /* Dashboard visualization */
 .v2-dash{
@@ -1862,67 +1916,102 @@ function v2EnvCard(num,title,body){
 
 /* ---- Section builders ---- */
 function v2Hero(){
-  var dash=''
-    +'<div class="v2-dash">'
-      +'<div class="v2-dash-hdr">'
-        +'<span class="v2-dash-dot" style="background:#c84848"></span>'
-        +'<span class="v2-dash-dot" style="background:#c88a40;margin-left:3px"></span>'
-        +'<span class="v2-dash-dot" style="background:#48a870;margin-left:3px"></span>'
-        +'<span class="v2-dash-ttl">Intelligence Operations Center</span>'
-        +'<span class="v2-dash-live"><span class="v2-dash-livedot"></span>LIVE</span>'
-      +'</div>'
-      +'<div class="v2-dash-body">'
-        +'<div class="v2-dash-left">'
-          +'<div class="v2-dash-section-lbl">Risk Monitor</div>'
-          +v2RiskRow('Infrastructure','82','v2-risk-high','HIGH')
-          +v2RiskRow('Geopolitical','74','v2-risk-high','HIGH')
-          +v2RiskRow('Market Position','61','v2-risk-med','MED')
-          +v2RiskRow('Supply Chain','55','v2-risk-med','MED')
-          +v2RiskRow('Operational','28','v2-risk-low','LOW')
-        +'</div>'
-        +'<div class="v2-dash-right">'
-          +'<div class="v2-dash-section-lbl">Signal Intelligence</div>'
-          +'<div class="v2-sig-grid">'
-            +v2SigCell('247','Events Today')
-            +v2SigCell('12','Critical Alerts')
-            +v2SigCell('94','Active Sources')
-            +v2SigCell('99.9%','Uptime')
-          +'</div>'
-          +'<div class="v2-dash-section-lbl" style="margin-top:10px">Geographic Activity</div>'
-          +v2GeoRow('v2-geo-active','North America','ACTIVE')
-          +v2GeoRow('v2-geo-monitor','Europe','MONITOR')
-          +v2GeoRow('v2-geo-alert','Central Africa','ALERT')
-          +v2GeoRow('v2-geo-active','Asia Pacific','ACTIVE')
-        +'</div>'
-      +'</div>'
-      +'<div class="v2-dash-footer">'
-        +'<div class="v2-dash-fstat"><div class="v2-dash-fval">7800+</div><div class="v2-dash-flbl">Intelligence Records</div></div>'
-        +'<div class="v2-dash-fstat"><div class="v2-dash-fval">6</div><div class="v2-dash-flbl">Regions Covered</div></div>'
-        +'<div class="v2-dash-fstat"><div class="v2-dash-fval">24/7</div><div class="v2-dash-flbl">Monitoring Active</div></div>'
-      +'</div>'
+  var arw='<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:middle"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+
+  var globe='<div class="v2-h-globe">'
+    +'<svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%" fill="none">'
+    +'<defs>'
+    +'<radialGradient id="vg1" cx="64%" cy="48%" r="38%">'
+    +'<stop offset="0%" stop-color="#0d1f5c" stop-opacity=".5"/>'
+    +'<stop offset="100%" stop-color="#050912" stop-opacity="0"/>'
+    +'</radialGradient>'
+    +'<radialGradient id="vg2" cx="60%" cy="55%" r="30%">'
+    +'<stop offset="0%" stop-color="#c9a84c" stop-opacity=".06"/>'
+    +'<stop offset="100%" stop-color="#050912" stop-opacity="0"/>'
+    +'</radialGradient>'
+    +'</defs>'
+    +'<ellipse cx="900" cy="340" rx="320" ry="295" fill="url(#vg1)"/>'
+    +'<ellipse cx="800" cy="440" rx="200" ry="70" fill="url(#vg2)"/>'
+    +'<path d="M 80 520 Q 540 80 1060 290" stroke="rgba(201,168,76,.28)" stroke-width="1.4" fill="none" stroke-linecap="round"/>'
+    +'<path d="M 160 470 Q 610 110 1110 330" stroke="rgba(201,168,76,.18)" stroke-width="1" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>'
+    +'<path d="M 40 400 Q 490 210 960 260" stroke="rgba(201,168,76,.14)" stroke-width="1" fill="none" stroke-linecap="round"/>'
+    +'<path d="M 260 540 Q 720 160 1160 360" stroke="rgba(255,220,100,.1)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-dasharray="6 4"/>'
+    +'<path d="M 320 480 Q 760 200 1080 400" stroke="rgba(201,168,76,.12)" stroke-width="1" fill="none" stroke-linecap="round"/>'
+    +'<circle cx="1060" cy="290" r="4" fill="rgba(201,168,76,.7)"/>'
+    +'<circle cx="1060" cy="290" r="9" fill="rgba(201,168,76,.14)"/>'
+    +'<circle cx="810" cy="410" r="3.5" fill="rgba(201,168,76,.55)"/>'
+    +'<circle cx="810" cy="410" r="7" fill="rgba(201,168,76,.1)"/>'
+    +'<circle cx="610" cy="310" r="2.5" fill="rgba(255,220,100,.5)"/>'
+    +'<circle cx="610" cy="310" r="5" fill="rgba(255,220,100,.1)"/>'
+    +'<circle cx="370" cy="430" r="2" fill="rgba(201,168,76,.4)"/>'
+    +'</svg>'
     +'</div>';
 
+  var spark='<svg viewBox="0 0 160 36" fill="none" width="100%" height="36" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">'
+    +'<defs><linearGradient id="spk" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4d8eff" stop-opacity=".3"/><stop offset="100%" stop-color="#4d8eff" stop-opacity="0"/></linearGradient></defs>'
+    +'<path d="M0 30 L22 26 L44 22 L66 20 L88 16 L110 18 L132 10 L160 5" stroke="#4d8eff" stroke-width="1.5" fill="none"/>'
+    +'<path d="M0 30 L22 26 L44 22 L66 20 L88 16 L110 18 L132 10 L160 5 L160 36 L0 36 Z" fill="url(#spk)"/>'
+    +'</svg>';
+
+  function ico(d){return '<svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">'+d+'</svg>';}
+
   return '<section class="v2-hero">'
-    +'<div class="v2-wrap">'
-      +'<div class="v2-hero-grid">'
-        +'<div>'
-          +'<div class="v2-hero-label"><span class="v2-hero-dot"></span>Intelligence Infrastructure</div>'
-          +'<h1 class="v2-hero-h1">INTELLIGENCE INFRASTRUCTURE FOR COMPLEX ENVIRONMENTS</h1>'
-          +'<p class="v2-hero-sub">Sure Global develops specialized intelligence platforms for governments, enterprises, and resource organizations operating where information advantage determines outcomes.</p>'
-          +'<div class="v2-hero-btns">'
-            +'<a href="/briefing-request" class="v2-btn">Request Executive Assessment '+v2Arr()+'</a>'
-            +'<a href="/solutions" class="v2-btn-ghost">Explore Intelligence Platforms '+v2Arr()+'</a>'
+    + globe
+    +'<div class="v2-hero-main">'
+      +'<div class="v2-wrap">'
+        +'<div class="v2-hero-grid">'
+          +'<div>'
+            +'<div class="v2-hero-label"><span class="v2-hero-dot"></span>Strategic Intelligence &amp; Resource Advisory</div>'
+            +'<h1 class="v2-h-h1">Strategic Intelligence for<br>'
+              +'<span class="v2-h-blue">Resource Companies,</span><br>'
+              +'<span class="v2-h-blue">Investors &amp;</span><br>'
+              +'<span class="v2-h-blue">Complex Operations</span>'
+            +'</h1>'
+            +'<p class="v2-hero-sub">Sure Global combines resource intelligence, AI-powered analysis, and executive advisory services to help organizations identify opportunities, evaluate risk, and make better strategic decisions.</p>'
+            +'<div class="v2-hero-btns">'
+              +'<a href="/briefing-request" class="v2-btn">Request Executive Assessment '+arw+'</a>'
+              +'<a href="/mineral-intelligence" class="v2-btn-ghost">Explore Resource Intelligence</a>'
+            +'</div>'
           +'</div>'
-          +'<div class="v2-hero-stats">'
-            +'<div class="v2-hero-stat"><div class="v2-hero-stat-v">3</div><div class="v2-hero-stat-l">Intelligence Platforms</div></div>'
-            +'<div class="v2-hero-stat"><div class="v2-hero-stat-v">6</div><div class="v2-hero-stat-l">Regions</div></div>'
-            +'<div class="v2-hero-stat"><div class="v2-hero-stat-v">24/7</div><div class="v2-hero-stat-l">Monitoring</div></div>'
+          +'<div class="v2-h-panels">'
+            +'<div class="v2-panel v2-panel-hmap">'
+              +'<div class="v2-hmap-hdr"><span class="v2-panel-lbl">Prospectivity Heatmap</span></div>'
+              +'<div class="v2-hmap-body">'
+                +'<div class="v2-hmap-scale">'
+                  +'<span class="v2-hmap-slbl">High</span>'
+                  +'<div class="v2-hmap-bar"></div>'
+                  +'<span class="v2-hmap-slbl">Low</span>'
+                +'</div>'
+              +'</div>'
+              +'<div class="v2-hmap-foot"><a href="/mineral-intelligence" class="v2-hmap-lnk">View Full Analysis '+arw+'</a></div>'
+            +'</div>'
+            +'<div class="v2-h-panels-r">'
+              +'<div class="v2-panel v2-panel-opp">'
+                +'<span class="v2-panel-lbl">Opportunity Overview</span>'
+                +'<div class="v2-opp-num">127</div>'
+                +'<div class="v2-opp-sub">High-Potential Opportunities</div>'
+                + spark
+              +'</div>'
+              +'<div class="v2-panel v2-panel-comm">'
+                +'<span class="v2-panel-lbl" style="margin-bottom:8px">Top Commodities</span>'
+                +'<div class="v2-comm-row"><span class="v2-comm-dot" style="background:#ef4444"></span><span class="v2-comm-nm">Copper</span><span class="v2-comm-badge v2-b-vh">Very High ↑</span></div>'
+                +'<div class="v2-comm-row"><span class="v2-comm-dot" style="background:#3b82f6"></span><span class="v2-comm-nm">Gold</span><span class="v2-comm-badge v2-b-hi">High ↑</span></div>'
+                +'<div class="v2-comm-row"><span class="v2-comm-dot" style="background:#a855f7"></span><span class="v2-comm-nm">Rare Earths</span><span class="v2-comm-badge v2-b-hi">High ↑</span></div>'
+                +'<div class="v2-comm-row"><span class="v2-comm-dot" style="background:#eab308"></span><span class="v2-comm-nm">Lithium</span><span class="v2-comm-badge v2-b-md">Moderate →</span></div>'
+                +'<div class="v2-comm-row"><span class="v2-comm-dot" style="background:#6b7280"></span><span class="v2-comm-nm">Nickel</span><span class="v2-comm-badge v2-b-md">Moderate →</span></div>'
+              +'</div>'
+            +'</div>'
           +'</div>'
         +'</div>'
-        +'<div>'+dash+'</div>'
       +'</div>'
     +'</div>'
-    +'</section>';
+    +'<div class="v2-stats-bar">'
+      +'<div class="v2-stat-itm"><div class="v2-stat-ico">'+ico('<ellipse cx="12" cy="12" rx="10" ry="6"/><ellipse cx="12" cy="8" rx="10" ry="4"/><path d="M2 12c0 3.31 4.48 6 10 6s10-2.69 10-6"/>')+'</div><div><div class="v2-stat-v">50M+</div><div class="v2-stat-l">Data Points Processed</div></div></div>'
+      +'<div class="v2-stat-itm"><div class="v2-stat-ico">'+ico('<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>')+'</div><div><div class="v2-stat-v">100+</div><div class="v2-stat-l">Intelligence Variables</div></div></div>'
+      +'<div class="v2-stat-itm"><div class="v2-stat-ico">'+ico('<path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>')+'</div><div><div class="v2-stat-v">24/7</div><div class="v2-stat-l">Monitoring &amp; Analysis</div></div></div>'
+      +'<div class="v2-stat-itm"><div class="v2-stat-ico">'+ico('<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>')+'</div><div><div class="v2-stat-v">Global</div><div class="v2-stat-l">Operational Coverage</div></div></div>'
+    +'</div>'
+  +'</section>';
 }
 
 function v2Pillars(){
