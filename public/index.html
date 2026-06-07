@@ -103,6 +103,527 @@
 .sgpp-cap-card { border-color: rgba(59,130,246,.25) !important; }
 </style>
 
+<style id="sg-v2-css">
+/* ============================================================
+   Homepage V2 — Premium Intelligence Infrastructure
+   All classes prefixed v2-
+   ============================================================ */
+:root{
+  --v2-bg:#050912;
+  --v2-bg-alt:#08101e;
+  --v2-card:#0c1428;
+  --v2-gold:#c9a84c;
+  --v2-gold-bg:rgba(201,168,76,.14);
+  --v2-gold-bdr:rgba(201,168,76,.18);
+  --v2-text:#e8edf5;
+  --v2-muted:#6a7d9c;
+  --v2-red:#c84848;
+  --v2-amber:#c88a40;
+  --v2-green:#48a870;
+  --v2-max:1280px;
+}
+
+#sg-v2-home{background:var(--v2-bg);color:var(--v2-text);font-family:inherit}
+
+/* ---- Shared layout ---- */
+.v2-wrap{max-width:var(--v2-max);margin:0 auto;padding:0 48px}
+@media(max-width:768px){.v2-wrap{padding:0 20px}}
+
+/* ---- Eyebrow ---- */
+.v2-eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--v2-gold);margin-bottom:16px}
+
+/* ---- Buttons ---- */
+.v2-btn{display:inline-flex;align-items:center;gap:8px;background:var(--v2-gold);color:#050912;font-size:13px;font-weight:700;letter-spacing:.06em;padding:13px 26px;border-radius:4px;text-decoration:none;transition:opacity .15s;white-space:nowrap}
+.v2-btn:hover{opacity:.88}
+.v2-btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--v2-text);font-size:13px;font-weight:600;padding:12px 24px;border-radius:4px;text-decoration:none;border:1px solid rgba(232,237,245,.2);transition:border-color .15s;white-space:nowrap}
+.v2-btn-ghost:hover{border-color:rgba(232,237,245,.5)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.v2-hero{
+  min-height:100vh;
+  background:var(--v2-bg);
+  display:flex;
+  align-items:center;
+  padding:100px 0 80px;
+  position:relative;
+  overflow:hidden;
+}
+.v2-hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse 70% 60% at 0% 50%,rgba(201,168,76,.04),transparent 60%),
+             radial-gradient(ellipse 50% 50% at 100% 20%,rgba(12,20,40,.8),transparent 50%);
+  pointer-events:none;
+}
+.v2-hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  position:relative;
+}
+@media(max-width:968px){
+  .v2-hero{padding:80px 0 60px;min-height:auto}
+  .v2-hero-grid{grid-template-columns:1fr;gap:48px}
+}
+
+/* Left column */
+.v2-hero-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--v2-gold);
+  border:1px solid var(--v2-gold-bdr);
+  background:var(--v2-gold-bg);
+  padding:6px 14px;
+  border-radius:2px;
+  margin-bottom:24px;
+}
+.v2-hero-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--v2-green);
+  animation:v2-pulse 2.2s infinite;
+}
+@keyframes v2-pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(72,168,112,.5)}60%{opacity:.7;box-shadow:0 0 0 5px rgba(72,168,112,0)}}
+
+.v2-hero-h1{
+  font-size:clamp(28px,3.6vw,52px);
+  font-weight:800;
+  line-height:1.08;
+  letter-spacing:-.02em;
+  color:var(--v2-text);
+  margin:0 0 20px;
+  max-width:560px;
+}
+.v2-hero-sub{
+  font-size:16px;
+  color:var(--v2-muted);
+  line-height:1.75;
+  max-width:460px;
+  margin:0 0 36px;
+}
+.v2-hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.v2-hero-stats{
+  display:flex;
+  gap:0;
+  border:1px solid var(--v2-gold-bdr);
+  border-radius:4px;
+  background:var(--v2-gold-bg);
+  overflow:hidden;
+}
+.v2-hero-stat{
+  flex:1;
+  padding:14px 20px;
+  border-right:1px solid var(--v2-gold-bdr);
+}
+.v2-hero-stat:last-child{border-right:none}
+.v2-hero-stat-v{
+  font-size:22px;font-weight:800;color:var(--v2-gold);
+  line-height:1;margin-bottom:3px;
+}
+.v2-hero-stat-l{font-size:10px;color:var(--v2-muted);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+
+/* Dashboard visualization */
+.v2-dash{
+  background:var(--v2-card);
+  border:1px solid rgba(201,168,76,.22);
+  border-radius:6px;
+  overflow:hidden;
+  font-family:'SF Mono','Fira Code',monospace;
+  font-size:12px;
+}
+.v2-dash-hdr{
+  display:flex;align-items:center;gap:6px;
+  padding:10px 16px;
+  border-bottom:1px solid rgba(232,237,245,.06);
+  background:rgba(5,9,18,.6);
+}
+.v2-dash-dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex-shrink:0}
+.v2-dash-ttl{
+  font-size:11px;font-weight:600;color:rgba(232,237,245,.5);
+  letter-spacing:.04em;flex:1;padding-left:8px;font-family:inherit;
+}
+.v2-dash-live{
+  display:flex;align-items:center;gap:5px;
+  font-size:10px;font-weight:800;letter-spacing:.12em;
+  color:var(--v2-green);text-transform:uppercase;
+}
+.v2-dash-livedot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--v2-green);
+  animation:v2-pulse 2s infinite;
+}
+.v2-dash-body{display:flex;gap:0}
+.v2-dash-left{
+  flex:1.1;
+  padding:16px;
+  border-right:1px solid rgba(232,237,245,.05);
+}
+.v2-dash-right{flex:1;padding:16px}
+.v2-dash-section-lbl{
+  font-size:9px;font-weight:800;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(106,125,156,.7);
+  margin-bottom:12px;
+}
+
+/* Risk bars */
+.v2-risk-row{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.v2-risk-lbl{font-size:10px;color:var(--v2-muted);width:120px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.v2-risk-bar{flex:1;height:4px;background:rgba(232,237,245,.07);border-radius:2px;overflow:hidden}
+.v2-risk-fill{height:100%;border-radius:2px;transition:width .3s}
+.v2-risk-lvl{font-size:9px;font-weight:800;letter-spacing:.06em;width:28px;text-align:right;flex-shrink:0}
+.v2-risk-high .v2-risk-fill{background:var(--v2-red)}
+.v2-risk-high .v2-risk-lvl{color:var(--v2-red)}
+.v2-risk-med  .v2-risk-fill{background:var(--v2-amber)}
+.v2-risk-med  .v2-risk-lvl{color:var(--v2-amber)}
+.v2-risk-low  .v2-risk-fill{background:var(--v2-green)}
+.v2-risk-low  .v2-risk-lvl{color:var(--v2-green)}
+
+/* Signal cells */
+.v2-sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px}
+.v2-sig-cell{
+  background:rgba(232,237,245,.04);
+  border:1px solid rgba(232,237,245,.06);
+  border-radius:4px;
+  padding:8px 10px;
+}
+.v2-sig-val{font-size:17px;font-weight:800;color:var(--v2-text);line-height:1;margin-bottom:2px}
+.v2-sig-lbl{font-size:9px;color:var(--v2-muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+
+/* Geo rows */
+.v2-geo-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:5px 0;
+  border-bottom:1px solid rgba(232,237,245,.04);
+}
+.v2-geo-row:last-child{border-bottom:none}
+.v2-geo-name{font-size:10px;color:var(--v2-muted)}
+.v2-geo-status{font-size:9px;font-weight:800;letter-spacing:.1em;padding:2px 7px;border-radius:2px}
+.v2-geo-active .v2-geo-status{color:var(--v2-green);background:rgba(72,168,112,.1)}
+.v2-geo-monitor .v2-geo-status{color:var(--v2-amber);background:rgba(200,138,64,.1)}
+.v2-geo-alert .v2-geo-status{color:var(--v2-red);background:rgba(200,72,72,.1)}
+
+/* Dashboard footer */
+.v2-dash-footer{
+  display:flex;
+  border-top:1px solid rgba(232,237,245,.05);
+  background:rgba(5,9,18,.4);
+}
+.v2-dash-fstat{
+  flex:1;padding:9px 14px;
+  border-right:1px solid rgba(232,237,245,.04);
+  text-align:center;
+}
+.v2-dash-fstat:last-child{border-right:none}
+.v2-dash-fval{font-size:12px;font-weight:700;color:var(--v2-gold)}
+.v2-dash-flbl{font-size:8px;color:var(--v2-muted);letter-spacing:.08em;text-transform:uppercase;margin-top:1px}
+
+/* ============================================================
+   PILLARS
+   ============================================================ */
+.v2-pillars{
+  padding:100px 0;
+  background:var(--v2-bg-alt);
+}
+.v2-pillars-hd{text-align:center;margin-bottom:60px}
+.v2-pillars-h2{font-size:clamp(24px,3vw,40px);font-weight:800;color:var(--v2-text);margin:0 0 12px;letter-spacing:-.02em}
+.v2-pillars-sub{font-size:15px;color:var(--v2-muted);max-width:520px;margin:0 auto;line-height:1.7}
+
+.v2-pillars-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--v2-muted);
+  border:1px solid var(--v2-muted);
+  border-radius:6px;
+  overflow:hidden;
+}
+@media(max-width:768px){.v2-pillars-grid{grid-template-columns:1fr}}
+
+.v2-pillar{
+  background:var(--v2-card);
+  padding:44px 36px;
+  position:relative;
+}
+.v2-pillar-num{
+  font-size:72px;font-weight:900;
+  color:rgba(232,237,245,.05);
+  line-height:1;
+  position:absolute;top:20px;right:28px;
+  font-family:'SF Mono','Fira Code',monospace;
+  letter-spacing:-.04em;
+}
+.v2-pillar-eyebrow{
+  font-size:10px;font-weight:800;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--v2-gold);
+  margin-bottom:16px;
+}
+.v2-pillar-title{font-size:22px;font-weight:800;color:var(--v2-text);margin:0 0 12px}
+.v2-pillar-body{font-size:14px;color:var(--v2-muted);line-height:1.75;margin:0 0 24px}
+.v2-pillar-line{width:36px;height:2px;background:var(--v2-gold);border-radius:1px}
+
+/* ============================================================
+   PLATFORMS
+   ============================================================ */
+.v2-platforms{
+  padding:100px 0;
+  background:var(--v2-bg);
+}
+.v2-platforms-hd{margin-bottom:60px}
+.v2-platforms-h2{font-size:clamp(24px,3vw,40px);font-weight:800;color:var(--v2-text);margin:0 0 10px;letter-spacing:-.02em}
+.v2-platforms-sub{font-size:15px;color:var(--v2-muted);max-width:520px;line-height:1.7}
+
+.v2-plat-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:rgba(201,168,76,.12);
+  border:1px solid rgba(201,168,76,.12);
+  border-radius:6px;
+  overflow:hidden;
+}
+@media(max-width:768px){.v2-plat-grid{grid-template-columns:1fr}}
+
+.v2-plat-card{
+  background:var(--v2-card);
+  padding:48px 44px;
+  display:flex;flex-direction:column;
+  position:relative;
+  text-decoration:none;
+  color:inherit;
+  transition:background .2s;
+  overflow:hidden;
+}
+.v2-plat-card::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;
+  height:2px;
+  background:var(--v2-gold);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .3s ease;
+}
+.v2-plat-card:hover{background:#101c30}
+.v2-plat-card:hover::after{transform:scaleX(1)}
+
+.v2-plat-num{
+  font-size:10px;font-weight:800;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--v2-gold);
+  opacity:.7;margin-bottom:20px;
+  font-family:'SF Mono','Fira Code',monospace;
+}
+.v2-plat-title{font-size:22px;font-weight:800;color:var(--v2-text);margin:0 0 6px}
+.v2-plat-tag{font-size:13px;color:var(--v2-gold);margin:0 0 18px;font-weight:500}
+.v2-plat-desc{font-size:14px;color:var(--v2-muted);line-height:1.75;margin:0 0 24px;flex:1}
+.v2-plat-caps{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+.v2-plat-cap{
+  font-size:10px;font-weight:700;letter-spacing:.08em;
+  color:var(--v2-muted);
+  border:1px solid rgba(106,125,156,.2);
+  background:rgba(106,125,156,.06);
+  border-radius:2px;padding:4px 9px;
+}
+.v2-plat-arrow{
+  font-size:12px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--v2-gold);
+  display:flex;align-items:center;gap:8px;
+}
+
+/* ============================================================
+   IN ACTION
+   ============================================================ */
+.v2-inaction{
+  padding:100px 0;
+  background:var(--v2-bg-alt);
+}
+.v2-inaction-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+@media(max-width:868px){.v2-inaction-grid{grid-template-columns:1fr;gap:48px}}
+
+.v2-monitor{
+  background:var(--v2-card);
+  border:1px solid rgba(232,237,245,.08);
+  border-radius:6px;
+  overflow:hidden;
+  font-family:'SF Mono','Fira Code',monospace;
+  font-size:12px;
+}
+.v2-monitor-hdr{
+  display:flex;align-items:center;gap:6px;
+  padding:10px 16px;
+  border-bottom:1px solid rgba(232,237,245,.06);
+  background:rgba(5,9,18,.5);
+}
+.v2-monitor-title{font-size:10px;color:rgba(232,237,245,.4);flex:1;padding-left:8px;font-family:inherit}
+.v2-monitor-rows{padding:4px 0}
+.v2-mon-row{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 16px;
+  border-bottom:1px solid rgba(232,237,245,.03);
+}
+.v2-mon-row:last-child{border-bottom:none}
+.v2-mon-badge{
+  font-size:8px;font-weight:800;letter-spacing:.1em;
+  padding:3px 7px;border-radius:2px;flex-shrink:0;
+  text-transform:uppercase;
+}
+.v2-mon-live{background:rgba(72,168,112,.15);color:var(--v2-green)}
+.v2-mon-proc{background:rgba(200,138,64,.12);color:var(--v2-amber)}
+.v2-mon-alert{background:rgba(200,72,72,.12);color:var(--v2-red)}
+.v2-mon-name{font-size:11px;color:var(--v2-text);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v2-mon-val{font-size:10px;color:var(--v2-muted);white-space:nowrap}
+
+/* Feature descriptions */
+.v2-inaction-right{}
+.v2-inaction-h2{font-size:clamp(22px,2.8vw,36px);font-weight:800;color:var(--v2-text);margin:0 0 14px;letter-spacing:-.02em}
+.v2-inaction-sub{font-size:15px;color:var(--v2-muted);line-height:1.75;margin:0 0 44px}
+
+.v2-feature{display:flex;gap:18px;margin-bottom:32px}
+.v2-feature:last-child{margin-bottom:0}
+.v2-feature-line{width:2px;flex-shrink:0;background:var(--v2-gold);border-radius:1px;margin-top:4px}
+.v2-feature-title{font-size:14px;font-weight:700;color:var(--v2-text);margin:0 0 6px}
+.v2-feature-body{font-size:13px;color:var(--v2-muted);line-height:1.7;margin:0}
+
+/* ============================================================
+   ENVIRONMENTS
+   ============================================================ */
+.v2-envs{
+  padding:100px 0;
+  background:var(--v2-bg);
+}
+.v2-envs-hd{text-align:center;margin-bottom:52px}
+.v2-envs-h2{font-size:clamp(22px,2.8vw,36px);font-weight:800;color:var(--v2-text);margin:0 0 10px;letter-spacing:-.02em}
+.v2-envs-sub{font-size:15px;color:var(--v2-muted);max-width:500px;margin:0 auto;line-height:1.7}
+
+.v2-envs-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1px;
+  background:rgba(106,125,156,.15);
+  border:1px solid rgba(106,125,156,.15);
+  border-radius:6px;
+  overflow:hidden;
+}
+@media(max-width:900px){.v2-envs-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:540px){.v2-envs-grid{grid-template-columns:1fr 1fr}}
+
+.v2-env-card{
+  background:var(--v2-card);
+  padding:32px 24px;
+  transition:background .2s;
+}
+.v2-env-card:hover{background:#101c30}
+.v2-env-num{
+  font-size:10px;font-weight:800;letter-spacing:.24em;
+  color:var(--v2-gold);opacity:.6;
+  margin-bottom:18px;
+  font-family:'SF Mono','Fira Code',monospace;
+}
+.v2-env-title{font-size:13px;font-weight:700;color:var(--v2-text);margin:0 0 10px;line-height:1.4}
+.v2-env-body{font-size:11px;color:var(--v2-muted);line-height:1.65}
+
+/* ============================================================
+   PRESENCE
+   ============================================================ */
+.v2-presence{
+  padding:100px 0;
+  background:var(--v2-bg-alt);
+  border-top:1px solid rgba(201,168,76,.08);
+}
+.v2-presence-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+@media(max-width:768px){.v2-presence-grid{grid-template-columns:1fr;gap:48px}}
+
+.v2-presence-h2{font-size:clamp(22px,2.8vw,36px);font-weight:800;color:var(--v2-text);margin:0 0 16px;letter-spacing:-.02em}
+.v2-presence-sub{font-size:15px;color:var(--v2-muted);line-height:1.75;margin:0 0 36px;max-width:440px}
+
+.v2-regions{display:flex;flex-direction:column;gap:0;border:1px solid rgba(201,168,76,.12);border-radius:4px;overflow:hidden}
+.v2-region{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 18px;
+  border-bottom:1px solid rgba(201,168,76,.08);
+  font-size:13px;
+}
+.v2-region:last-child{border-bottom:none}
+.v2-region-name{color:var(--v2-text);font-weight:500}
+.v2-region-role{font-size:11px;color:var(--v2-muted)}
+.v2-region-hq .v2-region-role{color:var(--v2-gold)}
+
+.v2-metrics-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:rgba(201,168,76,.12);
+  border:1px solid rgba(201,168,76,.12);
+  border-radius:4px;
+  overflow:hidden;
+  margin-bottom:32px;
+}
+.v2-metric{
+  background:var(--v2-card);
+  padding:32px 28px;
+  text-align:center;
+}
+.v2-metric-val{font-size:36px;font-weight:800;color:var(--v2-gold);line-height:1;margin-bottom:6px}
+.v2-metric-lbl{font-size:12px;font-weight:700;color:var(--v2-text);margin-bottom:4px}
+.v2-metric-sub{font-size:11px;color:var(--v2-muted)}
+
+/* ============================================================
+   EXECUTIVE CTA
+   ============================================================ */
+.v2-cta{
+  padding:120px 0;
+  background:var(--v2-bg);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.v2-cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(201,168,76,.04),transparent 65%);
+  pointer-events:none;
+}
+.v2-cta-label{
+  display:inline-block;
+  font-size:10px;font-weight:800;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--v2-gold);
+  border:1px solid var(--v2-gold-bdr);
+  padding:5px 14px;border-radius:2px;
+  margin-bottom:24px;
+}
+.v2-cta-h2{
+  font-size:clamp(24px,3.6vw,48px);
+  font-weight:800;color:var(--v2-text);
+  margin:0 0 16px;
+  letter-spacing:-.02em;
+  max-width:700px;
+  margin-left:auto;margin-right:auto;
+}
+.v2-cta-sub{
+  font-size:16px;color:var(--v2-muted);
+  max-width:520px;margin:0 auto 40px;line-height:1.75;
+}
+.v2-cta-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;position:relative}
+
+/* Divider line */
+.v2-section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.15),transparent)}
+</style>
+
 </head>
   <body>
     <div id="root"></div>
@@ -200,6 +721,7 @@ function buildOps(){
 }
 
 function injectOps(n){
+  if(document.getElementById('sg-v2-home')) return;
   if(location.pathname!=='/'&&location.pathname!=='/index.html') return;
   if(document.getElementById('sg-ops-section')) return;
   var root=document.getElementById('root');
@@ -249,6 +771,7 @@ function buildPlats(){
 }
 
 function injectPlats(n){
+  if(document.getElementById('sg-v2-home')) return;
   if(location.pathname!=='/'&&location.pathname!=='/index.html') return;
   if(document.getElementById('sg-plat-section')) return;
   var hero=document.querySelector('#root section');
@@ -264,6 +787,7 @@ function injectPlats(n){
 
 /* ---- Hero text override ---- */
 function overrideHero(n){
+  if(document.getElementById('sg-v2-home')) return;
   if(location.pathname!=='/'&&location.pathname!=='/index.html') return;
   if(document.getElementById('sg-hero-done')) return;
   var sec=document.querySelector('#root section');
@@ -306,6 +830,8 @@ function cleanHP(){
     var el=document.getElementById(id);if(el)el.remove();
   });
   var d=document.getElementById('sg-hero-done');if(d)d.remove();
+  // Also remove V2 if navigating away from home
+  if(location.pathname!=='/'&&location.pathname!=='/index.html'){var v2=document.getElementById('sg-v2-home');if(v2)v2.remove();var vh=document.getElementById('sg-v2-hide');if(vh)vh.remove();}
 }
 
 function runHP(n){
@@ -315,10 +841,10 @@ function runHP(n){
 
 ['pushState','replaceState'].forEach(function(m){
   var orig=history[m];
-  history[m]=function(){orig.apply(this,arguments);cleanHP();setTimeout(function(){runHP(0);},300);};
+  history[m]=function(){orig.apply(this,arguments);cleanHP();setTimeout(function(){if(window._sgInjectV2)window._sgInjectV2(0);runHP(0);},300);};
 });
-window.addEventListener('popstate',function(){cleanHP();setTimeout(function(){runHP(0);},300);});
-window.addEventListener('load',function(){setTimeout(function(){runHP(0);},250);});
+window.addEventListener('popstate',function(){cleanHP();setTimeout(function(){if(window._sgInjectV2)window._sgInjectV2(0);runHP(0);},300);});
+window.addEventListener('load',function(){if(window._sgInjectV2)window._sgInjectV2(0);setTimeout(function(){runHP(0);},250);});
 })();
 </script>
 
@@ -1269,6 +1795,373 @@ window.addEventListener('load',function(){setTimeout(function(){run(0);},400);})
   .sgmi-btns,.sgmi-cta-btns{flex-direction:column;align-items:center}
 }
 </style>
+
+<script>
+/* ============================================================
+   Homepage V2 Builder
+   ============================================================ */
+(function(){
+'use strict';
+
+/* ---- Micro helpers ---- */
+function v2Arr(){
+  return '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+}
+
+function v2RiskRow(lbl,pct,cls,lvl){
+  return '<div class="v2-risk-row '+cls+'">'
+    +'<span class="v2-risk-lbl">'+lbl+'</span>'
+    +'<span class="v2-risk-bar"><span class="v2-risk-fill" style="width:'+pct+'%"></span></span>'
+    +'<span class="v2-risk-lvl">'+lvl+'</span>'
+    +'</div>';
+}
+
+function v2SigCell(v,l){
+  return '<div class="v2-sig-cell">'
+    +'<div class="v2-sig-val">'+v+'</div>'
+    +'<div class="v2-sig-lbl">'+l+'</div>'
+    +'</div>';
+}
+
+function v2GeoRow(cls,name,status){
+  return '<div class="v2-geo-row '+cls+'">'
+    +'<span class="v2-geo-name">'+name+'</span>'
+    +'<span class="v2-geo-status">'+status+'</span>'
+    +'</div>';
+}
+
+function v2Pillar(num,title,body){
+  return '<div class="v2-pillar">'
+    +'<div class="v2-pillar-num">'+num+'</div>'
+    +'<div class="v2-pillar-eyebrow">'+['Risk Intelligence','Opportunity Intelligence','Decision Support'][parseInt(num)-1]+'</div>'
+    +'<h3 class="v2-pillar-title">'+title+'</h3>'
+    +'<p class="v2-pillar-body">'+body+'</p>'
+    +'<div class="v2-pillar-line"></div>'
+    +'</div>';
+}
+
+function v2PlatCard(num,title,tag,desc,caps,href){
+  var capHtml=caps.map(function(c){return '<span class="v2-plat-cap">'+c+'</span>';}).join('');
+  return '<a class="v2-plat-card" href="'+href+'">'
+    +'<div class="v2-plat-num">'+num+'</div>'
+    +'<div class="v2-plat-title">'+title+'</div>'
+    +'<div class="v2-plat-tag">'+tag+'</div>'
+    +'<p class="v2-plat-desc">'+desc+'</p>'
+    +'<div class="v2-plat-caps">'+capHtml+'</div>'
+    +'<div class="v2-plat-arrow">Explore '+v2Arr()+'</div>'
+    +'</a>';
+}
+
+function v2EnvCard(num,title,body){
+  return '<div class="v2-env-card">'
+    +'<div class="v2-env-num">'+num+'</div>'
+    +'<div class="v2-env-title">'+title+'</div>'
+    +'<div class="v2-env-body">'+body+'</div>'
+    +'</div>';
+}
+
+/* ---- Section builders ---- */
+function v2Hero(){
+  var dash=''
+    +'<div class="v2-dash">'
+      +'<div class="v2-dash-hdr">'
+        +'<span class="v2-dash-dot" style="background:#c84848"></span>'
+        +'<span class="v2-dash-dot" style="background:#c88a40;margin-left:3px"></span>'
+        +'<span class="v2-dash-dot" style="background:#48a870;margin-left:3px"></span>'
+        +'<span class="v2-dash-ttl">Intelligence Operations Center</span>'
+        +'<span class="v2-dash-live"><span class="v2-dash-livedot"></span>LIVE</span>'
+      +'</div>'
+      +'<div class="v2-dash-body">'
+        +'<div class="v2-dash-left">'
+          +'<div class="v2-dash-section-lbl">Risk Monitor</div>'
+          +v2RiskRow('Infrastructure','82','v2-risk-high','HIGH')
+          +v2RiskRow('Geopolitical','74','v2-risk-high','HIGH')
+          +v2RiskRow('Market Position','61','v2-risk-med','MED')
+          +v2RiskRow('Supply Chain','55','v2-risk-med','MED')
+          +v2RiskRow('Operational','28','v2-risk-low','LOW')
+        +'</div>'
+        +'<div class="v2-dash-right">'
+          +'<div class="v2-dash-section-lbl">Signal Intelligence</div>'
+          +'<div class="v2-sig-grid">'
+            +v2SigCell('247','Events Today')
+            +v2SigCell('12','Critical Alerts')
+            +v2SigCell('94','Active Sources')
+            +v2SigCell('99.9%','Uptime')
+          +'</div>'
+          +'<div class="v2-dash-section-lbl" style="margin-top:10px">Geographic Activity</div>'
+          +v2GeoRow('v2-geo-active','North America','ACTIVE')
+          +v2GeoRow('v2-geo-monitor','Europe','MONITOR')
+          +v2GeoRow('v2-geo-alert','Central Africa','ALERT')
+          +v2GeoRow('v2-geo-active','Asia Pacific','ACTIVE')
+        +'</div>'
+      +'</div>'
+      +'<div class="v2-dash-footer">'
+        +'<div class="v2-dash-fstat"><div class="v2-dash-fval">7800+</div><div class="v2-dash-flbl">Intelligence Records</div></div>'
+        +'<div class="v2-dash-fstat"><div class="v2-dash-fval">6</div><div class="v2-dash-flbl">Regions Covered</div></div>'
+        +'<div class="v2-dash-fstat"><div class="v2-dash-fval">24/7</div><div class="v2-dash-flbl">Monitoring Active</div></div>'
+      +'</div>'
+    +'</div>';
+
+  return '<section class="v2-hero">'
+    +'<div class="v2-wrap">'
+      +'<div class="v2-hero-grid">'
+        +'<div>'
+          +'<div class="v2-hero-label"><span class="v2-hero-dot"></span>Intelligence Infrastructure</div>'
+          +'<h1 class="v2-hero-h1">INTELLIGENCE INFRASTRUCTURE FOR COMPLEX ENVIRONMENTS</h1>'
+          +'<p class="v2-hero-sub">Sure Global develops specialized intelligence platforms for governments, enterprises, and resource organizations operating where information advantage determines outcomes.</p>'
+          +'<div class="v2-hero-btns">'
+            +'<a href="/briefing-request" class="v2-btn">Request Executive Assessment '+v2Arr()+'</a>'
+            +'<a href="/solutions" class="v2-btn-ghost">Explore Intelligence Platforms '+v2Arr()+'</a>'
+          +'</div>'
+          +'<div class="v2-hero-stats">'
+            +'<div class="v2-hero-stat"><div class="v2-hero-stat-v">3</div><div class="v2-hero-stat-l">Intelligence Platforms</div></div>'
+            +'<div class="v2-hero-stat"><div class="v2-hero-stat-v">6</div><div class="v2-hero-stat-l">Regions</div></div>'
+            +'<div class="v2-hero-stat"><div class="v2-hero-stat-v">24/7</div><div class="v2-hero-stat-l">Monitoring</div></div>'
+          +'</div>'
+        +'</div>'
+        +'<div>'+dash+'</div>'
+      +'</div>'
+    +'</div>'
+    +'</section>';
+}
+
+function v2Pillars(){
+  return '<section class="v2-pillars">'
+    +'<div class="v2-section-divider"></div>'
+    +'<div class="v2-wrap" style="padding-top:100px">'
+      +'<div class="v2-pillars-hd">'
+        +'<div class="v2-eyebrow">Intelligence Advantage</div>'
+        +'<h2 class="v2-pillars-h2">From Information To Advantage</h2>'
+        +'<p class="v2-pillars-sub">Three intelligence disciplines that transform raw data into strategic decision-making power for complex operating environments.</p>'
+      +'</div>'
+      +'<div class="v2-pillars-grid">'
+        +v2Pillar('01','Risk Intelligence','Continuous monitoring of geopolitical, operational, and market risk vectors across all active environments. Real-time alerts surface threats before they become crises.')
+        +v2Pillar('02','Opportunity Intelligence','AI-powered identification of high-value opportunities in resource acquisition, market positioning, and strategic expansion — ahead of competitors.')
+        +v2Pillar('03','Decision Support','Executive-grade intelligence briefings, dashboards, and situational awareness tools designed for leaders who cannot afford incomplete information.')
+      +'</div>'
+    +'</div>'
+    +'</section>';
+}
+
+function v2Platforms(){
+  return '<section class="v2-platforms">'
+    +'<div class="v2-section-divider"></div>'
+    +'<div class="v2-wrap" style="padding-top:100px">'
+      +'<div class="v2-platforms-hd">'
+        +'<div class="v2-eyebrow">Platform Portfolio</div>'
+        +'<h2 class="v2-platforms-h2">Intelligence Platforms</h2>'
+        +'<p class="v2-platforms-sub">Three domain-specific platforms delivering the situational awareness and decision support that high-stakes organizations depend on.</p>'
+      +'</div>'
+      +'<div class="v2-plat-grid">'
+        +v2PlatCard('01','Intelligence &amp; Risk','Cyber Threat Intelligence &middot; Operational Security',
+          'Strategic cyber and threat intelligence for critical infrastructure operators, government agencies, and enterprise security teams. Executive-grade visibility across the full threat landscape.',
+          ['Threat Intelligence','Cyber Monitoring','Geospatial Intel','Executive Dashboards'],'/solutions')
+        +v2PlatCard('02','Resource Intelligence','Mineral Discovery &middot; Acquisition Intelligence',
+          'AI-powered acquisition intelligence for mining companies, resource investors, and government ministries. Identify high-potential opportunities before they reach the open market.',
+          ['License Intelligence','Geological AI','Acquisition Targets','Distress Signals'],'/mineral-intelligence')
+        +v2PlatCard('03','Data &amp; AI','Agentic Intelligence &middot; Workflow Automation',
+          'AI-powered business intelligence and automated workflow systems for organizations that demand analytical precision and operational velocity at enterprise scale.',
+          ['Business Intelligence','Workflow Automation','Data Enrichment','AI Qualification'],'/solutions')
+        +v2PlatCard('04','Strategic Operations','Executive Briefings &middot; Decision Support',
+          'Confidential strategic intelligence briefings and operational support for executives navigating complex, high-risk environments where decisions carry significant consequence.',
+          ['Executive Briefings','Strategic Analysis','Operational Support','Risk Advisory'],'/briefing-request')
+      +'</div>'
+    +'</div>'
+    +'</section>';
+}
+
+function v2InAction(){
+  var monitorRows=[
+    ['v2-mon-live','Threat Intelligence Feed','247 events processed'],
+    ['v2-mon-proc','Geospatial Analytics Engine','Running — 6 regions'],
+    ['v2-mon-alert','Critical Infrastructure Monitor','2 alerts active'],
+    ['v2-mon-live','Resource License Tracker','7,800+ records synced'],
+    ['v2-mon-proc','Executive Alert Layer','4 briefings queued'],
+    ['v2-mon-live','Operational Risk Monitor','All systems nominal']
+  ];
+  var rows=monitorRows.map(function(r){
+    return '<div class="v2-mon-row">'
+      +'<span class="v2-mon-badge '+r[0]+'">'+(r[0]==='v2-mon-live'?'LIVE':r[0]==='v2-mon-proc'?'PROC':'ALERT')+'</span>'
+      +'<span class="v2-mon-name">'+r[1]+'</span>'
+      +'<span class="v2-mon-val">'+r[2]+'</span>'
+      +'</div>';
+  }).join('');
+
+  var features=[
+    ['Real-Time Signal Processing','Every intelligence feed — geopolitical, cyber, resource, and operational — processed continuously and surfaced through unified dashboards.'],
+    ['Executive-Grade Presentation','Intelligence designed for leaders. Clear, actionable briefings that eliminate noise and focus on what matters for strategic decisions.'],
+    ['Multi-Domain Coverage','Integrated visibility across cyber threats, geospatial data, resource markets, and operational environments — no intelligence silos.'],
+    ['Verified Source Architecture','Every intelligence signal is traced to verified primary sources. No speculation. No unverified data. Only information you can act on.']
+  ];
+  var featureHtml=features.map(function(f){
+    return '<div class="v2-feature">'
+      +'<div class="v2-feature-line"></div>'
+      +'<div>'
+        +'<div class="v2-feature-title">'+f[0]+'</div>'
+        +'<p class="v2-feature-body">'+f[1]+'</p>'
+      +'</div>'
+      +'</div>';
+  }).join('');
+
+  return '<section class="v2-inaction">'
+    +'<div class="v2-section-divider"></div>'
+    +'<div class="v2-wrap" style="padding-top:100px">'
+      +'<div class="v2-inaction-grid">'
+        +'<div>'
+          +'<div class="v2-eyebrow">System Status</div>'
+          +'<div class="v2-monitor">'
+            +'<div class="v2-monitor-hdr">'
+              +'<span class="v2-dash-dot" style="background:#c84848"></span>'
+              +'<span class="v2-dash-dot" style="background:#c88a40;margin-left:3px"></span>'
+              +'<span class="v2-dash-dot" style="background:#48a870;margin-left:3px"></span>'
+              +'<span class="v2-monitor-title">Intelligence Operations — Live Status</span>'
+            +'</div>'
+            +'<div class="v2-monitor-rows">'+rows+'</div>'
+          +'</div>'
+        +'</div>'
+        +'<div class="v2-inaction-right">'
+          +'<div class="v2-eyebrow">Intelligence In Action</div>'
+          +'<h2 class="v2-inaction-h2">Turning Data Into Strategic Insight</h2>'
+          +'<p class="v2-inaction-sub">Our platforms transform raw intelligence feeds into actionable decisions. No noise. No ambiguity. Just the clarity executives require.</p>'
+          +featureHtml
+        +'</div>'
+      +'</div>'
+    +'</div>'
+    +'</section>';
+}
+
+function v2Environments(){
+  var envs=[
+    ['01','Resource Development','Mining operations, mineral acquisition, and resource investment in frontier and emerging markets.'],
+    ['02','Infrastructure &amp; Energy','Critical infrastructure protection, energy sector operations, and utility monitoring across complex geographies.'],
+    ['03','Strategic Investments','Due diligence intelligence, market entry analysis, and acquisition support for high-stakes investment decisions.'],
+    ['04','Enterprise Operations','Corporate intelligence, executive protection, and operational security for multinational enterprises.'],
+    ['05','Intelligence &amp; Risk Teams','Purpose-built tools for analysts, intelligence officers, and risk professionals who operate at the decision frontier.']
+  ];
+  return '<section class="v2-envs">'
+    +'<div class="v2-section-divider"></div>'
+    +'<div class="v2-wrap" style="padding-top:100px">'
+      +'<div class="v2-envs-hd">'
+        +'<div class="v2-eyebrow">Operating Environments</div>'
+        +'<h2 class="v2-envs-h2">Built For Where Others Don\'t Operate</h2>'
+        +'<p class="v2-envs-sub">Purpose-built intelligence for sectors where operational certainty and strategic clarity are non-negotiable.</p>'
+      +'</div>'
+      +'<div class="v2-envs-grid">'
+        +envs.map(function(e){return v2EnvCard(e[0],e[1],e[2]);}).join('')
+      +'</div>'
+    +'</div>'
+    +'</section>';
+}
+
+function v2Presence(){
+  var regions=[
+    ['v2-region-hq','United States','Headquarters / IP Holding'],
+    ['','Zambia','Regional Operations'],
+    ['','DRC','Field Intelligence'],
+    ['','UAE','Regional Hub'],
+    ['','Asia','Technology Partners'],
+    ['','Southern Africa','Regional Coverage']
+  ];
+  var regionHtml=regions.map(function(r){
+    return '<div class="v2-region '+r[0]+'">'
+      +'<span class="v2-region-name">'+r[1]+'</span>'
+      +'<span class="v2-region-role">'+r[2]+'</span>'
+      +'</div>';
+  }).join('');
+
+  return '<section class="v2-presence">'
+    +'<div class="v2-wrap">'
+      +'<div class="v2-presence-grid">'
+        +'<div>'
+          +'<div class="v2-eyebrow">Global Presence</div>'
+          +'<h2 class="v2-presence-h2">Operating Across Six Regions</h2>'
+          +'<p class="v2-presence-sub">Strategic operations, partnerships, and field intelligence capabilities positioned across the markets where our clients operate.</p>'
+          +'<div class="v2-regions">'+regionHtml+'</div>'
+        +'</div>'
+        +'<div>'
+          +'<div class="v2-metrics-grid">'
+            +'<div class="v2-metric"><div class="v2-metric-val">6</div><div class="v2-metric-lbl">Regions</div><div class="v2-metric-sub">Active coverage</div></div>'
+            +'<div class="v2-metric"><div class="v2-metric-val">24/7</div><div class="v2-metric-lbl">Monitoring</div><div class="v2-metric-sub">Continuous intelligence</div></div>'
+            +'<div class="v2-metric"><div class="v2-metric-val">3</div><div class="v2-metric-lbl">Platforms</div><div class="v2-metric-sub">Domain-specific</div></div>'
+            +'<div class="v2-metric"><div class="v2-metric-val">100+</div><div class="v2-metric-lbl">Sources</div><div class="v2-metric-sub">Verified primary</div></div>'
+          +'</div>'
+        +'</div>'
+      +'</div>'
+    +'</div>'
+    +'</section>';
+}
+
+function v2CTA(){
+  return '<section class="v2-cta">'
+    +'<div class="v2-section-divider"></div>'
+    +'<div class="v2-wrap" style="padding-top:120px">'
+      +'<div class="v2-cta-label">Strategic Assessment</div>'
+      +'<h2 class="v2-cta-h2">Gain A Strategic Information Advantage</h2>'
+      +'<p class="v2-cta-sub">Request a confidential executive assessment. Our team will review your operating environment and identify where intelligence infrastructure creates the greatest decision advantage.</p>'
+      +'<div class="v2-cta-btns">'
+        +'<a href="/briefing-request" class="v2-btn">Request Executive Assessment '+v2Arr()+'</a>'
+        +'<a href="/solutions" class="v2-btn-ghost">Explore Platforms '+v2Arr()+'</a>'
+      +'</div>'
+    +'</div>'
+    +'</section>';
+}
+
+function buildV2(){
+  return v2Hero()+v2Pillars()+v2Platforms()+v2InAction()+v2Environments()+v2Presence()+v2CTA();
+}
+
+function addV2HideStyle(){
+  if(document.getElementById('sg-v2-hide')) return;
+  var st=document.createElement('style');
+  st.id='sg-v2-hide';
+  // The React app renders content in #root > div > div (unnamed div after nav).
+  // Hide it while V2 is active; keep nav (fixed) and footer visible.
+  st.textContent='#root>div>div:not(#sg-v2-home){display:none!important}'
+    +'#root>section{display:none!important}'
+    +'#root .pt-20{display:none!important}';
+  document.head.appendChild(st);
+}
+
+function removeV2HideStyle(){
+  var st=document.getElementById('sg-v2-hide');if(st)st.remove();
+}
+
+function injectV2(n){
+  var p=location.pathname;
+  if(p!=='/'&&p!=='/index.html') return;
+  if(document.getElementById('sg-v2-home')) return;
+  var nav=document.querySelector('#root nav');
+  if(!nav){
+    if((n||0)<20) setTimeout(function(){injectV2((n||0)+1);},100);
+    return;
+  }
+  var el=document.createElement('div');
+  el.id='sg-v2-home';
+  el.innerHTML=buildV2();
+  nav.parentNode.insertBefore(el,nav.nextSibling);
+  addV2HideStyle();
+}
+
+function cleanV2(){
+  if(location.pathname==='/'||location.pathname==='/index.html') return;
+  var el=document.getElementById('sg-v2-home');if(el)el.remove();
+  removeV2HideStyle();
+}
+
+/* ---- Expose for cross-script calls ---- */
+window._sgInjectV2=injectV2;
+window._sgCleanV2=cleanV2;
+
+/* ---- Navigation intercepts ---- */
+['pushState','replaceState'].forEach(function(m){
+  var orig=history[m];
+  history[m]=function(){orig.apply(this,arguments);cleanV2();setTimeout(function(){injectV2(0);},50);};
+});
+window.addEventListener('popstate',function(){cleanV2();setTimeout(function(){injectV2(0);},50);});
+window.addEventListener('load',function(){injectV2(0);});
+
+})();
+</script>
 
 <script>
 (function(){
