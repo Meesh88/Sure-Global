@@ -160,7 +160,7 @@
 }
 .v2-hero-grid{
   display:grid;
-  grid-template-columns:9fr 11fr;
+  grid-template-columns:5fr 8fr;
   gap:60px;
   align-items:center;
   position:relative;
@@ -282,6 +282,38 @@
 @media(max-width:768px){
   .v2-h-panels-r{flex-direction:column !important}
   .v2-stats-bar{grid-template-columns:1fr 1fr}
+}
+
+/* ==== HERO V2 GLOBE FULL-BLEED LAYOUT ==== */
+.v2-hero::before{background:none !important}
+.v2-hero-globe-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.v2-hero-ov1{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,#050912 18%,rgba(5,9,18,.88) 36%,rgba(5,9,18,.12) 68%)}
+.v2-hero-ov2{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(5,9,18,.6) 0%,transparent 22%,transparent 70%,#050912 100%)}
+.v2-hero-main{z-index:2 !important}
+.v2-hero-vis{position:relative;width:100%;height:540px}
+.v2-glass{
+  background:rgba(6,11,26,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(40,65,140,.42);
+  border-radius:12px;
+  box-shadow:0 0 32px rgba(59,130,246,.07),0 2px 20px rgba(0,0,0,.45);
+}
+.v2-p-opp{position:absolute;top:16px;right:0;width:224px;z-index:3}
+.v2-p-hmap{position:absolute;bottom:48px;left:0;right:48px;max-width:360px;z-index:3;overflow:hidden}
+.v2-pc-row{display:flex;align-items:center;justify-content:space-between;padding:4px 0}
+.v2-pc-dot{width:6px;height:6px;border-radius:50%;display:inline-block;flex-shrink:0;margin-right:6px}
+.v2-pc-nm{font-size:10px;color:#c0d0e8;flex:1}
+.v2-pc-sc{font-size:9px;color:#6080a8}
+@media(max-width:1024px){
+  .v2-hero-vis{height:420px}
+  .v2-p-opp{width:190px}
+  .v2-p-hmap{right:24px}
+}
+@media(max-width:768px){
+  .v2-hero-grid{grid-template-columns:1fr !important}
+  .v2-hero-vis{height:320px}
+  .v2-p-opp{width:160px;top:8px;right:4px}
+  .v2-p-hmap{max-width:none;right:4px;bottom:8px}
 }
 
 /* Dashboard visualization */
@@ -1917,49 +1949,29 @@ function v2EnvCard(num,title,body){
 /* ---- Section builders ---- */
 function v2Hero(){
   var arw='<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:middle"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-
-  var globe='<div class="v2-h-globe">'
-    +'<svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%" fill="none">'
-    +'<defs>'
-    +'<radialGradient id="vg1" cx="64%" cy="48%" r="38%">'
-    +'<stop offset="0%" stop-color="#0d1f5c" stop-opacity=".5"/>'
-    +'<stop offset="100%" stop-color="#050912" stop-opacity="0"/>'
-    +'</radialGradient>'
-    +'<radialGradient id="vg2" cx="60%" cy="55%" r="30%">'
-    +'<stop offset="0%" stop-color="#c9a84c" stop-opacity=".06"/>'
-    +'<stop offset="100%" stop-color="#050912" stop-opacity="0"/>'
-    +'</radialGradient>'
-    +'</defs>'
-    +'<ellipse cx="900" cy="340" rx="320" ry="295" fill="url(#vg1)"/>'
-    +'<ellipse cx="800" cy="440" rx="200" ry="70" fill="url(#vg2)"/>'
-    +'<path d="M 80 520 Q 540 80 1060 290" stroke="rgba(201,168,76,.28)" stroke-width="1.4" fill="none" stroke-linecap="round"/>'
-    +'<path d="M 160 470 Q 610 110 1110 330" stroke="rgba(201,168,76,.18)" stroke-width="1" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>'
-    +'<path d="M 40 400 Q 490 210 960 260" stroke="rgba(201,168,76,.14)" stroke-width="1" fill="none" stroke-linecap="round"/>'
-    +'<path d="M 260 540 Q 720 160 1160 360" stroke="rgba(255,220,100,.1)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-dasharray="6 4"/>'
-    +'<path d="M 320 480 Q 760 200 1080 400" stroke="rgba(201,168,76,.12)" stroke-width="1" fill="none" stroke-linecap="round"/>'
-    +'<circle cx="1060" cy="290" r="4" fill="rgba(201,168,76,.7)"/>'
-    +'<circle cx="1060" cy="290" r="9" fill="rgba(201,168,76,.14)"/>'
-    +'<circle cx="810" cy="410" r="3.5" fill="rgba(201,168,76,.55)"/>'
-    +'<circle cx="810" cy="410" r="7" fill="rgba(201,168,76,.1)"/>'
-    +'<circle cx="610" cy="310" r="2.5" fill="rgba(255,220,100,.5)"/>'
-    +'<circle cx="610" cy="310" r="5" fill="rgba(255,220,100,.1)"/>'
-    +'<circle cx="370" cy="430" r="2" fill="rgba(201,168,76,.4)"/>'
-    +'</svg>'
-    +'</div>';
-
-  var spark='<svg viewBox="0 0 160 36" fill="none" width="100%" height="36" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">'
-    +'<defs><linearGradient id="spk" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4d8eff" stop-opacity=".3"/><stop offset="100%" stop-color="#4d8eff" stop-opacity="0"/></linearGradient></defs>'
-    +'<path d="M0 30 L22 26 L44 22 L66 20 L88 16 L110 18 L132 10 L160 5" stroke="#4d8eff" stroke-width="1.5" fill="none"/>'
-    +'<path d="M0 30 L22 26 L44 22 L66 20 L88 16 L110 18 L132 10 L160 5 L160 36 L0 36 Z" fill="url(#spk)"/>'
-    +'</svg>';
-
   function ico(d){return '<svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">'+d+'</svg>';}
 
+  function commRow(bg,name,score){
+    return '<div class="v2-pc-row">'
+      +'<span class="v2-pc-dot" style="background:'+bg+'"></span>'
+      +'<span class="v2-pc-nm">'+name+'</span>'
+      +'<span class="v2-pc-sc">'+score+'</span>'
+      +'</div>';
+  }
+
+  var globeUrl='/assets/world-map-night.jpg';
+
   return '<section class="v2-hero">'
-    + globe
+    // Full-bleed globe background
+    +'<img src="'+globeUrl+'" alt="" class="v2-hero-globe-bg" loading="eager"/>'
+    // Gradient overlays for text legibility
+    +'<div class="v2-hero-ov1"></div>'
+    +'<div class="v2-hero-ov2"></div>'
+    // Main content
     +'<div class="v2-hero-main">'
       +'<div class="v2-wrap">'
         +'<div class="v2-hero-grid">'
+          // LEFT: text
           +'<div>'
             +'<div class="v2-hero-label"><span class="v2-hero-dot"></span>Strategic Intelligence &amp; Resource Advisory</div>'
             +'<h1 class="v2-h-h1">Strategic Intelligence for<br>'
@@ -1973,38 +1985,44 @@ function v2Hero(){
               +'<a href="/mineral-intelligence" class="v2-btn-ghost">Explore Resource Intelligence</a>'
             +'</div>'
           +'</div>'
-          +'<div class="v2-h-panels">'
-            +'<div class="v2-panel v2-panel-hmap">'
-              +'<div class="v2-hmap-hdr"><span class="v2-panel-lbl">Prospectivity Heatmap</span></div>'
-              +'<div class="v2-hmap-body">'
-                +'<div class="v2-hmap-scale">'
-                  +'<span class="v2-hmap-slbl">High</span>'
-                  +'<div class="v2-hmap-bar"></div>'
-                  +'<span class="v2-hmap-slbl">Low</span>'
+          // RIGHT: floating intelligence cards
+          +'<div class="v2-hero-vis">'
+            // Opportunity Overview + Commodities — top right
+            +'<div class="v2-glass v2-p-opp">'
+              +'<div style="padding:14px">'
+                +'<p style="font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#5870a0;margin:0 0 8px">Opportunity Overview</p>'
+                +'<p style="font-size:36px;font-weight:800;color:#f0f4fa;line-height:1;margin:0 0 3px">127</p>'
+                +'<p style="font-size:10px;color:#5870a0;margin:0 0 12px">High-Potential Opportunities</p>'
+                +'<div style="border-top:1px solid rgba(40,65,140,.35);padding-top:10px">'
+                  +'<p style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#5870a0;margin:0 0 8px">Top Commodities</p>'
+                  + commRow('#4ade80','Copper','Very High')
+                  + commRow('#60a5fa','Gold','High')
+                  + commRow('#60a5fa','Rare Earths','High')
+                  + commRow('#facc15','Lithium','Moderate')
+                  + commRow('#facc15','Nickel','Moderate')
                 +'</div>'
               +'</div>'
-              +'<div class="v2-hmap-foot"><a href="/mineral-intelligence" class="v2-hmap-lnk">View Full Analysis '+arw+'</a></div>'
             +'</div>'
-            +'<div class="v2-h-panels-r">'
-              +'<div class="v2-panel v2-panel-opp">'
-                +'<span class="v2-panel-lbl">Opportunity Overview</span>'
-                +'<div class="v2-opp-num">127</div>'
-                +'<div class="v2-opp-sub">High-Potential Opportunities</div>'
-                + spark
+            // Prospectivity Heatmap — bottom left
+            +'<div class="v2-glass v2-p-hmap">'
+              +'<div style="padding:8px 12px;border-bottom:1px solid rgba(40,65,140,.35);display:flex;align-items:center;justify-content:space-between">'
+                +'<span style="font-size:10px;font-weight:600;color:#c8d8f0">Prospectivity Heatmap</span>'
+                +'<span style="display:flex;align-items:center;gap:4px">'
+                  +'<span style="width:6px;height:6px;border-radius:50%;background:#22c55e;animation:v2-pulse 2s infinite"></span>'
+                  +'<span style="font-size:8px;font-family:monospace;color:#22c55e;letter-spacing:.1em">LIVE</span>'
+                +'</span>'
               +'</div>'
-              +'<div class="v2-panel v2-panel-comm">'
-                +'<span class="v2-panel-lbl" style="margin-bottom:8px">Top Commodities</span>'
-                +'<div class="v2-comm-row"><span class="v2-comm-dot" style="background:#ef4444"></span><span class="v2-comm-nm">Copper</span><span class="v2-comm-badge v2-b-vh">Very High ↑</span></div>'
-                +'<div class="v2-comm-row"><span class="v2-comm-dot" style="background:#3b82f6"></span><span class="v2-comm-nm">Gold</span><span class="v2-comm-badge v2-b-hi">High ↑</span></div>'
-                +'<div class="v2-comm-row"><span class="v2-comm-dot" style="background:#a855f7"></span><span class="v2-comm-nm">Rare Earths</span><span class="v2-comm-badge v2-b-hi">High ↑</span></div>'
-                +'<div class="v2-comm-row"><span class="v2-comm-dot" style="background:#eab308"></span><span class="v2-comm-nm">Lithium</span><span class="v2-comm-badge v2-b-md">Moderate →</span></div>'
-                +'<div class="v2-comm-row"><span class="v2-comm-dot" style="background:#6b7280"></span><span class="v2-comm-nm">Nickel</span><span class="v2-comm-badge v2-b-md">Moderate →</span></div>'
+              +'<img src="/assets/prospectivity-heatmap.png" alt="Prospectivity Heatmap" style="width:100%;height:176px;object-fit:cover;display:block"/>'
+              +'<div style="padding:8px 12px;border-top:1px solid rgba(40,65,140,.35);display:flex;align-items:center;justify-content:space-between">'
+                +'<span style="font-size:9px;color:#5870a0">342 licenses analyzed</span>'
+                +'<a href="/mineral-intelligence" style="font-size:9px;color:#4d8eff;font-weight:600;text-decoration:none">View Full Analysis →</a>'
               +'</div>'
             +'</div>'
           +'</div>'
         +'</div>'
       +'</div>'
     +'</div>'
+    // Stats bar
     +'<div class="v2-stats-bar">'
       +'<div class="v2-stat-itm"><div class="v2-stat-ico">'+ico('<ellipse cx="12" cy="12" rx="10" ry="6"/><ellipse cx="12" cy="8" rx="10" ry="4"/><path d="M2 12c0 3.31 4.48 6 10 6s10-2.69 10-6"/>')+'</div><div><div class="v2-stat-v">50M+</div><div class="v2-stat-l">Data Points Processed</div></div></div>'
       +'<div class="v2-stat-itm"><div class="v2-stat-ico">'+ico('<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>')+'</div><div><div class="v2-stat-v">100+</div><div class="v2-stat-l">Intelligence Variables</div></div></div>'
