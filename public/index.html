@@ -180,11 +180,11 @@
   letter-spacing:.3em;
   text-transform:uppercase;
   color:var(--v2-gold);
-  border:1px solid var(--v2-gold-bdr);
-  background:var(--v2-gold-bg);
-  padding:6px 14px;
-  border-radius:2px;
-  margin-bottom:24px;
+  border:1px solid rgba(201,168,76,.22);
+  background:rgba(201,168,76,.07);
+  padding:6px 16px;
+  border-radius:999px;
+  margin-bottom:28px;
 }
 .v2-hero-dot{
   width:5px;height:5px;border-radius:50%;
@@ -233,7 +233,7 @@
 /* ==== HERO V2 REFERENCE LAYOUT ==== */
 .v2-hero-main{flex:1;display:flex;align-items:center;padding:90px 0 60px;position:relative;z-index:2}
 .v2-h-globe{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-.v2-h-h1{font-size:clamp(28px,3.5vw,52px);font-weight:800;line-height:1.12;color:#f0f4fa;margin:0 0 20px}
+.v2-h-h1{font-size:clamp(30px,4vw,64px);font-weight:800;line-height:1.08;color:#f0f4fa;margin:0 0 22px;letter-spacing:-.02em}
 .v2-h-blue{color:#4d8eff}
 /* Panels */
 .v2-h-panels{display:grid;grid-template-columns:1fr 188px;gap:8px;height:390px}
@@ -309,11 +309,9 @@
   .v2-p-opp{width:190px}
   .v2-p-hmap{right:24px}
 }
-@media(max-width:768px){
+@media(max-width:1023px){
+  .v2-hero-vis{display:none}
   .v2-hero-grid{grid-template-columns:1fr !important}
-  .v2-hero-vis{height:320px}
-  .v2-p-opp{width:160px;top:8px;right:4px}
-  .v2-p-hmap{max-width:none;right:4px;bottom:8px}
 }
 
 /* Dashboard visualization */
@@ -1951,11 +1949,18 @@ function v2Hero(){
   var arw='<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:middle"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
   function ico(d){return '<svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">'+d+'</svg>';}
 
-  function commRow(bg,name,score){
+  var spark='<svg viewBox="0 0 160 32" fill="none" width="100%" height="32" preserveAspectRatio="none" style="display:block;margin:8px 0 4px">'
+    +'<defs><linearGradient id="spkG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3b82f6" stop-opacity=".25"/><stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/></linearGradient></defs>'
+    +'<path d="M0 28 L20 25 L40 22 L60 19 L80 15 L100 17 L120 9 L140 11 L160 4" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+    +'<path d="M0 28 L20 25 L40 22 L60 19 L80 15 L100 17 L120 9 L140 11 L160 4 L160 32 L0 32Z" fill="url(#spkG)"/>'
+    +'</svg>';
+
+  function commRow(bg,name,score,arrowColor,arrow){
     return '<div class="v2-pc-row">'
       +'<span class="v2-pc-dot" style="background:'+bg+'"></span>'
       +'<span class="v2-pc-nm">'+name+'</span>'
       +'<span class="v2-pc-sc">'+score+'</span>'
+      +'<span style="font-size:9px;color:'+arrowColor+';margin-left:4px;font-weight:700">'+arrow+'</span>'
       +'</div>';
   }
 
@@ -1991,15 +1996,16 @@ function v2Hero(){
             +'<div class="v2-glass v2-p-opp">'
               +'<div style="padding:14px">'
                 +'<p style="font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#5870a0;margin:0 0 8px">Opportunity Overview</p>'
-                +'<p style="font-size:36px;font-weight:800;color:#f0f4fa;line-height:1;margin:0 0 3px">127</p>'
-                +'<p style="font-size:10px;color:#5870a0;margin:0 0 12px">High-Potential Opportunities</p>'
+                +'<p style="font-size:38px;font-weight:800;color:#f0f4fa;line-height:1;margin:0 0 2px">127</p>'
+                +'<p style="font-size:10px;color:#5870a0;margin:0">High-Potential Opportunities</p>'
+                + spark
                 +'<div style="border-top:1px solid rgba(40,65,140,.35);padding-top:10px">'
-                  +'<p style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#5870a0;margin:0 0 8px">Top Commodities</p>'
-                  + commRow('#4ade80','Copper','Very High')
-                  + commRow('#60a5fa','Gold','High')
-                  + commRow('#60a5fa','Rare Earths','High')
-                  + commRow('#facc15','Lithium','Moderate')
-                  + commRow('#facc15','Nickel','Moderate')
+                  +'<p style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#5870a0;margin:0 0 6px">Top Commodities</p>'
+                  + commRow('#4ade80','Copper','Very High','#4ade80','↑')
+                  + commRow('#60a5fa','Gold','High','#60a5fa','↑')
+                  + commRow('#60a5fa','Rare Earths','High','#60a5fa','↑')
+                  + commRow('#facc15','Lithium','Moderate','#facc15','→')
+                  + commRow('#facc15','Nickel','Moderate','#facc15','→')
                 +'</div>'
               +'</div>'
             +'</div>'
