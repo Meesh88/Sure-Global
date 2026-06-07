@@ -10,6 +10,7 @@
     <meta property="og:type" content="website" />
     <script type="module" crossorigin src="/assets/index-WtoL1l34.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Doddldxj.css">
+    <link rel="preload" href="/assets/sure-global-logo.png" as="image" fetchpriority="high">
   <script>!function(){var p=location.pathname,G=['/solutions','/briefing-request','/mineral-intelligence','/privacy','/terms','/security'];if(G.indexOf(p)!==-1){var s=document.createElement('style');s.id='sg-fouc';s.textContent='#root .pt-20{opacity:0}';document.head.appendChild(s);setTimeout(function(){var sg=document.getElementById('sg-fouc');if(sg)sg.remove();},3000);}}();</script>
   
 <style>
@@ -49,6 +50,9 @@
 @media (max-width: 767px) {
   #root nav a[href="/"] { margin-left: -40px !important; }
 }
+
+/* Hide React's default nav brand (SVG shield + text) until our logo injects — prevents flash */
+#root nav a[href="/"] > *:not(img[data-sg-logo]) { display: none !important; }
 
 /* ---- Rich color layer ---- */
 
@@ -306,7 +310,7 @@ function cleanHP(){
 
 function runHP(n){
   overrideHero(n);
-  setTimeout(function(){injectPlats(n);injectOps(n);},600);
+  setTimeout(function(){injectPlats(n);injectOps(n);},300);
 }
 
 ['pushState','replaceState'].forEach(function(m){
@@ -314,7 +318,7 @@ function runHP(n){
   history[m]=function(){orig.apply(this,arguments);cleanHP();setTimeout(function(){runHP(0);},300);};
 });
 window.addEventListener('popstate',function(){cleanHP();setTimeout(function(){runHP(0);},300);});
-window.addEventListener('load',function(){setTimeout(function(){runHP(0);},600);});
+window.addEventListener('load',function(){setTimeout(function(){runHP(0);},250);});
 })();
 </script>
 
@@ -1416,7 +1420,8 @@ function tryPol(n){
 function runFixes(n){
   cleanPol();
   fixAboutNav();
-  setTimeout(function(){fixNav();fixFooter();fixLogo();tryPol(n);},350);
+  fixLogo(); // attempt immediately — nav may already be mounted
+  setTimeout(function(){fixNav();fixFooter();fixLogo();tryPol(n);},150);
 }
 
 ['pushState','replaceState'].forEach(function(m){
@@ -1424,7 +1429,7 @@ function runFixes(n){
   history[m]=function(){orig.apply(this,arguments);runFixes(0);};
 });
 window.addEventListener('popstate',function(){runFixes(0);});
-window.addEventListener('load',function(){setTimeout(function(){runFixes(0);},500);});
+window.addEventListener('load',function(){runFixes(0);});
 
 })();
 </script>
